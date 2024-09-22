@@ -3,7 +3,6 @@ import Link from "next/link";
 import "./styles/Navbar.scss"; // Assuming you'll create this file in components/styles
 
 export default function Navbar({ league }) {
-	// Update the league URLs to match your directory structure
 	const leagueUrls = {
 		epl: {
 			name: "Premier League",
@@ -19,9 +18,9 @@ export default function Navbar({ league }) {
 		},
 		laliga: {
 			name: "La Liga",
-			standings: "/leagues/la-liga/standings", // Corrected path
-			clubs: "/leagues/la-liga/teams", // Assuming teams refers to clubs
-			fixtures: "/leagues/la-liga/fixtures", // You need to create this route
+			standings: "/leagues/la-liga/standings",
+			clubs: "/leagues/la-liga/teams",
+			fixtures: "/leagues/la-liga/fixtures",
 		},
 	};
 
