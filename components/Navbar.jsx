@@ -22,6 +22,12 @@ export default function Navbar({ league }) {
 			clubs: "/leagues/la-liga/teams",
 			fixtures: "/leagues/la-liga/fixtures",
 		},
+		championsleague: {
+			name: "Champions League",
+			standings: "/leagues/champions-league/standings",
+			clubs: "/leagues/champions-league/teams",
+			fixtures: "/leagues/champions-league/fixtures",
+		},
 	};
 
 	const currentLeague = leagueUrls[league];

@@ -6,7 +6,6 @@ import Navbar from "../../components/Navbar";
 export default function Home() {
 	return (
 		<>
-			<Navbar />
 			<h1>Welcome to the TopFlight Tracker</h1>
 			<p>
 				Explore detailed standings, match history, lineups, and more from the

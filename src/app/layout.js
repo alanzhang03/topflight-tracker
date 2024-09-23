@@ -1,4 +1,5 @@
 import "./globals.css";
+import NavbarMain from "./NavbarMain";
 
 export const metadata = {
 	title: "topflight-tracker",
@@ -9,6 +10,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body>
+				<NavbarMain />
 				{children}
 			</body>
 		</html>
