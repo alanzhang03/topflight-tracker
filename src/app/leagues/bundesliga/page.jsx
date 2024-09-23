@@ -21,7 +21,7 @@ export default function BundesligaPage() {
 					<Link href="/leagues/bundesliga/lineups">Lineups</Link>
 				</li>
 				<li>
-					<Link href="/leagues/bundesliga/match-history">Match History</Link>
+					<Link href="/leagues/bundesliga/fixtures">Fixtures</Link>
 				</li>
 			</ul>
 		</div>
