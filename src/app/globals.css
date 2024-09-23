@@ -369,7 +369,7 @@ template {
 .global-footer {
   height: 10vh;
   width: 100%;
-  background-color: black;
+  background-color: #a29bfe;
   color: white;
   display: flex;
   align-items: center;

@@ -1,12 +1,11 @@
-"use client"; 
+"use client";
 
-import { usePathname } from "next/navigation"; 
-import Navbar from "../../components/Navbar"; 
+import { usePathname } from "next/navigation";
+import Navbar from "../../components/Navbar";
 
 export default function DynamicNavbar() {
   const pathname = usePathname();
 
-  // Determine the current league based on the URL path
   const league = pathname.includes("/leagues/premier-league")
     ? "epl"
     : pathname.includes("/leagues/bundesliga")
@@ -17,9 +16,8 @@ export default function DynamicNavbar() {
     ? "championsleague"
     : null;
 
-
   if (!league) {
-    return null; 
+    return null;
   }
 
   return <Navbar league={league} />;

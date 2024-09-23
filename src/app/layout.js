@@ -1,6 +1,6 @@
 import "./globals.css";
 import NavbarMain from "./NavbarMain";
-import DynamicNavbar from "./DynamicNavbar"; // Import the new Client Component for dynamic navbar
+import DynamicNavbar from "./DynamicNavbar"; // Import Client Component
 
 export const metadata = {
   title: "topflight-tracker",
@@ -15,7 +15,6 @@ export default function RootLayout({ children }) {
         {/* Use the Client Component for dynamic navbar logic */}
         <DynamicNavbar />
 
-        {/* Page-specific content */}
         <main>{children}</main>
 
         <footer className="global-footer">
