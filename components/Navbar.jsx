@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import "./styles/Navbar.scss"; // Assuming you'll create this file in components/styles
+import "./styles/Navbar.scss"; 
 
 export default function Navbar({ league }) {
 	const leagueUrls = {
