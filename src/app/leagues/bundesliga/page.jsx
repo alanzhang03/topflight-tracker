@@ -4,7 +4,6 @@ import Navbar from "../../../../components/Navbar";
 export default function BundesligaPage() {
   return (
     <div>
-      <Navbar />
       <h1>Bundesliga Overview</h1>
       <p>
         Welcome to the Bundesliga section. Explore the standings, teams,
