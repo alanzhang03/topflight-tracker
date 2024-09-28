@@ -1,0 +1,78 @@
+// src/components/styles/FixturesTable.scss
+
+.fixtures-container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+}
+
+h1 {
+	font-size: 2rem;
+	color: #333;
+	margin-bottom: 20px;
+}
+
+// Day group styling
+.fixtures-day {
+	margin-bottom: 40px;
+}
+
+h2 {
+	font-size: 1.5rem;
+	color: #444;
+	margin-bottom: 10px;
+}
+
+// Table styling
+table {
+	width: 100%;
+	margin-bottom: 20px;
+	font-size: 1rem;
+	border-spacing: 0;
+}
+
+td {
+	padding: 10px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.team-logo {
+	width: 30px;
+	height: auto;
+	margin-right: 10px;
+}
+
+.fixture-row {
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+}
+
+.fixture-row td {
+	padding: 15px;
+}
+
+.fixture-row:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+td img {
+	vertical-align: middle;
+}
+
+// Responsive layout for smaller screens
+@media (max-width: 768px) {
+	table {
+		font-size: 0.875rem;
+	}
+
+	.team-logo {
+		width: 25px;
+	}
+
+	td {
+		padding: 8px;
+	}
+}

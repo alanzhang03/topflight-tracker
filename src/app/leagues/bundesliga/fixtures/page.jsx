@@ -1,9 +1,10 @@
 import React from "react";
+import FixturesTable from "../../../../../components/FixturesTable";
 
 const page = () => {
 	return (
 		<>
-			<h1>Bundelsliga Fixtures</h1>
+			<FixturesTable leagueCode="BL1" />;
 		</>
 	);
 };

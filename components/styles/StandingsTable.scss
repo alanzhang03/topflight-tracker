@@ -1,6 +1,5 @@
 // src/components/styles/StandingsTable.scss
 
-// General page styling
 .standings-container {
 	width: 100%;
 	max-width: 1200px;
@@ -47,16 +46,19 @@ table {
 	}
 }
 
-// Specific styling for table data
-td {
-	color: #333;
+// Align the team logo next to the team name
+.team-info {
+	display: flex;
+	align-items: center;
 }
 
-td:first-child {
-	font-weight: bold;
+.team-logo {
+	width: 40px; // Adjust the logo size as needed
+	height: auto;
+	margin-right: 10px;
 }
 
-// Add responsive behavior for small screens
+// Responsive layout for smaller screens
 @media (max-width: 768px) {
 	table {
 		font-size: 0.875rem;
@@ -65,5 +67,9 @@ td:first-child {
 	th,
 	td {
 		padding: 10px 8px;
+	}
+
+	.team-logo {
+		width: 30px; // Adjust the size for mobile view
 	}
 }
