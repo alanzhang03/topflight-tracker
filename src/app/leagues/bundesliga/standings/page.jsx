@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
+import StandingsTable from "../../../../../components/StandingsTable";
 
 const page = () => {
-  return (
-      <>
-        <h1>Bundelsliga Standings</h1>
-      
-      </>
-  )
-}
+	return (
+		<>
+			<h1>Bundelsliga Standings</h1>
+			<StandingsTable leagueCode="BL1" />;
+		</>
+	);
+};
 
-export default page
+export default page;
