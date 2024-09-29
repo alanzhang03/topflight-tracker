@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import FixturesTable from "../../../../../components/FixturesTable";
 
 const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+	return (
+		<>
+			<FixturesTable leagueCode="PL" />;
+		</>
+	);
+};
 
-export default page
+export default page;

@@ -1,3 +1,89 @@
+/* Main page container */
 .main-page-container {
-  text-align: center;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+/* Hero section styling */
+.hero-section {
+	background-image: url("/images/hero.jpg"); /* Path to the hero image */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 100vh; /* Full-screen height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+/* Hero content overlay */
+.hero-content {
+	background-color: rgba(0, 0, 0, 0.6); /* Slightly increased transparency */
+	color: white;
+	padding: 50px;
+	text-align: center;
+	border-radius: 10px;
+}
+
+.hero-content h1 {
+	font-size: 3.5rem; /* Larger for impact */
+	margin-bottom: 20px;
+	color: white;
+}
+
+.hero-content p {
+	font-size: 1.7rem; /* Slightly larger for readability */
+	margin-bottom: 30px;
+}
+
+.cta-button {
+	background-color: #28a745;
+	color: white;
+	padding: 15px 30px;
+	font-size: 1.2rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+	background-color: #218838;
+	transform: scale(1.05); /* Subtle scale effect */
+}
+
+.hero-section .hero-content {
+	animation: fadeIn 1.5s ease-in-out; /* Add fade-in animation */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+	.hero-content h1 {
+		font-size: 2.5rem;
+	}
+
+	.hero-content p {
+		font-size: 1.3rem;
+	}
+
+	.cta-button {
+		font-size: 1rem;
+		padding: 10px 20px;
+	}
+
+	.navbar-menu a {
+		font-size: 1rem;
+	}
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

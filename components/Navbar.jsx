@@ -32,7 +32,6 @@ export default function Navbar({ league }) {
 
   const currentLeague = leagueUrls[league];
 
-  // Fallback if no league is detected
   if (!currentLeague) {
     return <div>League not found</div>;
   }

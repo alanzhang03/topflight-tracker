@@ -14,6 +14,20 @@ h1 {
 	margin-bottom: 20px;
 }
 
+.team-filter {
+	margin-bottom: 20px;
+}
+
+.team-filter label {
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.team-filter select {
+	padding: 5px 10px;
+	font-size: 1rem;
+}
+
 // Day group styling
 .fixtures-day {
 	margin-bottom: 40px;

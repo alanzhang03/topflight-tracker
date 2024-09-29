@@ -1,6 +1,15 @@
-// src/components/StandingsTable.jsx
 import axios from "axios";
 import "./styles/StandingsTable.scss";
+
+
+const leagueNames = {
+	PL: "Premier League",
+	BL1: "Bundesliga",
+	SA: "Serie A",
+	PD: "La Liga",
+	FL1: "Ligue 1",
+	CL: "Champions League",
+};
 
 export default async function StandingsTable({ leagueCode }) {
 	let standings = [];
@@ -28,9 +37,11 @@ export default async function StandingsTable({ leagueCode }) {
 		return <p>No standings data available.</p>;
 	}
 
+	const leagueName = leagueNames[leagueCode] || leagueCode;
+
 	return (
 		<div className="standings-container">
-			<h1>{leagueCode} Standings</h1>
+			<h1>{leagueName} Standings</h1>
 			<table>
 				<thead>
 					<tr>
@@ -48,7 +59,6 @@ export default async function StandingsTable({ leagueCode }) {
 					{standings.map((team) => (
 						<tr key={team.team.id}>
 							<td>{team.position}</td>
-							{/* Display logo next to team name */}
 							<td className="team-info">
 								<img
 									src={team.team.crest}

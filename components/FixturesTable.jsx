@@ -1,13 +1,20 @@
-// src/components/FixturesTable.jsx
 import axios from "axios";
 import "./styles/FixturesTable.scss";
+
+const leagueNames = {
+	PL: "Premier League",
+	BL1: "Bundesliga",
+	SA: "Serie A",
+	PD: "La Liga",
+	FL1: "Ligue 1",
+	CL: "Champions League",
+};
 
 export default async function FixturesTable({ leagueCode }) {
 	let fixtures = [];
 	let error = null;
 
 	try {
-		// Fetch upcoming fixtures from the API
 		const response = await axios.get(
 			`https://api.football-data.org/v4/competitions/${leagueCode}/matches`,
 			{
@@ -15,7 +22,7 @@ export default async function FixturesTable({ leagueCode }) {
 					"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
 				},
 				params: {
-					status: "SCHEDULED", // Only fetch upcoming fixtures
+					status: "SCHEDULED",
 				},
 			}
 		);
@@ -32,9 +39,12 @@ export default async function FixturesTable({ leagueCode }) {
 		return <p>No upcoming fixtures available.</p>;
 	}
 
-	// Group fixtures by date
 	const fixturesByDate = fixtures.reduce((acc, fixture) => {
-		const fixtureDate = new Date(fixture.utcDate).toLocaleDateString();
+		const fixtureDate = new Date(fixture.utcDate).toLocaleDateString("en-GB", {
+			weekday: "long",
+			day: "numeric",
+			month: "long",
+		});
 		if (!acc[fixtureDate]) {
 			acc[fixtureDate] = [];
 		}
@@ -42,9 +52,11 @@ export default async function FixturesTable({ leagueCode }) {
 		return acc;
 	}, {});
 
+	const leagueName = leagueNames[leagueCode] || leagueCode;
+
 	return (
 		<div className="fixtures-container">
-			<h1>Upcoming Fixtures for {leagueCode}</h1>
+			<h1>Upcoming Fixtures for {leagueName}</h1>
 			{Object.keys(fixturesByDate).map((date) => (
 				<div key={date} className="fixtures-day">
 					<h2>{date}</h2>
@@ -70,11 +82,12 @@ export default async function FixturesTable({ leagueCode }) {
 										<span>{fixture.awayTeam.name}</span>
 									</td>
 									<td>
-										{new Date(fixture.utcDate).toLocaleTimeString([], {
+										{new Date(fixture.utcDate).toLocaleTimeString("en-US", {
 											hour: "2-digit",
 											minute: "2-digit",
+											timeZone: "America/New_York",
 										})}{" "}
-										GMT
+										EST
 									</td>
 								</tr>
 							))}
