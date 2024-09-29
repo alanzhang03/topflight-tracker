@@ -3,7 +3,7 @@
 	top: 0;
 	z-index: 1000;
 	font-size: 1.25rem;
-	background-color: #a29bfe;
+	background-color: #333;
 }
 
 .navbar-container-prop {
@@ -36,7 +36,7 @@
 	position: absolute;
 	width: 0;
 	height: 2px;
-	background-color: #000;
+	background-color: white;
 	bottom: -2px;
 	left: 0;
 	transition: width 0.75s ease;

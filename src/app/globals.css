@@ -369,11 +369,11 @@ template {
 .global-footer {
 	height: 10vh;
 	width: 100%;
-	background-color: #a29bfe;
+	background-color: #444;
 	color: white;
 	display: flex;
 	align-items: center;
-	justify-content: center; /* Ensure the footer content is centered */
+	justify-content: center;
 }
 
 
