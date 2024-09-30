@@ -1,26 +1,23 @@
-/* Main page container */
 .main-page-container {
 	text-align: center;
 	margin: 0;
 	padding: 0;
 }
 
-/* Hero section styling */
 .hero-section {
-	background-image: url("/images/hero.jpg"); /* Path to the hero image */
+	background-image: url("/images/hero.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 100vh; /* Full-screen height */
+	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
 }
 
-/* Hero content overlay */
 .hero-content {
-	background-color: rgba(0, 0, 0, 0.6); /* Slightly increased transparency */
+	background-color: rgba(0, 0, 0, 0.6);
 	color: white;
 	padding: 50px;
 	text-align: center;
@@ -28,13 +25,13 @@
 }
 
 .hero-content h1 {
-	font-size: 3.5rem; /* Larger for impact */
+	font-size: 3.5rem;
 	margin-bottom: 20px;
 	color: white;
 }
 
 .hero-content p {
-	font-size: 1.7rem; /* Slightly larger for readability */
+	font-size: 1.5rem;
 	margin-bottom: 30px;
 }
 
@@ -51,14 +48,13 @@
 
 .cta-button:hover {
 	background-color: #218838;
-	transform: scale(1.05); /* Subtle scale effect */
+	transform: scale(1.05); 
 }
 
 .hero-section .hero-content {
-	animation: fadeIn 1.5s ease-in-out; /* Add fade-in animation */
+	animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
 	.hero-content h1 {
 		font-size: 2.5rem;
