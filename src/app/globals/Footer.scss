@@ -1,0 +1,25 @@
+/* Footer Section */
+.footer-section {
+	padding: 20px;
+	background-color: #343a40;
+	color: white;
+	text-align: center;
+}
+
+.footer-section p {
+	margin: 10px 0;
+}
+
+.footer-section a {
+	color: #ffc107;
+	text-decoration: none;
+}
+
+.footer-section a:hover {
+	text-decoration: underline;
+}
+
+.social-links a img {
+	width: 30px;
+	margin: 0 10px;
+}
