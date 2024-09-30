@@ -1,9 +1,33 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./styles/MainPageDisplay.scss";
 
 const MainPageDisplay = () => {
+	const [news, setNews] = useState([]);
+
+	useEffect(() => {
+		const fetchNews = async () => {
+			try {
+				const response = await axios.get(`https://newsapi.org/v2/everything`, {
+					params: {
+						q: "Premier League OR Bundesliga OR La Liga OR Champions League NOT cricket NOT NFL NOT NBA",
+						language: "en",
+						sortBy: "publishedAt",
+						pageSize: 10,
+						apiKey: "d2a28653bc8b4ef6b7d988eceb9155ea",
+					},
+				});
+				setNews(response.data.articles);
+			} catch (error) {
+				console.error("Error fetching news data:", error);
+			}
+		};
+
+		fetchNews();
+	}, []);
+
 	const handleGetStartedClick = () => {
 		window.scrollTo({
 			top: document.body.scrollHeight,
@@ -38,73 +62,27 @@ const MainPageDisplay = () => {
 				</p>
 			</section>
 
-			{/* Featured Leagues Section */}
-			<section className="leagues-section">
-				<h2>Explore the Top Leagues</h2>
-				<div className="leagues-container">
-					<div className="league-card">
-						<img src="/images/premier-league.svg" alt="Premier League" />
-					</div>
-					<div className="league-card">
-						<img src="/images/bundesliga.svg" alt="Bundesliga" />
-					</div>
-					<div className="league-card">
-						<img src="/images/la-liga.svg" alt="La Liga" />
-					</div>
-					<div className="league-card">
-						<img src="/images/champions-league.svg" alt="Champions League" />
-					</div>
-				</div>
-			</section>
-
-			{/* Call to Action Section */}
-			<section className="cta-section">
-				<h2>Start Tracking Now</h2>
-				<p>
-					Discover match fixtures, team lineups, and standings in real-time.
-					Click the button below to start exploring your favorite football
-					leagues.
-				</p>
-				<button
-					className="cta-button-secondary"
-					onClick={handleGetStartedClick}
-				>
-					Track Matches
-				</button>
-			</section>
-
 			{/* Recent News Section */}
 			<section className="news-section">
-				<h2>Latest Updates</h2>
+				<h2>Latest News & Stories</h2>
 				<div className="news-container">
-					<div className="news-item">
-						<h3>Premier League Matchday Recap</h3>
-						<p>
-							Catch up on the latest action from Matchday 7 in the Premier
-							League...
-						</p>
-						<a href="#">Read More</a>
-					</div>
-					<div className="news-item">
-						<h3>Bundesliga Fixtures Announced</h3>
-						<p>
-							The upcoming fixtures for Bundesliga have been released. Check out
-							the schedule!
-						</p>
-						<a href="#">See Fixtures</a>
-					</div>
-					<div className="news-item">
-						<h3>Champions League Highlights</h3>
-						<p>
-							Relive the best moments from this week’s Champions League
-							matches...
-						</p>
-						<a href="#">Watch Now</a>
-					</div>
+					{news.length === 0 ? (
+						<p>Loading...</p>
+					) : (
+						news.map((article, index) => (
+							<div key={index} className="news-item">
+								<img src={article.urlToImage} alt={article.title} />
+								<h3>{article.title}</h3>
+								<p>{article.description}</p>
+								<p>{new Date(article.publishedAt).toLocaleDateString()}</p>
+								<a href={article.url} target="_blank" rel="noopener noreferrer">
+									Read More
+								</a>
+							</div>
+						))
+					)}
 				</div>
 			</section>
-
-
 		</div>
 	);
 };

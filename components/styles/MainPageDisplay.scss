@@ -141,33 +141,39 @@
 }
 
 /* News Section */
+/* Add some styling for the news section */
 .news-section {
 	padding: 50px 20px;
-	background-color: #f8f9fa;
 }
 
 .news-container {
-	display: flex;
-	justify-content: space-around;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px;
 }
 
 .news-item {
-	background-color: #ffffff;
+	background-color: #fff;
 	padding: 20px;
-	border-radius: 8px;
+	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	width: 30%;
+	text-align: left;
+}
+
+.news-item img {
+	width: 100%;
+	border-radius: 10px;
+	margin-bottom: 10px;
 }
 
 .news-item h3 {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
+	color: #333;
 	margin-bottom: 10px;
 }
 
 .news-item p {
-	font-size: 1.1rem;
-	color: #555;
-	margin-bottom: 10px;
+	color: #666;
 }
 
 .news-item a {

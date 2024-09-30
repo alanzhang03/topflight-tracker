@@ -4,7 +4,6 @@ import StandingsTable from "../../../../../components/StandingsTable";
 const page = () => {
 	return (
 		<>
-			<h1>La Liga</h1>
 			<StandingsTable leagueCode="PD" />;
 		</>
 	);

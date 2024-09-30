@@ -4,7 +4,6 @@ import StandingsTable from "../../../../../components/StandingsTable";
 const page = () => {
 	return (
 		<>
-			<h1>Bundelsliga Standings</h1>
 			<StandingsTable leagueCode="BL1" />;
 		</>
 	);
