@@ -174,8 +174,15 @@
   transition: 0.3s;
 }
 
-.news-item:hover {
-  transform: scale(1.05);
+.news-item-link {
+  text-decoration: none;
+  color: inherit; 
+  display: block; 
+}
+
+.news-item-link:hover .news-item {
+  transform: scale(1.02); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
 }
 
 .news-item img {

@@ -175,15 +175,20 @@ const MainPageDisplay = () => {
             <p>Loading...</p>
           ) : (
             news.map((article, index) => (
-              <div key={index} className="news-item">
-                <img src={article.urlToImage} alt={article.title} />
-                <h3>{article.title}</h3>
-                <p>{article.description}</p>
-                <p>{new Date(article.publishedAt).toLocaleDateString()}</p>
-                <a href={article.url} target="_blank" rel="noopener noreferrer">
-                  Read More
-                </a>
-              </div>
+              <a
+                key={index}
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="news-item-link"
+              >
+                <div className="news-item">
+                  <img src={article.urlToImage} alt={article.title} />
+                  <h3>{article.title}</h3>
+                  <p>{article.description}</p>
+                  <p>{new Date(article.publishedAt).toLocaleDateString()}</p>
+                </div>
+              </a>
             ))
           )}
         </div>
