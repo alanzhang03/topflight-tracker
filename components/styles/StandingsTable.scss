@@ -1,75 +1,71 @@
-// src/components/styles/StandingsTable.scss
-
 .standings-container {
-	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 20px;
-	text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
 }
 
 h1 {
-	font-size: 2rem;
-	color: #333;
-	margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 // Table styling
 table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-bottom: 20px;
-	font-size: 1rem;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 1rem;
 
-	th,
-	td {
-		padding: 12px 15px;
-		text-align: left;
-	}
+  th,
+  td {
+    padding: 12px 15px;
+    text-align: left;
+  }
 
-	th {
-		background-color: #4caf50;
-		color: white;
-		font-weight: bold;
-	}
+  th {
+    background-color: #d4d4d4;
+    color: black;
+    font-weight: bolder;
+  }
 
-	tr:nth-child(even) {
-		background-color: #f2f2f2;
-	}
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
 
-	tr:hover {
-		background-color: #ddd;
-	}
+  tr:hover {
+    background-color: #ddd;
+  }
 
-	td {
-		border-bottom: 1px solid #ddd;
-	}
+  td {
+    border-bottom: 1px solid #ddd;
+  }
 }
 
-// Align the team logo next to the team name
 .team-info {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .team-logo {
-	width: 40px; // Adjust the logo size as needed
-	height: auto;
-	margin-right: 10px;
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
 }
 
-// Responsive layout for smaller screens
 @media (max-width: 768px) {
-	table {
-		font-size: 0.875rem;
-	}
+  table {
+    font-size: 0.875rem;
+  }
 
-	th,
-	td {
-		padding: 10px 8px;
-	}
+  th,
+  td {
+    padding: 10px 8px;
+  }
 
-	.team-logo {
-		width: 30px; // Adjust the size for mobile view
-	}
+  .team-logo {
+    width: 30px;
+  }
 }
