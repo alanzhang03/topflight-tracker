@@ -1,9 +1,22 @@
-import React from 'react'
+"use client";
+import React from "react";
+import HomepageDisplay from "../../../../components/HomepageDisplay";
 
 const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+  const routeLinks = [
+    { name: "Standings", path: "/leagues/la-liga/standings" },
+    { name: "Clubs", path: "/leagues/la-liga/teams" },
+    { name: "Fixtures", path: "/leagues/la-liga/fixtures" },
+  ];
 
-export default page
+  return (
+    <HomepageDisplay
+      leagueName="La Liga"
+      logo="/images/la-liga.svg"
+      description="Explore the latest standings, fixtures, clubs, and more from La Liga."
+      routeLinks={routeLinks}
+    />
+  );
+};
+
+export default page;

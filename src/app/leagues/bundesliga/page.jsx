@@ -1,29 +1,21 @@
-import Link from "next/link";
-import Navbar from "../../../../components/Navbar";
+import React from "react";
+import HomepageDisplay from "../../../../components/HomepageDisplay";
 
-export default function BundesligaPage() {
+const page = () => {
+  const routeLinks = [
+    { name: "Standings", path: "/leagues/bundesliga/standings" },
+    { name: "Clubs", path: "/leagues/bundesliga/teams" },
+    { name: "Fixtures", path: "/leagues/bundesliga//fixtures" },
+  ];
+
   return (
-    <div>
-      <h1>Bundesliga Overview</h1>
-      <p>
-        Welcome to the Bundesliga section. Explore the standings, teams,
-        lineups, and match history below:
-      </p>
-
-      <ul>
-        <li>
-          <Link href="/leagues/bundesliga/standings">Standings</Link>
-        </li>
-        <li>
-          <Link href="/leagues/bundesliga/teams">Teams</Link>
-        </li>
-        <li>
-          <Link href="/leagues/bundesliga/lineups">Lineups</Link>
-        </li>
-        <li>
-          <Link href="/leagues/bundesliga/fixtures">Fixtures</Link>
-        </li>
-      </ul>
-    </div>
+    <HomepageDisplay
+      leagueName="Bundesliga"
+      logo="/images/bundesliga.svg"
+      description="Explore the latest standings, fixtures, clubs, and more from the Bundesliga."
+      routeLinks={routeLinks}
+    />
   );
-}
+};
+
+export default page;

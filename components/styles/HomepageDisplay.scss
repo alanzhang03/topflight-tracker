@@ -1,0 +1,48 @@
+.homepage-container {
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.hero-section {
+  background-color: #f5f5f5;
+  padding: 50px;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.league-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.league-nav {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1.1rem;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
