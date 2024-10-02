@@ -108,7 +108,9 @@ const MainPageDisplay = () => {
 			{/* Hero Section */}
 			<div className="hero-section">
 				<div className="hero-content">
-					<h1 className="hero-content-header">Welcome to the TopFlight Tracker</h1>
+					<h1 className="hero-content-header">
+						Welcome to the TopFlight Tracker
+					</h1>
 					<p className="hero-content-paragraph">
 						Explore detailed standings, match history, lineups, and more from
 						the Premier League, La Liga, Bundesliga, and Champions League.

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./styles/HomepageDisplay.scss";
 import Link from "next/link";
 

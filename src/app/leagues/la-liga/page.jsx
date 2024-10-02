@@ -10,13 +10,14 @@ const page = () => {
   ];
 
   return (
-    <HomepageDisplay
-      leagueName="La Liga"
-      logo="/images/la-liga.svg"
-      description="Explore the latest standings, fixtures, clubs, and more from La Liga."
-      routeLinks={routeLinks}
-    />
-  );
+		<HomepageDisplay
+			leagueName="La Liga"
+			logo="/images/la-liga.svg"
+			description="Explore the latest standings, fixtures, clubs, and more from La Liga."
+			routeLinks={routeLinks}
+			leagueCode="epl"
+		/>
+	);
 };
 
 export default page;
