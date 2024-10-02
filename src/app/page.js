@@ -1,6 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
 import MainPageDisplay from "../../components/MainPageDisplay";
+import React from "react";
 
 export default function Home() {
 	return (

@@ -1,14 +1,14 @@
 import React from "react";
-import "./Footer.scss"
-
+import "./Footer.scss";
+import Link from "next/link";
 
 const Footer = () => {
 	return (
 		<>
 			<footer className="footer-section">
 				<p>
-					© 2024 TopFlight Tracker | <a href="#">Privacy Policy</a> |{" "}
-					<a href="#">Terms of Service</a>
+					© 2024 TopFlight Tracker | <Link href="#">Privacy Policy</Link> |{" "}
+					<Link href="#">Terms of Service</Link>
 				</p>
 			</footer>
 		</>
