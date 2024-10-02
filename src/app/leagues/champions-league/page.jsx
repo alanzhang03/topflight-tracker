@@ -9,14 +9,13 @@ const page = () => {
   ];
 
   return (
-		<HomepageDisplay
-			leagueName="Champions Leauge"
-			logo="/images/champions-league.svg"
-			description="Explore the latest standings, fixtures, clubs, and more from the Champions League."
-			routeLinks={routeLinks}
-			leagueCode="epl"
-		/>
-	);
+    <HomepageDisplay
+      leagueName="Champions League"
+      logo="/images/champions-league.svg"
+      description="Explore the latest standings, fixtures, clubs, and more from the Champions League."
+      routeLinks={routeLinks}
+    />
+  );
 };
 
 export default page;

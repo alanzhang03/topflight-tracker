@@ -14,7 +14,6 @@ const page = () => {
 			logo="/images/bundesliga.svg"
 			description="Explore the latest standings, fixtures, clubs, and more from the Bundesliga."
 			routeLinks={routeLinks}
-			leagueCode="epl"
 		/>
 	);
 };
