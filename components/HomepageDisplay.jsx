@@ -6,11 +6,11 @@ import Link from "next/link";
 const HomepageDisplay = ({ leagueName, logo, description, routeLinks }) => {
 	return (
 		<div className="homepage-container">
-			<div className="hero-section">
-				<div className="hero-content">
+			<div className="homepage-hero-section">
+				<div className="homepage-hero-content">
 					<img src={logo} alt={`${leagueName} logo`} className="league-logo" />
-					<h1>Welcome to {leagueName} Page</h1>
-					<p>{description}</p>
+					<h1 className="homepage-header">Welcome to {leagueName} Page</h1>
+					<p className="homepage-paragraph">{description}</p>
 				</div>
 			</div>
 

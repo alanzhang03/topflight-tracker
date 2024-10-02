@@ -4,6 +4,7 @@
 	padding: 0;
 }
 
+/* Hero Section Problem*/
 .hero-section {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 		url(/images/hero.jpg);
@@ -23,16 +24,16 @@
 	border-radius: 10px;
 	width: 80%;
 	max-width: 80vw;
-	opacity: 0;
+	opacity: 1;
 }
 
-.hero-content h1 {
+.hero-content-header {
 	font-size: 4rem;
 	margin-bottom: 20px;
 	color: white;
 }
 
-.hero-content p {
+.hero-content-paragraph {
 	font-size: 1.6rem;
 	margin-bottom: 30px;
 	line-height: 1.5;
