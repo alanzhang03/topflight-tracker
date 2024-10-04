@@ -1,0 +1,30 @@
+.results-container {
+	padding: 20px;
+	text-align: center;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 20px 0;
+}
+
+th,
+td {
+	padding: 10px;
+	border: 1px solid #ddd;
+	text-align: center;
+	height: 5vh;
+}
+
+.team-info {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.team-logo {
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}

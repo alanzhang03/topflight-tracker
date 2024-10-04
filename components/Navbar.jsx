@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; 
+import { usePathname } from "next/navigation";
 import "./styles/Navbar.scss";
 
 export default function Navbar({ league }) {
@@ -10,31 +10,31 @@ export default function Navbar({ league }) {
 		epl: {
 			name: "Premier League",
 			standings: "/leagues/premier-league/standings",
-			clubs: "/leagues/premier-league/teams",
 			fixtures: "/leagues/premier-league/fixtures",
+			results: "/leagues/premier-league/results",
 		},
 		bundesliga: {
 			name: "Bundesliga",
 			standings: "/leagues/bundesliga/standings",
-			clubs: "/leagues/bundesliga/teams",
 			fixtures: "/leagues/bundesliga/fixtures",
+			results: "/leagues/bundesliga/results",
 		},
 		laliga: {
 			name: "La Liga",
 			standings: "/leagues/la-liga/standings",
-			clubs: "/leagues/la-liga/teams",
 			fixtures: "/leagues/la-liga/fixtures",
+			results: "/leagues/la-liga/results",
 		},
 		championsleague: {
 			name: "Champions League",
 			standings: "/leagues/champions-league/standings",
-			clubs: "/leagues/champions-league/teams",
 			fixtures: "/leagues/champions-league/fixtures",
+			results: "/leagues/champions-league/results",
 		},
 	};
 
 	const currentLeague = leagueUrls[league];
-	const pathname = usePathname(); // Get the current path to highlight the active link
+	const pathname = usePathname();
 
 	if (!currentLeague) {
 		return <div>League not found</div>;
@@ -47,11 +47,11 @@ export default function Navbar({ league }) {
 					<li className={pathname === currentLeague.standings ? "active" : ""}>
 						<Link href={currentLeague.standings}>Standings</Link>
 					</li>
-					<li className={pathname === currentLeague.clubs ? "active" : ""}>
-						<Link href={currentLeague.clubs}>Clubs</Link>
-					</li>
 					<li className={pathname === currentLeague.fixtures ? "active" : ""}>
 						<Link href={currentLeague.fixtures}>Fixtures</Link>
+					</li>
+					<li className={pathname === currentLeague.results ? "active" : ""}>
+						<Link href={currentLeague.results}>Results</Link>
 					</li>
 				</ul>
 			</div>

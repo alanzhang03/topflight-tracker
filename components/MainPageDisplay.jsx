@@ -27,7 +27,7 @@ const MainPageDisplay = () => {
 						q: "Premier League OR Bundesliga OR La Liga OR Champions League NOT cricket NOT NFL NOT NBA NOT MLB NOT WNBA",
 						language: "en",
 						sortBy: "publishedAt",
-						pageSize: 8,
+						pageSize: 5,
 						apiKey: "d2a28653bc8b4ef6b7d988eceb9155ea",
 					},
 				});
@@ -142,7 +142,7 @@ const MainPageDisplay = () => {
 							href="/leagues/premier-league"
 							rel="noopener noreferrer"
 							className="news-item-link"
-							target="_blank"
+							
 						>
 							<img src="/images/premier-league.svg" alt="Premier League" />
 						</Link>
@@ -152,7 +152,7 @@ const MainPageDisplay = () => {
 							href="/leagues/bundesliga"
 							rel="noopener noreferrer"
 							className="news-item-link"
-							target="_blank"
+							
 						>
 							<img src="/images/bundesliga.svg" alt="Bundesliga" />
 						</Link>
@@ -162,7 +162,7 @@ const MainPageDisplay = () => {
 							href="/leagues/la-liga"
 							rel="noopener noreferrer"
 							className="news-item-link"
-							target="_blank"
+						
 						>
 							<img src="/images/la-liga.svg" alt="La Liga" />
 						</Link>
@@ -172,7 +172,7 @@ const MainPageDisplay = () => {
 							href="/leagues/champions-league"
 							rel="noopener noreferrer"
 							className="news-item-link"
-							target="_blank"
+							
 						>
 							<img src="/images/champions-league.svg" alt="Champions League" />
 						</Link>

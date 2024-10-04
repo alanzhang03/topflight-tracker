@@ -1,4 +1,3 @@
-
 import React from "react";
 import HomepageDisplay from "../../../../components/HomepageDisplay";
 
@@ -6,7 +5,7 @@ const page = () => {
 	const routeLinks = [
 		{ name: "Standings", path: "/leagues/bundesliga/standings" },
 		{ name: "Clubs", path: "/leagues/bundesliga/teams" },
-		{ name: "Fixtures", path: "/leagues/bundesliga//fixtures" },
+		{ name: "Fixtures", path: "/leagues/bundesligafixtures" },
 	];
 
 	return (
