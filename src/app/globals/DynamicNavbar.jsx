@@ -17,7 +17,7 @@ export default function DynamicNavbar() {
 		: null;
 
 	if (!league) {
-	return null;
+		return null;
 	}
 
 	return <Navbar league={league} />;

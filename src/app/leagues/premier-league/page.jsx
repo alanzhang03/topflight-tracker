@@ -1,4 +1,3 @@
-import React from "react";
 import HomepageDisplay from "../../../../components/HomepageDisplay";
 
 const PremierLeaguePage = () => {
