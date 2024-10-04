@@ -60,7 +60,7 @@ const HomepageDisplay = ({ leagueName, logo, description, routeLinks }) => {
 							rel="noopener noreferrer"
 							className="news-item-link"
 						>
-							<div className="news-item">
+							<div className="homepage-news-item">
 								<img
 									src={article.urlToImage || "/images/hero.jpg"}
 									alt={article.title}
