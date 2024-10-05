@@ -13,7 +13,7 @@ const HomepageDisplay = ({ leagueName, logo, description, routeLinks }) => {
 			try {
 				const response = await axios.get(`https://newsapi.org/v2/everything`, {
 					params: {
-						q: `${leagueName} football Soccer NOT cricket NOT NFL NOT NBA NOT MLB NOT WNBA NOT women NOT golf `,
+						q: `${leagueName} football Soccer NOT cricket NOT NFL NOT NBA NOT MLB NOT WNBA NOT WOMEN NOT WOMAN NOT GOLF NOT IRAN NOT lasso NOT betting`,
 						language: "en",
 						sortBy: "publishedAt",
 						pageSize: 10,
@@ -47,12 +47,11 @@ const HomepageDisplay = ({ leagueName, logo, description, routeLinks }) => {
 				</nav>
 			</div>
 
-			{/* Explore Recent News header */}
+			{/* News section */}
 			<div className="news-header">
 				<h2>Explore recent news in the {leagueName}</h2>
 			</div>
 
-			{/* News section */}
 			<div className="news-container">
 				{news.length === 0 ? (
 					<p>Loading...</p>

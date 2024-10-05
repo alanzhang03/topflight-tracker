@@ -1,19 +1,18 @@
-
 import React from "react";
 import HomepageDisplay from "../../../../components/HomepageDisplay";
 
 const page = () => {
-  const routeLinks = [
-    { name: "Standings", path: "/leagues/la-liga/standings" },
-    { name: "Clubs", path: "/leagues/la-liga/teams" },
-    { name: "Fixtures", path: "/leagues/la-liga/fixtures" },
-  ];
+	const routeLinks = [
+		{ name: "Standings", path: "/leagues/la-liga/standings" },
+		{ name: "Fixtures", path: "/leagues/la-liga/fixtures" },
+		{ name: "Results", path: "/leagues/bundesliga/results" },
+	];
 
-  return (
+	return (
 		<HomepageDisplay
 			leagueName="La Liga"
 			logo="/images/la-liga.svg"
-			description="Explore the latest standings, fixtures, clubs, and more from La Liga."
+			description="Explore the latest standings, fixtures, results, and more from La Liga."
 			routeLinks={routeLinks}
 		/>
 	);
