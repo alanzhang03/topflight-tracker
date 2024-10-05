@@ -1,5 +1,7 @@
 import React from "react";
 import HomepageDisplay from "../../../../components/HomepageDisplay";
+import ClubsDisplay from "../../../../components/ClubsDisplay";
+import NewsDisplay from "../../../../components/NewsDisplay";
 
 const page = () => {
 	const routeLinks = [
@@ -9,12 +11,16 @@ const page = () => {
 	];
 
 	return (
-		<HomepageDisplay
-			leagueName="La Liga"
-			logo="/images/la-liga.svg"
-			description="Explore the latest standings, fixtures, results, and more from La Liga."
-			routeLinks={routeLinks}
-		/>
+		<>
+			<HomepageDisplay
+				leagueName="La Liga"
+				logo="/images/la-liga.svg"
+				description="Explore the latest standings, fixtures, results, and more from La Liga."
+				routeLinks={routeLinks}
+			/>
+			<ClubsDisplay leagueCode="PD" />
+			<NewsDisplay leagueName="La Liga" />
+		</>
 	);
 };
 
