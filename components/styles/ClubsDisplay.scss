@@ -39,13 +39,13 @@
 	color: #333;
 }
 
-/* Optional: Styling for the scrollbar */
+
 .clubs-row::-webkit-scrollbar {
-	height: 8px; // Adjust scrollbar height
+	height: 8px; 
 }
 
 .clubs-row::-webkit-scrollbar-thumb {
-	background-color: #ccc; // Scrollbar color
+	background-color: #ccc; 
 	border-radius: 4px;
 }
 

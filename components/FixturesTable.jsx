@@ -1,3 +1,6 @@
+"use client"; 
+
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles/FixturesTable.scss";
 
@@ -10,30 +13,38 @@ const leagueNames = {
 	CL: "Champions League",
 };
 
-export default async function FixturesTable({ leagueCode }) {
-	let fixtures = [];
-	let error = null;
+export default function FixturesTable({ leagueCode }) {
+	const [fixtures, setFixtures] = useState([]);
+	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(true);
 
-	try {
-		const response = await axios.get(
-			`https://api.football-data.org/v4/competitions/${leagueCode}/matches`,
-			{
-				headers: {
-					"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
-				},
-				params: {
-					status: "SCHEDULED",
-				},
+	useEffect(() => {
+		const fetchFixtures = async () => {
+			try {
+				const response = await axios.get(
+					`https://api.football-data.org/v4/competitions/${leagueCode}/matches`,
+					{
+						headers: {
+							"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
+						},
+						params: {
+							status: "SCHEDULED",
+						},
+					}
+				);
+				setFixtures(response.data.matches || []);
+				setLoading(false);
+			} catch (err) {
+				setError(err.message);
+				setLoading(false);
 			}
-		);
-		fixtures = response.data.matches || [];
-	} catch (err) {
-		error = err.message;
-	}
+		};
 
-	if (error) {
-		return <p>Error loading fixtures: {error}</p>;
-	}
+		fetchFixtures();
+	}, [leagueCode]);
+
+	if (loading) return <p>Loading fixtures...</p>;
+	if (error) return <p>Error loading fixtures: {error}</p>;
 
 	if (fixtures.length === 0) {
 		return <p>No upcoming fixtures available.</p>;

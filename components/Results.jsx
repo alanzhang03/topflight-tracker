@@ -40,7 +40,6 @@ export default async function Results({ leagueCode }) {
 		return <p>No results available.</p>;
 	}
 
-
 	const resultsByDate = results.reduce((acc, result) => {
 		const resultDate = new Date(result.utcDate).toLocaleDateString("en-GB", {
 			weekday: "long",
@@ -54,7 +53,6 @@ export default async function Results({ leagueCode }) {
 		acc[resultDate].push(result);
 		return acc;
 	}, {});
-
 
 	const sortedDates = Object.keys(resultsByDate).sort((a, b) => {
 		return new Date(b) - new Date(a);
