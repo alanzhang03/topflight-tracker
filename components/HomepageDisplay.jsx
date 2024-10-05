@@ -18,7 +18,7 @@ const HomepageDisplay = ({
 
 	useGSAP(() => {
 		gsap.to(".nav-link", {
-			delay: 1,
+			delay: 1.25,
 			opacity: 1,
 			duration: 2,
 			stagger: {
@@ -27,14 +27,21 @@ const HomepageDisplay = ({
 				from: "start",
 			},
 		});
-		gsap.to(".homepage-header", {
-			opacity: 1,
-			duration: 2,
-			stagger: {
-				each: 0.2,
-				grid: "auto",
-				from: "start",
-			},
+		gsap.from(".league-logo", {
+			y: -200,
+			opacity: 0,
+			duration: 1,
+		});
+		gsap.from(".homepage-header", {
+			delay: 0.5,
+			y: -200,
+			opacity: 0,
+			duration: 1,
+		});
+		gsap.from(".homepage-paragraph", {
+			delay: 1,
+			opacity: 0,
+			duration: 1,
 		});
 	}, []);
 

@@ -16,7 +16,7 @@ const NewsDisplay = ({ leagueName }) => {
 
 	useGSAP(() => {
 		gsap.to(".club-item", {
-			delay: 1.5,
+			delay: 2.5,
 			opacity: 1,
 			duration: 2,
 			stagger: {
@@ -26,6 +26,22 @@ const NewsDisplay = ({ leagueName }) => {
 			},
 		});
 	}, []);
+
+	useEffect(() => {
+		if (news.length > 0) {
+			gsap.to(".homepage-news-item", {
+				scrollTrigger: {
+					trigger: ".homepage-news-item",
+					start: "top 60%",
+					toggleActions: "play none none none",
+				},
+				opacity: 1,
+				stagger: {
+					each: 0.25,
+				},
+			});
+		}
+	}, [news]);
 
 	useEffect(() => {
 		const fetchNews = async () => {
