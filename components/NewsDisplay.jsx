@@ -20,7 +20,7 @@ const NewsDisplay = ({ leagueName }) => {
 			opacity: 1,
 			duration: 2,
 			stagger: {
-				each: 0.2,
+				each: 0.15,
 				grid: "auto",
 				from: "start",
 			},
