@@ -52,7 +52,7 @@ const NewsDisplay = ({ leagueName }) => {
 						language: "en",
 						sortBy: "publishedAt",
 						pageSize: 10,
-						apiKey: "d2a28653bc8b4ef6b7d988eceb9155ea",
+						apiKey: process.env.NEXT_PUBLIC_NEWS_API_KEY,
 					},
 				});
 				setNews(response.data.articles);
