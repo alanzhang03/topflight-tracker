@@ -16,44 +16,6 @@ TopFlight Tracker is a football statistics web application built using Next.js. 
 - **Football-Data API**: Provides football data like fixtures, standings, results, and teams for various leagues.
 - **NewscatcherAPI**: Provides news articles from trusted sources related to football.
 
-## Installation
-
-To install and run the project locally, follow these steps:
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/your-username/topflight-tracker.git
-    cd topflight-tracker
-    ```
-
-2. Install dependencies:
-    ```bash
-    npm install
-    ```
-
-3. Set up environment variables:
-
-   Create a `.env.local` file in the root directory and add your API keys:
-
-    ```plaintext
-    NEXT_PUBLIC_FOOTBALL_API_KEY=your_football_data_api_key
-    NEXT_PUBLIC_NEWSCATCHER_API_KEY=your_newscatcher_api_key
-    ```
-
-4. Run the development server:
-    ```bash
-    npm run dev
-    ```
-
-5. Visit the app at [http://localhost:3000](http://localhost:3000).
-
-## Deployment
-
-The application can be deployed on platforms like [Vercel](https://vercel.com/), which provides seamless integration with Next.js.
-
-1. Push your code to a GitHub repository.
-2. Link the repository with Vercel for automatic deployments.
-3. Set up your environment variables on the Vercel dashboard.
 
 ## API Usage
 
@@ -62,9 +24,6 @@ This project uses the following APIs:
 - **Football-Data API**: For match data, fixtures, teams, and standings.
 - **NewscatcherAPI**: For fetching football-related news articles.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
