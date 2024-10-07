@@ -34,4 +34,4 @@ Special thanks to:
 
 ## Contact
 
-For any questions or suggestions, feel free to contact me at [your-email@example.com].
+For any questions or suggestions, feel free to contact me at [alan.s.zhang@gmail.com].
