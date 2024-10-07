@@ -6,7 +6,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Link from "next/link";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import NewsDisplay from "./NewsDisplay"; // Import your NewsDisplay component
 
 const MainPageDisplay = () => {
 	const handleGetStartedClick = () => {
