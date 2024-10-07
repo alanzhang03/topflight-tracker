@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import "./styles/MainPageDisplay.scss";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Link from "next/link";
-
 import ScrollTrigger from "gsap/ScrollTrigger";
+import NewsDisplay from "./NewsDisplay"; // Import your NewsDisplay component
 
 const MainPageDisplay = () => {
 	const handleGetStartedClick = () => {
@@ -16,29 +15,6 @@ const MainPageDisplay = () => {
 			aboutSection.scrollIntoView({ behavior: "smooth" });
 		}
 	};
-
-	const [news, setNews] = useState([]);
-
-	useEffect(() => {
-		const fetchNews = async () => {
-			try {
-				const response = await axios.get(`https://newsapi.org/v2/everything`, {
-					params: {
-						q: "Premier League OR Bundesliga OR La Liga OR Champions League NOT cricket NOT NFL NOT NBA NOT MLB NOT WNBA",
-						language: "en",
-						sortBy: "publishedAt",
-						pageSize: 5,
-						apiKey: process.env.NEXT_PUBLIC_NEWS_API_KEY,
-					},
-				});
-				setNews(response.data.articles);
-			} catch (error) {
-				console.error("Error fetching news data:", error);
-			}
-		};
-
-		fetchNews();
-	}, []);
 
 	gsap.registerPlugin(ScrollTrigger);
 
@@ -87,22 +63,6 @@ const MainPageDisplay = () => {
 			duration: 2,
 		});
 	}, []);
-
-	useEffect(() => {
-		if (news.length > 0) {
-			gsap.to(".news-item", {
-				scrollTrigger: {
-					trigger: ".news-item",
-					start: "top 60%",
-					toggleActions: "play none none none",
-				},
-				opacity: 1,
-				stagger: {
-					each: 0.2,
-				},
-			});
-		}
-	}, [news]);
 
 	return (
 		<div className="main-page-container">
@@ -191,33 +151,6 @@ const MainPageDisplay = () => {
 					>
 						Track Matches
 					</button>
-				</div>
-			</section>
-
-			{/* Recent News Section */}
-			<section className="news-section">
-				<h2>Latest News & Stories</h2>
-				<div className="news-container">
-					{news.length === 0 ? (
-						<p>Loading...</p>
-					) : (
-						news.map((article, index) => (
-							<Link
-								key={index}
-								href={article.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="news-item-link"
-							>
-								<div className="news-item">
-									<img src={article.urlToImage} alt={article.title} />
-									<h3>{article.title}</h3>
-									<p>{article.description}</p>
-									<p>{new Date(article.publishedAt).toLocaleDateString()}</p>
-								</div>
-							</Link>
-						))
-					)}
 				</div>
 			</section>
 		</div>

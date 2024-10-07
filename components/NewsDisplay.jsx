@@ -57,7 +57,7 @@ const NewsDisplay = ({ leagueName }) => {
 					lang: "en",
 					sort_by: "date",
 					page: "1",
-					page_size: 10,
+					page_size: 5,
 				},
 				headers: {
 					"x-api-key": process.env.NEXT_PUBLIC_NEWSCATCHER_API_KEY,
@@ -65,22 +65,14 @@ const NewsDisplay = ({ leagueName }) => {
 			};
 
 			try {
-				console.log("Fetching news with options:", options);
-
 				const response = await axios.request(options);
-				console.log("API Response:", response);
-
 				let articles = response.data.articles || [];
 				const uniqueArticles = articles.filter(
 					(article, index, self) =>
 						index === self.findIndex((t) => t.topic === article.topic)
 				);
-
-				console.log("Unique articles by topic:", uniqueArticles);
-
 				setNews(uniqueArticles);
 			} catch (error) {
-				console.error("Error fetching news:", error);
 				setError("Error loading news. Please try again.");
 			}
 
