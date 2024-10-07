@@ -1,213 +1,214 @@
 .main-page-container {
-  text-align: center;
-  margin: 0;
-  padding: 0;
+	text-align: center;
+	margin: 0;
+	padding: 0;
 }
 
 /* Hero Section Problem*/
 .hero-section {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(/images/hero.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(/images/hero.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .hero-content {
-  background-color: rgba(0, 0, 0, 0.65);
-  color: white;
-  padding: 50px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 80vw;
-  opacity: 0;
+	background-color: rgba(0, 0, 0, 0.65);
+	color: white;
+	padding: 50px;
+	border-radius: 10px;
+	width: 80%;
+	max-width: 80vw;
+	opacity: 0;
 }
 
 .hero-content-header {
-  font-size: 4rem;
-  margin-bottom: 20px;
-  color: white;
+	font-size: 4rem;
+	margin-bottom: 20px;
+	color: white;
 }
 
 .hero-content-paragraph {
-  font-size: 1.6rem;
-  margin-bottom: 30px;
-  line-height: 1.5;
+	font-size: 1.6rem;
+	margin-bottom: 30px;
+	line-height: 1.5;
 }
 
 .cta-button {
-  background-color: #28a745;
-  color: white;
-  padding: 15px 40px;
-  font-size: 1.3rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease, transform 0.3s ease,
-    box-shadow 0.3s ease;
+	background-color: #28a745;
+	color: white;
+	padding: 15px 40px;
+	font-size: 1.3rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	transition: background-color 0.3s ease, transform 0.3s ease,
+		box-shadow 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #218838;
-  transform: scale(1.1);
+	background-color: #218838;
+	transform: scale(1.1);
 }
 
 /* About Section */
 .about-section {
-  padding: 50px 20px;
-  background-color: #f5f5f5;
+	padding: 50px 20px;
+	background-color: #f5f5f5;
 }
 
 .about-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  opacity: 0;
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+	opacity: 0;
 }
 
 .about-section p {
-  font-size: 1.2rem;
-  color: #555;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.7;
-  opacity: 0;
+	font-size: 1.2rem;
+	color: #555;
+	max-width: 800px;
+	margin: 0 auto;
+	line-height: 1.7;
+	opacity: 0;
 }
 
 /* Leagues Section */
 .leagues-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 20px 0;
-  margin-left: 10vw;
-  margin-right: 10vw;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 20px 0;
+	margin-left: 10vw;
+	margin-right: 10vw;
 }
 
 .leagues-section h2 {
-  opacity: 0;
+	opacity: 0;
 }
 
 .league-card {
-  text-align: center;
-  padding: 10px;
-  width: 30vw;
-  transition: 0.3s;
+	text-align: center;
+	padding: 10px;
+	width: 30vw;
+	transition: 0.3s;
 }
 
 .league-card:hover {
-  transform: scale(1.1);
+	transform: scale(1.1);
 }
 .league-card img {
-  width: 10vw;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  opacity: 0;
+	width: 10vw;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	opacity: 0;
 }
 
 .league-card p {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
+	margin-top: 10px;
+	font-size: 1.2rem;
+	font-weight: bold;
 }
 /* Call to Action Section */
 .cta-section {
-  background-color: #343a40;
-  color: white;
-  padding: 50px 20px;
+	background-color: #343a40;
+	color: white;
+	padding: 50px 20px;
 }
 
 .cta-section-gsap {
-  opacity: 0;
+	opacity: 0;
 }
 
 .cta-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+	color: white;
 }
 
 .cta-section p {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto 30px auto;
-  line-height: 1.7;
+	font-size: 1.2rem;
+	max-width: 800px;
+	margin: 0 auto 30px auto;
+	line-height: 1.7;
 }
 
 .cta-button-secondary {
-  background-color: #ffc107;
-  color: #343a40;
-  padding: 15px 40px;
-  font-size: 1.3rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease, transform 0.3s ease,
-    box-shadow 0.3s ease;
+	background-color: #ffc107;
+	color: #343a40;
+	padding: 15px 40px;
+	font-size: 1.3rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	transition: background-color 0.3s ease, transform 0.3s ease,
+		box-shadow 0.3s ease;
 }
 
 .cta-button-secondary:hover {
-  background-color: #e0a800;
-  transform: scale(1.1);
+	background-color: #e0a800;
+	transform: scale(1.1);
 }
 
 .news-section {
-  padding: 50px 20px;
+	padding: 50px 20px;
 }
 
 .news-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px;
 }
 
 .news-item {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  opacity: 0;
-  transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	text-align: left;
+	opacity: 0;
+	transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
 }
 
 .news-item-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+	text-decoration: none;
+	color: inherit;
+	display: block;
 }
 
 .news-item-link:hover .news-item {
-  transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+	transform: scale(1.02);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .news-item img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+	width: 100%;
+	border-radius: 10px;
+	margin-bottom: 10px;
 }
 
 .news-item h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
+	font-size: 1.2rem;
+	color: #333;
+	margin-bottom: 10px;
 }
 
 .news-item p {
-  color: #666;
+	color: #666;
 }
 
 .news-item a {
-  color: #007bff;
-  text-decoration: none;
+	color: #007bff;
+	text-decoration: none;
 }
 
 .news-item a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
