@@ -11,6 +11,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 const NewsDisplay = ({ leagueName }) => {
 	const [news, setNews] = useState([]);
 	const [error, setError] = useState(null);
+	let requestPending = false;
 
 	gsap.registerPlugin(ScrollTrigger);
 
@@ -45,21 +46,47 @@ const NewsDisplay = ({ leagueName }) => {
 
 	useEffect(() => {
 		const fetchNews = async () => {
+			if (requestPending) return;
+			requestPending = true;
+
+			var options = {
+				method: "GET",
+				url: "https://api.newscatcherapi.com/v2/search",
+				params: {
+					q: `${leagueName} football Soccer -cricket -NFL -NBA -MLB`,
+					lang: "en",
+					sort_by: "date",
+					page: "1",
+					page_size: 10,
+				},
+				headers: {
+					"x-api-key": process.env.NEXT_PUBLIC_NEWSCATCHER_API_KEY,
+				},
+			};
+
 			try {
-				const response = await axios.get(`https://newsapi.org/v2/everything`, {
-					params: {
-						q: `${leagueName} football Soccer NOT cricket NOT NFL NOT NBA NOT MLB`,
-						language: "en",
-						sortBy: "publishedAt",
-						pageSize: 10,
-						apiKey: process.env.NEXT_PUBLIC_NEWS_API_KEY,
-					},
-				});
-				setNews(response.data.articles);
+				console.log("Fetching news with options:", options);
+
+				const response = await axios.request(options);
+				console.log("API Response:", response);
+
+				let articles = response.data.articles || [];
+				const uniqueArticles = articles.filter(
+					(article, index, self) =>
+						index === self.findIndex((t) => t.topic === article.topic)
+				);
+
+				console.log("Unique articles by topic:", uniqueArticles);
+
+				setNews(uniqueArticles);
 			} catch (error) {
 				console.error("Error fetching news:", error);
 				setError("Error loading news. Please try again.");
 			}
+
+			setTimeout(() => {
+				requestPending = false;
+			}, 1000);
 		};
 
 		fetchNews();
@@ -73,29 +100,36 @@ const NewsDisplay = ({ leagueName }) => {
 			</div>
 
 			<div className="news-container">
+				{error && <p>{error}</p>}
 				{news.length === 0 ? (
 					<p>Loading...</p>
 				) : (
-					news.map((article, index) => (
-						<Link
-							key={index}
-							href={article.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="news-item-link"
-						>
-							<div className="homepage-news-item">
-								<img
-									src={article.urlToImage || "/images/hero.jpg"}
-									alt={article.title}
-									className="news-item-image"
-								/>
-								<h3>{article.title}</h3>
-								<p>{article.description}</p>
-								<p>{new Date(article.publishedAt).toLocaleDateString()}</p>
-							</div>
-						</Link>
-					))
+					news.map((article, index) =>
+						article.link ? (
+							<Link
+								key={index}
+								href={article.link}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="news-item-link"
+							>
+								<div className="homepage-news-item">
+									<img
+										src={article.media || "/images/hero.jpg"}
+										alt={article.title || "News Image"}
+										className="news-item-image"
+									/>
+									<h3 className="news-title">
+										{article.title || "No title available"}
+									</h3>
+									<p className="news-summary">
+										{article.summary || "No description available"}
+									</p>
+									<p>{new Date(article.published_date).toLocaleDateString()}</p>
+								</div>
+							</Link>
+						) : null
+					)
 				)}
 			</div>
 		</>
