@@ -10,32 +10,12 @@ const leagueNames = {
 	CL: "Champions League",
 };
 
-export default async function FixturesTable({ leagueCode }) {
-	let fixtures = [];
-	let error = null;
-
-	try {
-		const response = await axios.get(
-			`https://api.football-data.org/v4/competitions/${leagueCode}/matches`,
-			{
-				headers: {
-					"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
-				},
-				params: {
-					status: "SCHEDULED",
-				},
-			}
-		);
-		fixtures = response.data.matches || [];
-	} catch (err) {
-		error = err.message;
-	}
-
+export default function FixturesTable({ fixtures = [], error, leagueCode }) {
 	if (error) {
 		return <p>Error loading fixtures: {error}</p>;
 	}
 
-	if (fixtures.length === 0) {
+	if (!fixtures.length) {
 		return <p>No upcoming fixtures available.</p>;
 	}
 

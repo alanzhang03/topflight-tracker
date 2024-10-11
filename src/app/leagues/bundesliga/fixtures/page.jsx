@@ -1,12 +1,30 @@
-import React from "react";
 import FixturesTable from "../../../../../components/FixturesTable";
 
-const page = () => {
+async function fetchFixtures() {
+	const res = await fetch(
+		`https://api.football-data.org/v4/competitions/BL1/matches`,
+		{
+			headers: {
+				"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
+			},
+			next: { revalidate: 86400 },
+		}
+	);
+	const data = await res.json();
+	return {
+		fixtures: data.matches || [],
+		error: res.ok ? null : "Error fetching data",
+	};
+}
+
+const BundesligaFixturesPage = async () => {
+	const { fixtures, error } = await fetchFixtures();
+
 	return (
 		<>
-			<FixturesTable leagueCode="BL1" />;
+			<FixturesTable fixtures={fixtures} error={error} leagueCode="BL1" />
 		</>
 	);
 };
 
-export default page;
+export default BundesligaFixturesPage;
