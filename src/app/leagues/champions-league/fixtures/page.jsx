@@ -7,7 +7,7 @@ async function fetchFixtures() {
 			headers: {
 				"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
 			},
-			next: { revalidate: 86400 },
+			next: { revalidate: 604800 },
 		}
 	);
 	const data = await res.json();

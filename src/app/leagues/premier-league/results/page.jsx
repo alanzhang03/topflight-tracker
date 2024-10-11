@@ -1,12 +1,40 @@
 import React from "react";
 import Results from "../../../../../components/Results";
+import axios from "axios";
 
-const PremierLeaguePage = () => {
+async function fetchResults() {
+	let results = [];
+	let error = null;
+
+	try {
+		const res = await axios.get(
+			`https://api.football-data.org/v4/competitions/PL/matches`,
+			{
+				headers: {
+					"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
+				},
+				params: {
+					status: "FINISHED",
+				},
+				next: { revalidate: 3600 },
+			}
+		);
+		results = res.data.matches || [];
+	} catch (err) {
+		error = err.message;
+	}
+
+	return { results, error };
+}
+
+const ChampionsLeagueResultsPage = async () => {
+	const { results, error } = await fetchResults();
+
 	return (
 		<>
-			<Results leagueCode="PL" />
+			<Results results={results} error={error} leagueCode="PL" />
 		</>
 	);
 };
 
-export default PremierLeaguePage;
+export default ChampionsLeagueResultsPage;

@@ -10,33 +10,12 @@ const leagueNames = {
 	CL: "Champions League",
 };
 
-export default async function Results({ leagueCode }) {
-	let results = [];
-	let error = null;
-
-	try {
-		const response = await axios.get(
-			`https://api.football-data.org/v4/competitions/${leagueCode}/matches`,
-			{
-				headers: {
-					"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
-				},
-				params: {
-					status: "FINISHED",
-				},
-			}
-		);
-		results = response.data.matches || [];
-	} catch (err) {
-		error = err.message;
-		console.log("API Error:", error);
-	}
-
+export default function Results({ results = [], error, leagueCode }) {
 	if (error) {
 		return <p>Error loading results: {error}</p>;
 	}
 
-	if (results.length === 0) {
+	if (!results.length) {
 		return <p>No results available.</p>;
 	}
 
@@ -55,7 +34,7 @@ export default async function Results({ leagueCode }) {
 	}, {});
 
 	const sortedDates = Object.keys(resultsByDate).sort((a, b) => {
-		return new Date(b) - new Date(a);
+		return new Date(b) - new Date(a); // Sort from most recent to oldest
 	});
 
 	const leagueName = leagueNames[leagueCode] || leagueCode;

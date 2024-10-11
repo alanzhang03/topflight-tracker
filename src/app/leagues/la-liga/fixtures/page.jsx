@@ -1,6 +1,5 @@
 import FixturesTable from "../../../../../components/FixturesTable";
 
-
 async function fetchFixtures() {
 	const res = await fetch(
 		`https://api.football-data.org/v4/competitions/PD/matches`,
@@ -8,7 +7,7 @@ async function fetchFixtures() {
 			headers: {
 				"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
 			},
-			next: { revalidate: 86400 }, 
+			next: { revalidate: 604800 },
 		}
 	);
 	const data = await res.json();
