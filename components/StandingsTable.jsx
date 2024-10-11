@@ -1,6 +1,4 @@
-import axios from "axios";
 import "./styles/StandingsTable.scss";
-
 
 const leagueNames = {
 	PL: "Premier League",
@@ -11,24 +9,7 @@ const leagueNames = {
 	CL: "Champions League",
 };
 
-export default async function StandingsTable({ leagueCode }) {
-	let standings = [];
-	let error = null;
-
-	try {
-		const response = await axios.get(
-			`https://api.football-data.org/v4/competitions/${leagueCode}/standings`,
-			{
-				headers: {
-					"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
-				},
-			}
-		);
-		standings = response.data.standings?.[0]?.table || [];
-	} catch (err) {
-		error = err.message;
-	}
-
+export default function StandingsTable({ standings = [], error, leagueCode }) {
 	if (error) {
 		return <p>Error loading standings: {error}</p>;
 	}

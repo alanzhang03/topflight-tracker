@@ -1,12 +1,37 @@
 import React from "react";
 import StandingsTable from "../../../../../components/StandingsTable";
+import axios from "axios";
 
-const page = () => {
+async function fetchStandings() {
+	let standings = [];
+	let error = null;
+
+	try {
+		const res = await axios.get(
+			`https://api.football-data.org/v4/competitions/CL/standings`,
+			{
+				headers: {
+					"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
+				},
+				next: { revalidate: 3600 },
+			}
+		);
+		standings = res.data.standings?.[0]?.table || [];
+	} catch (err) {
+		error = err.message;
+	}
+
+	return { standings, error };
+}
+
+const BundesligaStandingsPage = async () => {
+	const { standings, error } = await fetchStandings();
+
 	return (
 		<>
-			<StandingsTable leagueCode="CL" />;
+			<StandingsTable standings={standings} error={error} leagueCode="CL" />
 		</>
 	);
 };
 
-export default page;
+export default BundesligaStandingsPage;
