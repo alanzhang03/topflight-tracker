@@ -1,8 +1,4 @@
-import axios from "axios";
 import "./styles/ClubsDisplay.scss";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
 const leagueNames = {
 	PL: "Premier League",
@@ -13,29 +9,12 @@ const leagueNames = {
 	CL: "Champions League",
 };
 
-export default async function ClubsDisplay({ leagueCode }) {
-	let clubs = [];
-	let error = null;
-
-	try {
-		const response = await axios.get(
-			`https://api.football-data.org/v4/competitions/${leagueCode}/teams`,
-			{
-				headers: {
-					"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
-				},
-			}
-		);
-		clubs = response.data.teams || [];
-	} catch (err) {
-		error = err.message;
-	}
-
+export default function ClubsDisplay({ clubs = [], error, leagueCode }) {
 	if (error) {
 		return <p>Error loading clubs: {error}</p>;
 	}
 
-	if (clubs.length === 0) {
+	if (!clubs.length) {
 		return <p>No clubs data available.</p>;
 	}
 

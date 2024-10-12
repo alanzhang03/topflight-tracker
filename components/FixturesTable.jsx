@@ -1,4 +1,3 @@
-import axios from "axios";
 import "./styles/FixturesTable.scss";
 
 const leagueNames = {

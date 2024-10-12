@@ -1,4 +1,3 @@
-import axios from "axios";
 import "./styles/Results.scss";
 
 const leagueNames = {
@@ -34,7 +33,7 @@ export default function Results({ results = [], error, leagueCode }) {
 	}, {});
 
 	const sortedDates = Object.keys(resultsByDate).sort((a, b) => {
-		return new Date(b) - new Date(a); // Sort from most recent to oldest
+		return new Date(b) - new Date(a); 
 	});
 
 	const leagueName = leagueNames[leagueCode] || leagueCode;
