@@ -1,24 +1,10 @@
+import React from "react";
 import FixturesTable from "../../../../../components/FixturesTable";
-
-async function fetchFixtures() {
-	const res = await fetch(
-		`https://api.football-data.org/v4/competitions/PL/matches`,
-		{
-			headers: {
-				"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
-			},
-			next: { revalidate: 604800 },
-		}
-	);
-	const data = await res.json();
-	return {
-		fixtures: data.matches || [],
-		error: res.ok ? null : "Error fetching data",
-	};
-}
+import { fetchFixtures } from "../../../../../utils/api/fetchFixtures"; 
 
 const PremierLeagueFixturesPage = async () => {
-	const { fixtures, error } = await fetchFixtures();
+
+	const { fixtures, error } = await fetchFixtures("PL"); 
 
 	return (
 		<>
