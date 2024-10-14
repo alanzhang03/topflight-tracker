@@ -33,10 +33,10 @@ export default function ClubsDisplay({
 					const clubLink =
 						teamLinks[
 							club.name
-								.normalize("NFD") // Normalize to separate accent from letter
-								.replace(/[\u0300-\u036f]/g, "") // Remove accents
+								.normalize("NFD") 
+								.replace(/[\u0300-\u036f]/g, "") 
 								.toLowerCase()
-								.replace(/[^a-z0-9\s]/g, "") // Remove all special characters except letters and numbers
+								.replace(/[^a-z0-9\s]/g, "") 
 								.replace(/\s+/g, "-")
 						];
 
