@@ -9,7 +9,12 @@ const leagueNames = {
 	CL: "Champions League",
 };
 
-export default function ClubsDisplay({ clubs = [], error, leagueCode }) {
+export default function ClubsDisplay({
+	clubs = [],
+	error,
+	leagueCode,
+	teamLinks,
+}) {
 	if (error) {
 		return <p>Error loading clubs: {error}</p>;
 	}
@@ -24,16 +29,36 @@ export default function ClubsDisplay({ clubs = [], error, leagueCode }) {
 		<div className="clubs-container">
 			<h1>{leagueName} Clubs</h1>
 			<div className="clubs-row">
-				{clubs.map((club) => (
-					<div key={club.id} className="club-item">
-						<img
-							src={club.crest}
-							alt={`${club.name} logo`}
-							className="club-logo"
-						/>
-						<span>{club.name}</span>
-					</div>
-				))}
+				{clubs.map((club) => {
+					const clubLink =
+						teamLinks[
+							club.name
+								.normalize("NFD") // Normalize to separate accent from letter
+								.replace(/[\u0300-\u036f]/g, "") // Remove accents
+								.toLowerCase()
+								.replace(/[^a-z0-9\s]/g, "") // Remove all special characters except letters and numbers
+								.replace(/\s+/g, "-")
+						];
+
+					return (
+						<a
+							key={club.id}
+							href={clubLink}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="club-item-link"
+						>
+							<div className="club-item">
+								<img
+									src={club.crest}
+									alt={`${club.name} logo`}
+									className="club-logo"
+								/>
+								<span>{club.name}</span>
+							</div>
+						</a>
+					);
+				})}
 			</div>
 		</div>
 	);

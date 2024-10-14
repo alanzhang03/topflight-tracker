@@ -9,6 +9,7 @@
 	gap: 20px;
 	padding: 10px 0;
 	scrollbar-width: thin;
+	text-decoration: none;
 }
 
 .club-item {
@@ -21,6 +22,15 @@
 	transition: transform 0.2s ease;
 	min-width: 150px;
 	opacity: 0;
+	height: 15vh;
+}
+
+.club-item a {
+	text-decoration: none;
+}
+
+.club-item a:hover {
+	text-decoration: none;
 }
 
 .club-item:hover {
@@ -39,13 +49,12 @@
 	color: #333;
 }
 
-
 .clubs-row::-webkit-scrollbar {
-	height: 8px; 
+	height: 8px;
 }
 
 .clubs-row::-webkit-scrollbar-thumb {
-	background-color: #ccc; 
+	background-color: #ccc;
 	border-radius: 4px;
 }
 

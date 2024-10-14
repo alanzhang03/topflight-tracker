@@ -5,6 +5,11 @@ import NewsDisplay from "../../../../components/NewsDisplay";
 import { fetchClubs } from "../../../../utils/api/fetchClubs";
 import { fetchNews } from "../../../../utils/api/fetchNews";
 
+const teamLinks = {
+	"arsenal-fc": "https://www.arsenal.com",
+
+};
+
 const ChampionsLeaguePage = async () => {
 	const { clubs, error } = await fetchClubs("CL");
 	const { news, error: newsError } = await fetchNews("Champions League");
@@ -23,7 +28,12 @@ const ChampionsLeaguePage = async () => {
 				description="Explore the latest standings, fixtures, results, and more from the Champions League."
 				routeLinks={routeLinks}
 			/>
-			<ClubsDisplay clubs={clubs} error={error} leagueCode="CL" />
+			<ClubsDisplay
+				clubs={clubs}
+				error={error}
+				leagueCode="CL"
+				teamLinks={teamLinks}
+			/>
 			<NewsDisplay
 				news={news}
 				error={newsError}
