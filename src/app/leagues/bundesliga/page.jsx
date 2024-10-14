@@ -3,9 +3,11 @@ import HomepageDisplay from "../../../../components/HomepageDisplay";
 import ClubsDisplay from "../../../../components/ClubsDisplay";
 import NewsDisplay from "../../../../components/NewsDisplay";
 import { fetchClubs } from "../../../../utils/api/fetchClubs";
+import { fetchNews } from "../../../../utils/api/fetchNews";
 
 const BundesligaPage = async () => {
 	const { clubs, error } = await fetchClubs("BL1");
+	const { news, error: newsError } = await fetchNews("Bundesliga");
 
 	const routeLinks = [
 		{ name: "Standings", path: "/leagues/bundesliga/standings" },
@@ -22,7 +24,7 @@ const BundesligaPage = async () => {
 				routeLinks={routeLinks}
 			/>
 			<ClubsDisplay clubs={clubs} error={error} leagueCode="BL1" />
-			<NewsDisplay leagueName="Bundesliga" />
+			<NewsDisplay news={news} error={newsError} leagueName="Bundesliga" />
 		</>
 	);
 };

@@ -2,10 +2,12 @@ import React from "react";
 import HomepageDisplay from "../../../../components/HomepageDisplay";
 import ClubsDisplay from "../../../../components/ClubsDisplay";
 import NewsDisplay from "../../../../components/NewsDisplay";
-import { fetchClubs } from "../../../../utils/api/fetchClubs"; 
+import { fetchClubs } from "../../../../utils/api/fetchClubs";
+import { fetchNews } from "../../../../utils/api/fetchNews";
 
 const ChampionsLeaguePage = async () => {
 	const { clubs, error } = await fetchClubs("CL");
+	const { news, error: newsError } = await fetchNews("Champions League");
 
 	const routeLinks = [
 		{ name: "Standings", path: "/leagues/champions-league/standings" },
@@ -22,7 +24,11 @@ const ChampionsLeaguePage = async () => {
 				routeLinks={routeLinks}
 			/>
 			<ClubsDisplay clubs={clubs} error={error} leagueCode="CL" />
-			<NewsDisplay leagueName="Champions League" />
+			<NewsDisplay
+				news={news}
+				error={newsError}
+				leagueName="Champions League"
+			/>
 		</>
 	);
 };

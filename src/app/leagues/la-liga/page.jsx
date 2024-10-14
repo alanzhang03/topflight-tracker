@@ -3,9 +3,11 @@ import HomepageDisplay from "../../../../components/HomepageDisplay";
 import ClubsDisplay from "../../../../components/ClubsDisplay";
 import NewsDisplay from "../../../../components/NewsDisplay";
 import { fetchClubs } from "../../../../utils/api/fetchClubs";
+import { fetchNews } from "../../../../utils/api/fetchNews";
 
 const LaLigaPage = async () => {
 	const { clubs, error } = await fetchClubs("PD");
+	const { news, error: newsError } = await fetchNews("La Liga");
 
 	const routeLinks = [
 		{ name: "Standings", path: "/leagues/la-liga/standings" },
@@ -22,7 +24,7 @@ const LaLigaPage = async () => {
 				routeLinks={routeLinks}
 			/>
 			<ClubsDisplay clubs={clubs} error={error} leagueCode="PD" />
-			<NewsDisplay leagueName="La Liga" />
+			<NewsDisplay news={news} error={newsError} leagueName="La Liga" />
 		</>
 	);
 };
