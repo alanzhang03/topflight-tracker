@@ -23,7 +23,7 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
 	return (
 		<div className="standings-container">
 			<h1>{leagueName} Standings</h1>
-			<table>
+			<table className="standings-table">
 				<thead>
 					<tr>
 						<th>Position</th>

@@ -3,8 +3,8 @@
 	text-align: center;
 }
 
-table {
-	width: 85%;
+.results-table {
+	max-width: 85%;
 	margin: 0 auto;
 	border-collapse: collapse;
 }
@@ -14,16 +14,37 @@ td {
 	padding: 10px;
 	border: 1px solid #ddd;
 	text-align: center;
-	height: 5vh;
 }
 
-.team-info {
+.results-team-logo {
+	width: 40px;
+}
+
+.home-results-team-info {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	padding-left: 5vw;
 }
 
-.team-logo {
-	width: 40px;
-	margin-right: 10px;
+.away-results-team-info {
+	display: flex;
+	align-items: center;
+	padding-left: 5vw;
+}
+
+.result-home-team-box,
+.result-away-team-box {
+	width: 20vw;
+}
+
+.results-home-team-name,
+.results-away-team-name {
+	padding-left: 0.25vw;
+}
+
+.result-scoreBox {
+	font-weight: bolder;
+	background-color: #ececec;
+	width: 4vw;
+	font-size: 1.5rem;
 }

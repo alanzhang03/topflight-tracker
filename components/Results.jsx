@@ -33,7 +33,7 @@ export default function Results({ results = [], error, leagueCode }) {
 	}, {});
 
 	const sortedDates = Object.keys(resultsByDate).sort((a, b) => {
-		return new Date(b) - new Date(a); 
+		return new Date(b) - new Date(a);
 	});
 
 	const leagueName = leagueNames[leagueCode] || leagueCode;
@@ -44,30 +44,39 @@ export default function Results({ results = [], error, leagueCode }) {
 			{sortedDates.map((date) => (
 				<div key={date} className="results-day">
 					<h2>{date}</h2>
-					<table>
+					<table className="results-table">
 						<tbody>
 							{resultsByDate[date].map((match) => (
 								<tr key={match.id} className="result-row">
-									<td className="team-info">
-										<img
-											src={match.homeTeam.crest}
-											alt={`${match.homeTeam.name} logo`}
-											className="team-logo"
-										/>
-										<span>{match.homeTeam.name}</span>
+									<td className="result-home-team-box">
+										<div className="home-results-team-info">
+											<img
+												src={match.homeTeam.crest}
+												alt={`${match.homeTeam.name} logo`}
+												className="results-team-logo"
+											/>
+											<span className="results-home-team-name">
+												{match.homeTeam.name}
+											</span>
+										</div>
 									</td>
-									<td>
+									<td className="result-scoreBox">
 										<span>
 											{match.score.fullTime.home} - {match.score.fullTime.away}
 										</span>
 									</td>
-									<td className="team-info">
-										<img
-											src={match.awayTeam.crest}
-											alt={`${match.awayTeam.name} logo`}
-											className="team-logo"
-										/>
-										<span>{match.awayTeam.name}</span>
+
+									<td className="result-away-team-box">
+										<div className="away-results-team-info">
+											<img
+												src={match.awayTeam.crest}
+												alt={`${match.awayTeam.name} logo`}
+												className="results-team-logo"
+											/>
+											<span className="results-away-team-name">
+												{match.awayTeam.name}
+											</span>
+										</div>
 									</td>
 									<td>
 										{new Date(match.utcDate).toLocaleTimeString("en-US", {

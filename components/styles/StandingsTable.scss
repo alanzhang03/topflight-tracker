@@ -1,71 +1,70 @@
 .standings-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
 }
 
 h1 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
+	font-size: 2rem;
+	color: #333;
+	margin-bottom: 20px;
 }
 
+.standings-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	font-size: 1rem;
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  font-size: 1rem;
+	th,
+	td {
+		padding: 12px 15px;
+		text-align: left;
+	}
 
-  th,
-  td {
-    padding: 12px 15px;
-    text-align: left;
-  }
+	th {
+		background-color: #d4d4d4;
+		color: black;
+		font-weight: bolder;
+	}
 
-  th {
-    background-color: #d4d4d4;
-    color: black;
-    font-weight: bolder;
-  }
+	tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
 
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
+	tr:hover {
+		background-color: #ddd;
+	}
 
-  tr:hover {
-    background-color: #ddd;
-  }
-
-  td {
-    border-bottom: 1px solid #ddd;
-  }
+	td {
+		border-bottom: 1px solid #ddd;
+	}
 }
 
 .team-info {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .team-logo {
-  width: 40px;
-  height: auto;
-  margin-right: 10px;
+	width: 40px;
+	height: auto;
+	margin-right: 10px;
 }
 
 @media (max-width: 768px) {
-  table {
-    font-size: 0.875rem;
-  }
+	table {
+		font-size: 0.875rem;
+	}
 
-  th,
-  td {
-    padding: 10px 8px;
-  }
+	th,
+	td {
+		padding: 10px 8px;
+	}
 
-  .team-logo {
-    width: 30px;
-  }
+	.team-logo {
+		width: 30px;
+	}
 }

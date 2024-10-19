@@ -39,28 +39,36 @@ export default function FixturesTable({ fixtures = [], error, leagueCode }) {
 			{Object.keys(fixturesByDate).map((date) => (
 				<div key={date} className="fixtures-day">
 					<h2>{date}</h2>
-					<table>
+					<table className="fixtures-table">
 						<tbody>
 							{fixturesByDate[date].map((fixture) => (
 								<tr key={fixture.id} className="fixture-row">
-									<td>
-										<img
-											src={fixture.homeTeam.crest}
-											alt={`${fixture.homeTeam.name} logo`}
-											className="team-logo"
-										/>
-										<span>{fixture.homeTeam.name}</span>
+									<td className="fixture-home-team-box">
+										<div className="fixtures-home-team-info">
+											<img
+												src={fixture.homeTeam.crest}
+												alt={`${fixture.homeTeam.name} logo`}
+												className="team-logo"
+											/>
+											<span className="fixtures-home-team-name">
+												{fixture.homeTeam.name}
+											</span>
+										</div>
 									</td>
-									<td>vs</td>
-									<td>
-										<img
-											src={fixture.awayTeam.crest}
-											alt={`${fixture.awayTeam.name} logo`}
-											className="team-logo"
-										/>
-										<span>{fixture.awayTeam.name}</span>
+									<td className="fixtures-vs-box">vs</td>
+									<td className="fixture-away-team-box">
+										<div className="fixtures-away-team-info">
+											<img
+												src={fixture.awayTeam.crest}
+												alt={`${fixture.awayTeam.name} logo`}
+												className="team-logo"
+											/>
+											<span className="fixtures-away-team-name">
+												{fixture.awayTeam.name}
+											</span>
+										</div>
 									</td>
-									<td>
+									<td className="fixtures-time-box">
 										{new Date(fixture.utcDate).toLocaleTimeString("en-US", {
 											hour: "2-digit",
 											minute: "2-digit",
