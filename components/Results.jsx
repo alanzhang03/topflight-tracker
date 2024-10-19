@@ -78,7 +78,7 @@ export default function Results({ results = [], error, leagueCode }) {
 											</span>
 										</div>
 									</td>
-									<td>
+									<td className="results-time-box">
 										{new Date(match.utcDate).toLocaleTimeString("en-US", {
 											hour: "2-digit",
 											minute: "2-digit",

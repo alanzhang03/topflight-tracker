@@ -20,21 +20,16 @@ td {
 	width: 40px;
 }
 
-.home-results-team-info {
-	display: flex;
-	align-items: center;
-	padding-left: 5vw;
-}
-
+.home-results-team-info,
 .away-results-team-info {
 	display: flex;
 	align-items: center;
-	padding-left: 5vw;
+	padding-left: 7.5vw;
 }
 
 .result-home-team-box,
 .result-away-team-box {
-	width: 20vw;
+	width: 25vw;
 }
 
 .results-home-team-name,
@@ -47,4 +42,8 @@ td {
 	background-color: #ececec;
 	width: 4vw;
 	font-size: 1.5rem;
+}
+
+.results-time-box {
+	width: 10vw;
 }
