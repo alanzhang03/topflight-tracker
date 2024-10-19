@@ -1,6 +1,6 @@
 # TopFlight Tracker
 
-TopFlight Tracker is a football statistics web application built using Next.js. It provides live updates, standings, fixtures, and results from major football leagues including the Premier League, Bundesliga, La Liga, Ligue 1, and the Champions League. This project integrates with the [NewscatcherAPI](https://newscatcherapi.com/) for fetching the latest football-related news.
+TopFlight Tracker is a football statistics web application built using Next.js. It provides live updates, standings, fixtures, and results from major football leagues including the Premier League, Bundesliga, La Liga, Ligue 1, and the Champions League. This project integrates with the [NewscatcherAPI](https://newscatcherapi.com/) for fetching news related articles and [Football-Data](https://www.football-data.org/) for fetching the latest football-related news.
 
 ## Features
 
