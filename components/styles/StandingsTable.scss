@@ -18,16 +18,18 @@ h1 {
 	margin-bottom: 20px;
 	font-size: 1rem;
 
-	th,
 	td {
 		padding: 12px 15px;
-		text-align: left;
+		border-bottom: 1px solid #ddd;
+		text-align: center;
 	}
 
 	th {
 		background-color: #d4d4d4;
 		color: black;
 		font-weight: bolder;
+		text-align: center;
+		padding: 12px 15px;
 	}
 
 	tr:nth-child(even) {
@@ -38,14 +40,14 @@ h1 {
 		cursor: pointer;
 		box-shadow: 5px 0px 5px 3px rgba(0, 0, 0, 0.1);
 	}
-
-	td {
-		border-bottom: 1px solid #ddd;
-	}
 }
 
 .standings-points {
 	font-weight: 800;
+}
+.standings-team-header {
+	text-align: left !important;
+	padding-left: 2vw !important;
 }
 
 .goal-positive {
@@ -61,12 +63,15 @@ h1 {
 .team-info {
 	display: flex;
 	align-items: center;
+	justify-content: left;
 }
 
 .team-logo {
 	width: 40px;
 	height: auto;
 	margin-right: 10px;
+	text-align: center;
+	padding-left: 1vw;
 }
 
 .standings-team-position {

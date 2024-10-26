@@ -27,7 +27,7 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
 				<thead>
 					<tr>
 						<th>Position</th>
-						<th>Team</th>
+						<th className="standings-team-header">Club</th>
 						<th>Played</th>
 						<th>Wins</th>
 						<th>Losses</th>
