@@ -28,18 +28,19 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
 					<tr>
 						<th>Position</th>
 						<th>Team</th>
-						<th>Points</th>
 						<th>Played</th>
 						<th>Wins</th>
 						<th>Losses</th>
 						<th>Draws</th>
-						<th>Goal Difference</th>
+						<th>GD</th>
+						<th>Points</th>
 					</tr>
 				</thead>
 				<tbody>
 					{standings.map((team) => (
 						<tr key={team.team.id}>
-							<td>{team.position}</td>
+							<td className="standings-team-position">{team.position}</td>
+
 							<td className="team-info">
 								<img
 									src={team.team.crest}
@@ -48,12 +49,19 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
 								/>
 								<span>{team.team.name}</span>
 							</td>
-							<td>{team.points}</td>
+
 							<td>{team.playedGames}</td>
 							<td>{team.won}</td>
 							<td>{team.lost}</td>
 							<td>{team.draw}</td>
-							<td>{team.goalDifference}</td>
+							<td
+								className={
+									team.goalDifference >= 0 ? "goal-positive" : "goal-negative"
+								}
+							>
+								{team.goalDifference}
+							</td>
+							<td className="standings-points">{team.points}</td>
 						</tr>
 					))}
 				</tbody>

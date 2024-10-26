@@ -44,6 +44,20 @@ h1 {
 	}
 }
 
+.standings-points {
+	font-weight: 800;
+}
+
+.goal-positive {
+	color: rgb(25, 174, 25);
+	font-weight: 800;
+}
+
+.goal-negative {
+	color: red;
+	font-weight: 800;
+}
+
 .team-info {
 	display: flex;
 	align-items: center;
@@ -53,6 +67,10 @@ h1 {
 	width: 40px;
 	height: auto;
 	margin-right: 10px;
+}
+
+.standings-team-position {
+	font-weight: 800;
 }
 
 @media (max-width: 768px) {

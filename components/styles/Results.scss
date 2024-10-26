@@ -7,14 +7,15 @@
 	max-width: 85%;
 	margin: 0 auto;
 	border-collapse: collapse;
+	th,
+	td {
+		padding: 10px;
+		border: 1px solid #ddd;
+		text-align: center;
+	}
 }
 
-th,
-td {
-	padding: 10px;
-	border: 1px solid #ddd;
-	text-align: center;
-}
+
 
 tr:hover {
 	cursor: pointer;

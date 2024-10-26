@@ -12,6 +12,11 @@
 	margin-bottom: 20px;
 	font-size: 1rem;
 	border-spacing: 0;
+	td {
+		padding: 10px;
+		border: 1px solid #ddd;
+		text-align: center;
+	}
 }
 
 tr {
@@ -21,12 +26,6 @@ tr {
 tr:hover {
 	cursor: pointer;
 	box-shadow: 5px 0px 5px 3px rgba(0, 0, 0, 0.1);
-}
-
-td {
-	padding: 10px;
-	border: 1px solid #ddd;
-	text-align: center;
 }
 
 .team-logo {
