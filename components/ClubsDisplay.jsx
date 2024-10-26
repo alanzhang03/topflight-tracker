@@ -27,7 +27,6 @@ export default function ClubsDisplay({
 
 	return (
 		<div className="clubs-container">
-			<h1>{leagueName} Clubs</h1>
 			<div className="clubs-row">
 				{clubs.map((club) => {
 					const clubLink =
