@@ -3,9 +3,7 @@ import "./styles/FixturesTable.scss";
 const leagueNames = {
 	PL: "Premier League",
 	BL1: "Bundesliga",
-	SA: "Serie A",
 	PD: "La Liga",
-	FL1: "Ligue 1",
 	CL: "Champions League",
 };
 
