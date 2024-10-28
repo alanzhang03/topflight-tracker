@@ -21,7 +21,7 @@ const MainPageDisplay = () => {
 		gsap.to(".hero-content", {
 			delay: 0.25,
 			opacity: 1,
-			duration: 1.25,
+			duration: 1,
 			scale: 1,
 		});
 
