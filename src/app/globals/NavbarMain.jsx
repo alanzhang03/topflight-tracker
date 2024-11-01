@@ -11,20 +11,20 @@ const NavbarMain = () => {
 					<li>
 						<Link href="/">Home</Link>
 					</li>
+
+					<li>
+						<Link href="/leagues/bundesliga">Bundesliga</Link>
+					</li>
 					<li>
 						<Link href="/leagues/premier-league">Premier League</Link>
 					</li>
 
 					<li>
-						<Link href="/leagues/bundesliga">Bundesliga</Link>
+						<Link href="/leagues/champions-league">Champions League</Link>
 					</li>
 
 					<li>
 						<Link href="/leagues/la-liga">La Liga</Link>
-					</li>
-
-					<li>
-						<Link href="/leagues/champions-league">Champions League</Link>
 					</li>
 				</ul>
 			</div>

@@ -7,29 +7,29 @@ import "./styles/Navbar.scss";
 
 export default function Navbar({ league }) {
 	const leagueUrls = {
-		epl: {
-			name: "Premier League",
-			standings: "/leagues/premier-league/standings",
-			fixtures: "/leagues/premier-league/fixtures",
-			results: "/leagues/premier-league/results",
-		},
 		bundesliga: {
 			name: "Bundesliga",
 			standings: "/leagues/bundesliga/standings",
 			fixtures: "/leagues/bundesliga/fixtures",
 			results: "/leagues/bundesliga/results",
 		},
-		laliga: {
-			name: "La Liga",
-			standings: "/leagues/la-liga/standings",
-			fixtures: "/leagues/la-liga/fixtures",
-			results: "/leagues/la-liga/results",
+		epl: {
+			name: "Premier League",
+			standings: "/leagues/premier-league/standings",
+			fixtures: "/leagues/premier-league/fixtures",
+			results: "/leagues/premier-league/results",
 		},
 		championsleague: {
 			name: "Champions League",
 			standings: "/leagues/champions-league/standings",
 			fixtures: "/leagues/champions-league/fixtures",
 			results: "/leagues/champions-league/results",
+		},
+		laliga: {
+			name: "La Liga",
+			standings: "/leagues/la-liga/standings",
+			fixtures: "/leagues/la-liga/fixtures",
+			results: "/leagues/la-liga/results",
 		},
 	};
 
