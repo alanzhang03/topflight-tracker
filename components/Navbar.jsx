@@ -4,6 +4,9 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import "./styles/Navbar.scss";
+import { MdOutlineLeaderboard } from "react-icons/md";
+import { IoCalendarOutline } from "react-icons/io5";
+import { IoMedalOutline } from "react-icons/io5";
 
 export default function Navbar({ league }) {
 	const leagueUrls = {
@@ -45,13 +48,28 @@ export default function Navbar({ league }) {
 			<div className="navbar-container-prop">
 				<ul className="navbar-menu-prop">
 					<li className={pathname === currentLeague.standings ? "active" : ""}>
-						<Link href={currentLeague.standings}>Standings</Link>
+						<Link href={currentLeague.standings}>
+							<div className="results-navbar-container">
+								<MdOutlineLeaderboard />
+								Standings
+							</div>
+						</Link>
 					</li>
 					<li className={pathname === currentLeague.fixtures ? "active" : ""}>
-						<Link href={currentLeague.fixtures}>Fixtures</Link>
+						<Link href={currentLeague.fixtures}>
+							<div className="results-navbar-container">
+								<IoCalendarOutline />
+								Fixtures
+							</div>
+						</Link>
 					</li>
 					<li className={pathname === currentLeague.results ? "active" : ""}>
-						<Link href={currentLeague.results}>Results</Link>
+						<Link href={currentLeague.results}>
+							<div className="results-navbar-container">
+								<IoMedalOutline />
+								Results
+							</div>
+						</Link>
 					</li>
 				</ul>
 			</div>
