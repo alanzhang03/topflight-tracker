@@ -35,7 +35,7 @@ const BundesligaPage = async () => {
 
 	const routeLinks = [
 		{ name: "Standings", path: "/leagues/bundesliga/standings" },
-		{ name: "Fixtures", path: "/leagues/bundesligafixtures" },
+		{ name: "Fixtures", path: "/leagues/bundesliga/fixtures" },
 		{ name: "Results", path: "/leagues/bundesliga/results" },
 	];
 
