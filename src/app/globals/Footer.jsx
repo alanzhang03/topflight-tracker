@@ -7,8 +7,7 @@ const Footer = () => {
 		<>
 			<footer className="footer-section">
 				<p>
-					© 2024 TopFlight Tracker | <Link href="#">Privacy Policy</Link> |{" "}
-					<Link href="#">Terms of Service</Link>
+					© 2024 TopFlight Tracker 
 				</p>
 			</footer>
 		</>
