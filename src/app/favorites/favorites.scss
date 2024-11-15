@@ -1,0 +1,37 @@
+// src/styles/favorites.scss
+
+.favorites-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.league-group {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.league-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.clubs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.favorite-club {
+    width: 120px;
+    text-align: center;
+}
+
+.club-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}

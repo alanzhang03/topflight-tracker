@@ -2,6 +2,7 @@ import "./globals.css";
 import NavbarMain from "./globals/NavbarMain";
 import DynamicNavbar from "./globals/DynamicNavbar";
 import Footer from "./globals/Footer";
+import { FavoritesProvider } from "./context/FavoritesContext";
 
 export const metadata = {
 	title: "TopflightTracker",
@@ -12,10 +13,12 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body>
-				<NavbarMain />
-				<DynamicNavbar />
-				<main>{children}</main>
-				<Footer />
+				<FavoritesProvider>
+					<NavbarMain />
+					<DynamicNavbar />
+					<main>{children}</main>
+					<Footer />
+				</FavoritesProvider>
 			</body>
 		</html>
 	);

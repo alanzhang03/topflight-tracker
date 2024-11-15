@@ -1,10 +1,9 @@
 import React from "react";
 import FixturesTable from "../../../../../components/FixturesTable";
-import { fetchFixtures } from "../../../../../utils/api/fetchFixtures"; 
+import { fetchFixtures } from "../../../../../utils/api/fetchFixtures";
 
 const PremierLeagueFixturesPage = async () => {
-
-	const { fixtures, error } = await fetchFixtures("PL"); 
+	const { fixtures, error } = await fetchFixtures("PL");
 
 	return (
 		<>

@@ -1,73 +1,83 @@
 .clubs-container {
-  text-align: center;
-  margin-left: 1vw;
+	text-align: center;
+	margin-left: 1vw;
 }
 
 .clubs-row {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 10px 0;
-  scrollbar-width: thin;
-  text-decoration: none;
+	display: flex;
+	overflow-x: auto;
+	gap: 20px;
+	padding: 10px 0;
+	scrollbar-width: thin;
+	text-decoration: none;
 }
 
 .club-item {
-  display: inline-block;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  min-width: 150px;
-  opacity: 0;
-  height: 15vh;
+	display: inline-block;
+	background-color: #f9f9f9;
+	padding: 10px;
+	border-radius: 8px;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
+	min-width: 150px;
+	opacity: 0;
+	height: 15vh;
 }
 
 .club-item a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .club-item a:hover {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .club-item:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-  box-shadow: 5px 0px 5px 3px rgba(0, 0, 0, 0.1);
+	transform: scale(1.05);
+	cursor: pointer;
+	box-shadow: 5px 0px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 .club-logo {
-  width: 80px;
-  height: auto;
-  margin-bottom: 1vh;
-  margin-top: 1.5vh;
+	width: 80px;
+	height: auto;
+	margin-bottom: 1vh;
+	margin-top: 1.5vh;
 }
 
 .club-item span {
-  display: block;
-  font-size: 1rem;
-  color: #333;
+	display: block;
+	font-size: 1rem;
+	color: #333;
 }
 
 .clubs-row::-webkit-scrollbar {
-  height: 8px;
+	height: 8px;
 }
 
 .clubs-row::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 4px;
+	background-color: #ccc;
+	border-radius: 4px;
 }
 
 .clubs-row::-webkit-scrollbar-track {
-  background-color: #f9f9f9;
+	background-color: #f9f9f9;
+}
+
+.favorite-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 100;
+}
+
+/* Hover effect for favorite button */
+.favorite-button:hover {
 }
 
 @media (max-width: 1799px) and (min-width: 900px) {
-  .club-item {
-    height: 18vh;
-  }
-
+	.club-item {
+		height: 18vh;
+	}
 }

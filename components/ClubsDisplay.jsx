@@ -1,4 +1,7 @@
+"use client";
+
 import "./styles/ClubsDisplay.scss";
+import { useFavorites } from "@/app/context/FavoritesContext";
 
 const leagueNames = {
 	PL: "Premier League",
@@ -13,6 +16,8 @@ export default function ClubsDisplay({
 	leagueCode,
 	teamLinks,
 }) {
+	const { favorites, toggleFavorite } = useFavorites();
+
 	if (error) {
 		return <p>Error loading clubs: {error}</p>;
 	}
@@ -25,6 +30,7 @@ export default function ClubsDisplay({
 
 	return (
 		<div className="clubs-container">
+			<h2>{leagueName}</h2>
 			<div className="clubs-row">
 				{clubs.map((club) => {
 					const clubLink =
@@ -36,24 +42,33 @@ export default function ClubsDisplay({
 								.replace(/[^a-z0-9\s]/g, "")
 								.replace(/\s+/g, "-")
 						];
+					const isFavorite = favorites.some((fav) => fav.id === club.id);
 
 					return (
-						<a
-							key={club.id}
-							href={clubLink}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="club-item-link"
-						>
-							<div className="club-item">
-								<img
-									src={club.crest}
-									alt={`${club.name} logo`}
-									className="club-logo"
-								/>
-								<span>{club.name}</span>
-							</div>
-						</a>
+						<div key={club.id} className="club-item-container">
+							<button
+								className="favorite-button"
+								onClick={() => toggleFavorite(club)}
+							>
+								{isFavorite ? "❤️" : "🤍"}
+							</button>
+							<a
+								href={clubLink}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="club-item-link"
+							>
+								<div className="club-item">
+									<div></div>
+									<img
+										src={club.crest}
+										alt={`${club.name} logo`}
+										className="club-logo"
+									/>
+									<span>{club.name}</span>
+								</div>
+							</a>
+						</div>
 					);
 				})}
 			</div>
