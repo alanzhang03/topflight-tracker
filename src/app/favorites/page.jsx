@@ -14,7 +14,6 @@ const leagueNames = {
 const FavoritesPage = () => {
 	const { favorites } = useFavorites();
 
-	// Group favorites by league
 	const favoritesByLeague = favorites.reduce((acc, club) => {
 		const leagueCode = club.leagueCode || "Other";
 		if (!acc[leagueCode]) acc[leagueCode] = [];
