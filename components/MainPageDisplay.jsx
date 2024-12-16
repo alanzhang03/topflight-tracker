@@ -15,13 +15,6 @@ const MainPageDisplay = () => {
 		}
 	};
 
-	const handleStartTrackingClick = () => {
-		const leaguesSection = document.querySelector(".leagues-section");
-		if (leaguesSection) {
-			leaguesSection.scrollIntoView({ behavior: "smooth" });
-		}
-	};
-
 	gsap.registerPlugin(ScrollTrigger);
 
 	useGSAP(() => {
