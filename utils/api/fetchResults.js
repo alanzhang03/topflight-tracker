@@ -1,7 +1,7 @@
 import axios from "axios";
 import getRedisClient from "./redisClient";
 
-const CACHE_EXPIRATION_TIME_RESULTS = 3600;
+const CACHE_EXPIRATION_TIME_RESULTS = 7200;
 
 export async function fetchResults(
 	leagueCode,
