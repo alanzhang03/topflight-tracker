@@ -15,6 +15,13 @@ const MainPageDisplay = () => {
 		}
 	};
 
+	const handleStartTrackingClick = () => {
+		const leaguesSection = document.querySelector(".leagues-section");
+		if (leaguesSection) {
+			leaguesSection.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
 	gsap.registerPlugin(ScrollTrigger);
 
 	useGSAP(() => {
@@ -65,7 +72,6 @@ const MainPageDisplay = () => {
 
 	return (
 		<div className="main-page-container">
-			{/* Hero Section */}
 			<div className="hero-section">
 				<div className="hero-content">
 					<h1 className="hero-content-header">
@@ -81,7 +87,6 @@ const MainPageDisplay = () => {
 				</div>
 			</div>
 
-			{/* About Section */}
 			<section className="about-section">
 				<h2>About TopFlight Tracker</h2>
 				<p>
@@ -92,7 +97,6 @@ const MainPageDisplay = () => {
 				</p>
 			</section>
 
-			{/* Featured Leagues Section */}
 			<section className="leagues-section">
 				<h2>Explore the Top Leagues</h2>
 				<div className="leagues-container">
@@ -134,22 +138,17 @@ const MainPageDisplay = () => {
 					</div>
 				</div>
 			</section>
-
-			{/* Call to Action Section */}
 			<section className="cta-section">
 				<div className="cta-section-gsap">
-					<h2>Start Tracking Now</h2>
+					<h2>Start Tracking Your Favorite Leagues and Teams Now</h2>
 					<p>
-						Discover match fixtures, team lineups, and standings in real-time.
-						Click the button below to start exploring your favorite football
-						leagues.
+						Discover match fixtures and results, team lineups, and standings in
+						real-time for all your favorite leagues and teams. Click the button
+						below to start exploring.
 					</p>
-					<button
-						className="cta-button-secondary"
-						onClick={handleGetStartedClick}
-					>
-						Track Matches
-					</button>
+					<Link href="/favorites/" rel="noopener referrer">
+						<button className="cta-button-secondary">Track Matches</button>
+					</Link>
 				</div>
 			</section>
 		</div>
