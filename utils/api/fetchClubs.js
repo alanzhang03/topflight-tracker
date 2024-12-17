@@ -1,7 +1,7 @@
 import axios from "axios";
 import getRedisClient from "./redisClient";
 
-const CACHE_EXPIRATION_TIME_CLUBS = 7776000;
+const CACHE_EXPIRATION_TIME_CLUBS = 7777000;
 
 export async function fetchClubs(leagueCode) {
 	let clubs = [];
