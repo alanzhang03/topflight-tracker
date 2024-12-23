@@ -1,7 +1,7 @@
 import axios from "axios";
 import getRedisClient from "./redisClient";
 
-const CACHE_EXPIRATION_TIME_NEWS = 86400;
+const CACHE_EXPIRATION_TIME_NEWS = 80400;
 
 export async function fetchNews(leagueName) {
 	let news = [];
