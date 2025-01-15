@@ -1,4 +1,4 @@
-// src/app/favorites/page.js
+
 "use client";
 import { useFavorites } from "@/app/context/FavoritesContext";
 import Link from "next/link";
