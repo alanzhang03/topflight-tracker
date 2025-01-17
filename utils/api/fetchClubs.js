@@ -37,5 +37,5 @@ export async function fetchClubs(leagueCode) {
 		console.error("Error fetching clubs data:", error);
 	}
 
-	return { clubs, error };
+	return { clubs, error};
 }
