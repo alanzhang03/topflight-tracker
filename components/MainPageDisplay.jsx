@@ -135,7 +135,7 @@ const MainPageDisplay = () => {
 				<div className="cta-section-gsap">
 					<h2>Start Tracking Your Favorite Leagues and Teams Now</h2>
 					<p>
-						Discover match fixtures and results, team lineups, and standings in
+						Discover match fixtures and recent results, team lineups, and standings in
 						real-time for all your favorite leagues and teams. Click the button
 						below to start exploring.
 					</p>
