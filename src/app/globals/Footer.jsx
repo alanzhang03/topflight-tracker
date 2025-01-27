@@ -7,7 +7,7 @@ const Footer = () => {
 		<>
 			<footer className="footer-section">
 				<p>
-					© 2024 TopFlight Tracker 
+					© 2025 TopFlight Tracker 
 				</p>
 			</footer>
 		</>

@@ -21,7 +21,7 @@ export async function fetchNews(leagueName) {
 					method: "GET",
 					url: "https://api.newscatcherapi.com/v2/search",
 					params: {
-						q: `${leagueName} football Soccer -cricket -NFL -NBA -MLB`,
+						q: `${leagueName} football Soccer -cricket -NFL -NBA -MLB `,
 						lang: "en",
 						sort_by: "relevancy",
 						page: "1",
