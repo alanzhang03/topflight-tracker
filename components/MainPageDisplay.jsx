@@ -83,7 +83,7 @@ const MainPageDisplay = () => {
 			<section className="about-section">
 				<h2>About TopFlight Tracker</h2>
 				<p>
-					TopFlight Tracker is your go-to destination for real-time updates on
+					TopFlight Tracker is your go-to website for real-time updates on
 					football leagues, including standings, fixtures, and team lineups.
 					Stay up-to-date with every match and follow your favorite teams
 					through our intuitive and user-friendly platform.
