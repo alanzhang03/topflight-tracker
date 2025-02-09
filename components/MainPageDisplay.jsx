@@ -137,7 +137,7 @@ const MainPageDisplay = () => {
 					<p>
 						Discover match fixtures, recent results, team lineups, and standings in
 						real-time for all your favorite leagues and teams. Click the button
-						below to start exploring.
+						down below to start exploring.
 					</p>
 					<Link href="/favorites/" rel="noopener referrer">
 						<button className="cta-button-secondary">Track Matches</button>
