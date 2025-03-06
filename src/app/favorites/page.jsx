@@ -23,7 +23,7 @@ const FavoritesPage = () => {
 
 	return (
 		<div className="favorites-container">
-			<h1>Your Favorite Clubs</h1>
+			<h1>Favorite Clubs</h1>
 			{Object.keys(favoritesByLeague).length === 0 ? (
 				<p>
 					Coming Soon!!
