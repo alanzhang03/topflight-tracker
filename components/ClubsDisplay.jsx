@@ -23,7 +23,7 @@ export default function ClubsDisplay({
 	}
 
 	if (!clubs.length) {
-		return <p>No clubs data available.</p>;
+		return <p>No club data available.</p>;
 	}
 
 	const leagueName = leagueNames[leagueCode] || leagueCode;
