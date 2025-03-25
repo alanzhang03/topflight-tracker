@@ -26,7 +26,7 @@ const FavoritesPage = () => {
 			<h1>Favorite Clubs</h1>
 			{Object.keys(favoritesByLeague).length === 0 ? (
 				<p>
-					Coming Soon!!
+					Coming Soon!
 				</p>
 			) : (
 				<div>
