@@ -19,7 +19,7 @@ export default function ClubsDisplay({
 	const { favorites, toggleFavorite } = useFavorites();
 
 	if (error) {
-		return <p>Error loading clubs: {error}</p>;
+		return <p>Error loading clubs {error}</p>;
 	}
 
 	if (!clubs.length) {
