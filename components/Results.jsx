@@ -9,7 +9,7 @@ const leagueNames = {
 
 export default function Results({ results = [], error, leagueCode }) {
 	if (error) {
-		return <p>Error loading results: {error}</p>;
+		return <p>Error loading results:{error}</p>;
 	}
 
 	if (!results.length) {
