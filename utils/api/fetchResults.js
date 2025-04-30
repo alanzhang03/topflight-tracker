@@ -40,7 +40,7 @@ export async function fetchResults(
 		}
 	} catch (err) {
 		error = err.message;
-		console.error("Error fetching results data:", error);
+		console.error("Error fetching results data", error);
 	}
 
 	return { results, error };
