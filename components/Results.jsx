@@ -13,7 +13,7 @@ export default function Results({ results = [], error, leagueCode }) {
 	}
 
 	if (!results.length) {
-		return <p>No results available</p>;
+		return <p>No results available at the moment</p>;
 	}
 
 	const resultsByDate = results.reduce((acc, result) => {
