@@ -49,7 +49,7 @@ export async function fetchNews(leagueName) {
 			}
 		} catch (err) {
 			error = err.message;
-			console.error("Error fetching news data:", error);
+			console.error("Error fetching data:", error);
 		}
 	}
 
