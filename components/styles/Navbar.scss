@@ -1,71 +1,500 @@
-.navbar-prop {
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-	top: 0;
-	z-index: 80;
-	font-size: 1.25rem;
-	background-color: #333;
+/* Modern Navbar Styling */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-size: 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.75rem 0;
 }
 
-.navbar-container-prop {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.navbar:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
 }
 
-.navbar-menu-prop {
-	list-style: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 7rem;
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.navbar-menu-prop li {
-	font-size: 1.25rem;
-	font-weight: 600;
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar-menu-prop li.active a::after {
-	width: 100%;
-}
-.navbar-menu-prop a {
-	text-decoration: none;
-	color: white;
-	position: relative;
+.navbar-menu li {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  position: relative;
 }
 
-.navbar-menu-prop a::after {
-	content: "";
-	position: absolute;
-	width: 0;
-	height: 2px;
-	background-color: white;
-	bottom: -2px;
-	left: 0;
-	transition: width 0.75s ease;
+.navbar-menu a {
+  text-decoration: none;
+  color: #1a1a1a;
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: transparent;
+  overflow: hidden;
 }
 
-.navbar-menu-prop a:hover::after {
-	width: 100%;
+.navbar-menu a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1),
+    rgba(168, 85, 247, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+  z-index: -1;
 }
 
-.results-navbar-container {
-	display: flex;
-	align-items: center;
-	gap: 0.15vw;
+.navbar-menu a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1px;
 }
 
+.navbar-menu a:hover {
+  color: #6366f1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
+}
+
+.navbar-menu a:hover::before {
+  opacity: 1;
+}
+
+.navbar-menu a:hover::after {
+  width: 60%;
+}
+
+.navbar-menu a:active {
+  transform: translateY(0);
+}
+
+/* Mobile Menu Toggle (for future mobile implementation) */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggle:hover {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.navbar-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #1a1a1a;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* Responsive Design */
 @media (min-width: 1800px) {
+  .navbar-menu {
+    gap: 5rem;
+  }
+
+  .navbar-menu li {
+    font-size: 1.2rem;
+  }
+
+  .navbar-container {
+    padding: 0 3rem;
+  }
 }
 
 @media (max-width: 1799px) and (min-width: 900px) {
-	.navbar-prop {
-		height: 6.98vh;
-	}
-	.navbar-menu-prop li {
-		font-size: 1rem;
-	}
+  .navbar {
+    padding: 0.6rem 0;
+  }
+
+  .navbar-menu li {
+    font-size: 1rem;
+  }
+
+  .navbar-menu {
+    gap: 3rem;
+  }
+
+  .navbar-menu a {
+    padding: 0.6rem 1.2rem;
+  }
 }
 
 @media (max-width: 899px) {
+  .navbar {
+    padding: 0.5rem 0;
+  }
+
+  .navbar-container {
+    padding: 0 1rem;
+    justify-content: space-between;
+  }
+
+  .navbar-menu {
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .navbar-menu li {
+    font-size: 0.95rem;
+  }
+
+  .navbar-menu a {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar-menu {
+    gap: 1.5rem;
+  }
+
+  .navbar-menu a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background: rgba(17, 17, 17, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-menu a {
+    color: #f8f9fa;
+  }
+
+  .navbar-menu a:hover {
+    color: #a855f7;
+  }
+
+  .navbar-toggle span {
+    background: #f8f9fa;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar to match navbar theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5b5fff, #9333ea);
+}
+
+/* Modern Dark Navbar Styling (-prop classes) */
+.navbar-prop {
+  background: rgba(51, 51, 51, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  top: 0;
+  z-index: 80;
+  font-size: 1.25rem;
+  position: sticky;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.75rem 0;
+}
+
+.navbar-prop:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-container-prop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.navbar-menu-prop {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu-prop li {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  position: relative;
+}
+
+.navbar-menu-prop a {
+  text-decoration: none;
+  color: #f8f9fa;
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: transparent;
+  overflow: hidden;
+}
+
+.navbar-menu-prop a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.15),
+    rgba(99, 102, 241, 0.15)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.navbar-menu-prop a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a855f7, #6366f1);
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1px;
+}
+
+.navbar-menu-prop li.active a {
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.1);
+}
+
+.navbar-menu-prop li.active a::before {
+  opacity: 1;
+}
+
+.navbar-menu-prop li.active a::after {
+  width: 60%;
+}
+
+.navbar-menu-prop a:hover {
+  color: #a855f7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
+}
+
+.navbar-menu-prop a:hover::before {
+  opacity: 1;
+}
+
+.navbar-menu-prop a:hover::after {
+  width: 60%;
+}
+
+.navbar-menu-prop a:active {
+  transform: translateY(0);
+}
+
+.results-navbar-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.results-navbar-container:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+}
+
+/* Mobile Menu Toggle for -prop navbar */
+.navbar-toggle-prop {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggle-prop:hover {
+  background: rgba(168, 85, 247, 0.1);
+}
+
+.navbar-toggle-prop span {
+  width: 25px;
+  height: 3px;
+  background: #f8f9fa;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* Responsive Design for -prop navbar */
+@media (min-width: 1800px) {
+  .navbar-menu-prop {
+    gap: 5rem;
+  }
+
+  .navbar-menu-prop li {
+    font-size: 1.2rem;
+  }
+
+  .navbar-container-prop {
+    padding: 0 3rem;
+  }
+}
+
+@media (max-width: 1799px) and (min-width: 900px) {
+  .navbar-prop {
+    height: 6.98vh;
+    padding: 0.6rem 0;
+  }
+
+  .navbar-menu-prop li {
+    font-size: 1rem;
+  }
+
+  .navbar-menu-prop {
+    gap: 3rem;
+  }
+
+  .navbar-menu-prop a {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .results-navbar-container {
+    gap: 0.4rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .navbar-prop {
+    padding: 0.5rem 0;
+  }
+
+  .navbar-container-prop {
+    padding: 0 1rem;
+    justify-content: space-between;
+  }
+
+  .navbar-menu-prop {
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .navbar-menu-prop li {
+    font-size: 0.95rem;
+  }
+
+  .navbar-menu-prop a {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .results-navbar-container {
+    gap: 0.3rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar-menu-prop {
+    gap: 1.5rem;
+  }
+
+  .navbar-menu-prop a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .navbar-toggle-prop {
+    display: flex;
+  }
+
+  .results-navbar-container {
+    gap: 0.25rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
