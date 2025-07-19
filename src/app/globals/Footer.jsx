@@ -17,8 +17,8 @@ const Footer = () => {
           <div className="brand-logo">TopFlight Tracker</div>
           <p className="brand-description">
             Your ultimate destination for live football standings, statistics,
-            and insights from Europe's top leagues. Stay updated with real-time
-            data and comprehensive analysis.
+            and insights from Europe&apos;s top leagues. Stay updated with
+            real-time data and comprehensive analysis.
           </p>
         </div>
 
