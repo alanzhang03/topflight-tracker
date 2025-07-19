@@ -9,6 +9,7 @@ const Footer = () => {
   };
 
   return (
+    //   testing
     <footer className="footer-section">
       <div className="footer-content">
         {/* Brand Section */}
