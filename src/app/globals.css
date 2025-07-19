@@ -1,4 +1,4 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
 /* Enhanced with Modern Dark Theme */
 
 /* Document
@@ -607,32 +607,6 @@ template {
 ::-moz-selection {
   background: rgba(99, 102, 241, 0.3);
   color: #f8f9fa;
-}
-
-/* Light mode preference override */
-@media (prefers-color-scheme: light) {
-  /* Users can still override with their own light theme if needed */
-  /* This dark theme will be the default regardless of system preference */
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  body {
-    background: #000000;
-    color: #ffffff;
-  }
-
-  a {
-    color: #ffffff;
-  }
-
-  button,
-  [type="button"],
-  [type="reset"],
-  [type="submit"] {
-    background: #ffffff;
-    color: #000000;
-  }
 }
 
 /* Reduced motion support */

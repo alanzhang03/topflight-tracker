@@ -1,35 +1,18 @@
-/* Modern Dark Standings Styling - SCSS Compatible with JSX */
-:root {
-  --primary-dark: #0a0a0a;
-  --secondary-dark: #1a1a1a;
-  --accent-gradient: linear-gradient(135deg, #6366f1, #a855f7);
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --text-primary: #f8f9fa;
-  --text-secondary: #e5e7eb;
-  --text-muted: #9ca3af;
-  --win-color: #10b981;
-  --loss-color: #ef4444;
-  --draw-color: #6b7280;
-  --qualification-bg: rgba(99, 102, 241, 0.15);
-  --relegation-bg: rgba(239, 68, 68, 0.15);
-  --hover-bg: rgba(99, 102, 241, 0.12);
-  --hover-accent: rgba(99, 102, 241, 0.2);
-}
+/* Modern Dark Standings Styling - CSS Modules Compatible */
 
-.standings-container {
+.standingsContainer {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: var(--text-primary);
-  background: var(--glass-bg);
+  color: #f8f9fa;
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
 
@@ -40,7 +23,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--accent-gradient);
+    background: linear-gradient(135deg, #6366f1, #a855f7);
     z-index: 1;
   }
 
@@ -48,7 +31,7 @@
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0 0 2rem 0;
-    background: var(--accent-gradient);
+    background: linear-gradient(135deg, #6366f1, #a855f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -63,7 +46,7 @@
   }
 }
 
-.standings-table {
+.standingsTable {
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
@@ -74,18 +57,18 @@
 
   thead {
     tr {
-      background: linear-gradient(135deg, var(--secondary-dark), #2d2d2d);
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
     }
 
     th {
-      color: var(--text-primary);
+      color: #f8f9fa;
       font-weight: 600;
       text-align: center;
       padding: 1.25rem 1rem;
       font-size: 0.875rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      border-bottom: 2px solid var(--glass-border);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
       position: relative;
       transition: all 0.3s ease;
       cursor: pointer;
@@ -97,7 +80,7 @@
         left: 0;
         right: 0;
         height: 2px;
-        background: var(--accent-gradient);
+        background: linear-gradient(135deg, #6366f1, #a855f7);
         transform: scaleX(0);
         transition: transform 0.3s ease;
       }
@@ -110,11 +93,6 @@
           transform: scaleX(1);
         }
       }
-
-      &.standings-team-header {
-        text-align: left !important;
-        padding-left: 1.5rem !important;
-      }
     }
   }
 
@@ -126,38 +104,8 @@
       overflow: hidden;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
-      &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 0;
-        background: var(--accent-gradient);
-        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border-radius: 0 8px 8px 0;
-        z-index: 1;
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(99, 102, 241, 0.1),
-          transparent
-        );
-        transition: left 0.6s ease;
-      }
-
-      // Enhanced hover effects
       &:hover {
-        background: var(--hover-bg);
+        background: rgba(99, 102, 241, 0.12);
         transform: translateY(-2px) scale(1.005);
         box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
 
@@ -170,51 +118,14 @@
         }
 
         td {
-          color: var(--text-primary);
+          color: #f8f9fa;
           font-weight: 600;
-        }
-
-        .team-logo {
-          transform: scale(1.15) rotate(5deg);
-          box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
-          filter: brightness(1.1);
-        }
-
-        .standings-team-position {
-          .position-number {
-            background: var(--accent-gradient);
-            transform: scale(1.15) rotate(-5deg);
-            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
-            color: white;
-          }
-        }
-
-        .team-info {
-          span {
-            color: white;
-            text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
-          }
-        }
-
-        .standings-points {
-          transform: scale(1.1);
-          filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6));
-        }
-
-        .goal-positive {
-          transform: scale(1.05);
-          text-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
-        }
-
-        .goal-negative {
-          transform: scale(1.05);
-          text-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
         }
       }
 
       // Qualification zones (top 4 for Champions League)
       &:nth-child(-n + 4) {
-        background: var(--qualification-bg);
+        background: rgba(99, 102, 241, 0.15);
         border-left: 3px solid #6366f1;
 
         &::before {
@@ -225,16 +136,11 @@
           background: rgba(99, 102, 241, 0.25);
           box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
         }
-
-        .standings-team-position {
-          background: rgba(99, 102, 241, 0.2);
-          border-radius: 8px;
-        }
       }
 
       // Relegation zones (bottom 3)
       &:nth-last-child(-n + 3) {
-        background: var(--relegation-bg);
+        background: rgba(239, 68, 68, 0.15);
         border-left: 3px solid #ef4444;
 
         &::before {
@@ -244,11 +150,6 @@
         &:hover {
           background: rgba(239, 68, 68, 0.25);
           box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3);
-        }
-
-        .standings-team-position {
-          background: rgba(239, 68, 68, 0.2);
-          border-radius: 8px;
         }
       }
 
@@ -280,20 +181,27 @@
       padding: 1.25rem 1rem;
       text-align: center;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      color: var(--text-secondary);
+      color: #e5e7eb;
       font-weight: 500;
       position: relative;
     }
   }
 }
 
-.standings-team-position {
+.standingsTeamHeader {
+  text-align: left !important;
+  padding-left: 1.5rem !important;
+}
+
+.standingsTeamPosition {
+  font-weight: 700;
+  color: #f8f9fa;
   position: relative;
   padding: 0.5rem;
 
   // Create position number styling
   &::before {
-    content: attr(data-position);
+    content: "";
     display: flex;
     align-items: center;
     justify-content: center;
@@ -301,11 +209,11 @@
     height: 32px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
-    color: var(--text-primary);
+    color: #f8f9fa;
     font-weight: 700;
     margin: 0 auto;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     position: absolute;
@@ -315,60 +223,79 @@
   }
 
   // For the actual number display
-  font-weight: 700;
-  color: var(--text-primary);
   position: relative;
   z-index: 2;
 }
 
-.team-info {
+.teamInfo {
   display: flex;
   align-items: center;
   text-align: left;
   padding-left: 0.5rem;
 
-  .team-logo {
-    width: 36px;
-    height: 36px;
-    margin-right: 1rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 4px;
-    object-fit: contain;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 4px;
-    border: 1px solid var(--glass-border);
-  }
-
   span {
     font-weight: 600;
-    color: var(--text-primary);
+    color: #f8f9fa;
     letter-spacing: 0.025em;
     transition: all 0.3s ease;
   }
 }
 
-.goal-positive {
-  color: var(--win-color);
+.teamLogo {
+  width: 36px;
+  height: 36px;
+  margin-right: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  .standingsTable tbody tr:hover & {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+    filter: brightness(1.1);
+  }
+}
+
+.goalPositive {
+  color: #10b981;
   font-weight: 700;
   text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
   transition: all 0.3s ease;
+
+  .standingsTable tbody tr:hover & {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+  }
 }
 
-.goal-negative {
-  color: var(--loss-color);
+.goalNegative {
+  color: #ef4444;
   font-weight: 700;
   text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
   transition: all 0.3s ease;
+
+  .standingsTable tbody tr:hover & {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+  }
 }
 
-.standings-points {
+.standingsPoints {
   font-weight: 800;
   font-size: 1.1rem;
-  background: var(--accent-gradient);
+  background: linear-gradient(135deg, #6366f1, #a855f7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   transition: all 0.3s ease;
+
+  .standingsTable tbody tr:hover & {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6));
+  }
 }
 
 // Ripple animation
@@ -381,19 +308,19 @@
 }
 
 // Error and empty states
-.standings-error,
-.standings-empty {
-  background: var(--glass-bg);
+.standingsError,
+.standingsEmpty {
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
   padding: 3rem;
   text-align: center;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
   p {
-    color: var(--text-muted);
+    color: #9ca3af;
     font-size: 1.1rem;
     margin: 0;
   }
@@ -401,7 +328,7 @@
 
 // Enhanced Responsive Design
 @media (min-width: 1800px) {
-  .standings-container {
+  .standingsContainer {
     max-width: 1400px;
     padding: 3rem;
 
@@ -410,7 +337,7 @@
     }
   }
 
-  .standings-table {
+  .standingsTable {
     font-size: 1.1rem;
 
     thead th {
@@ -424,7 +351,7 @@
 }
 
 @media (max-width: 1199px) and (min-width: 900px) {
-  .standings-container {
+  .standingsContainer {
     padding: 1.5rem;
 
     h1 {
@@ -432,13 +359,13 @@
     }
   }
 
-  .standings-table {
+  .standingsTable {
     font-size: 0.95rem;
   }
 }
 
 @media (max-width: 899px) {
-  .standings-container {
+  .standingsContainer {
     padding: 1rem;
     max-width: 100vw;
 
@@ -447,7 +374,7 @@
     }
   }
 
-  .standings-table {
+  .standingsTable {
     font-size: 0.875rem;
 
     thead th {
@@ -460,13 +387,13 @@
     }
   }
 
-  .team-info .team-logo {
+  .teamLogo {
     width: 28px;
     height: 28px;
     margin-right: 0.75rem;
   }
 
-  .standings-team-position::before {
+  .standingsTeamPosition::before {
     width: 28px;
     height: 28px;
     font-size: 0.8rem;
@@ -474,7 +401,7 @@
 }
 
 @media (max-width: 640px) {
-  .standings-container {
+  .standingsContainer {
     padding: 0.75rem;
 
     h1 {
@@ -483,7 +410,7 @@
   }
 
   // Hide some columns on mobile
-  .standings-table {
+  .standingsTable {
     th:nth-child(4),
     th:nth-child(5),
     th:nth-child(6),
@@ -504,75 +431,75 @@
     }
   }
 
-  .team-info {
+  .teamInfo {
     padding-left: 0.25rem;
-
-    .team-logo {
-      width: 24px;
-      height: 24px;
-      margin-right: 0.5rem;
-    }
 
     span {
       font-size: 0.875rem;
     }
   }
 
-  .standings-team-position::before {
+  .teamLogo {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+  }
+
+  .standingsTeamPosition::before {
     width: 24px;
     height: 24px;
     font-size: 0.7rem;
   }
 
   // Reduce hover effects on mobile for better performance
-  .standings-table tbody tr:hover {
+  .standingsTable tbody tr:hover {
     transform: translateY(-1px) scale(1.002);
 
-    .team-logo {
+    .teamLogo {
       transform: scale(1.1);
     }
 
-    .standings-team-position::before {
+    .standingsTeamPosition::before {
       transform: translate(-50%, -50%) scale(1.1);
     }
   }
 }
 
 // Dark mode scrollbar
-.standings-table::-webkit-scrollbar {
+.standingsTable::-webkit-scrollbar {
   height: 8px;
 }
 
-.standings-table::-webkit-scrollbar-track {
+.standingsTable::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 4px;
 }
 
-.standings-table::-webkit-scrollbar-thumb {
-  background: var(--accent-gradient);
+.standingsTable::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
   border-radius: 4px;
 }
 
-.standings-table::-webkit-scrollbar-thumb:hover {
+.standingsTable::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #5b5fff, #9333ea);
 }
 
 // Accessibility improvements
 @media (prefers-reduced-motion: reduce) {
-  .standings-table tbody tr,
-  .standings-table tbody tr::before,
-  .standings-table tbody tr::after,
-  .team-logo,
-  .standings-team-position::before,
-  .team-info span,
-  .standings-points,
-  .goal-positive,
-  .goal-negative {
+  .standingsTable tbody tr,
+  .standingsTable tbody tr::before,
+  .standingsTable tbody tr::after,
+  .teamLogo,
+  .standingsTeamPosition::before,
+  .teamInfo span,
+  .standingsPoints,
+  .goalPositive,
+  .goalNegative {
     transition: none;
     animation: none;
   }
 
-  .standings-table tbody tr:hover {
+  .standingsTable tbody tr:hover {
     transform: none;
   }
 }

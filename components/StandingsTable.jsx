@@ -1,4 +1,4 @@
-import "./styles/StandingsTable.scss";
+import styles from "./styles/StandingsTable.module.scss";
 
 const leagueNames = {
   PL: "Premier League",
@@ -19,13 +19,13 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
   const leagueName = leagueNames[leagueCode] || leagueCode;
 
   return (
-    <div className="standings-container">
+    <div className={styles.standingsContainer}>
       <h1>{leagueName} Standings</h1>
-      <table className="standings-table">
+      <table className={styles.standingsTable}>
         <thead>
           <tr>
             <th>Position</th>
-            <th className="standings-team-header">Club</th>
+            <th className={styles.standingsTeamHeader}>Club</th>
             <th>Played</th>
             <th>Wins</th>
             <th>Losses</th>
@@ -37,13 +37,13 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
         <tbody>
           {standings.map((team) => (
             <tr key={team.team.id}>
-              <td className="standings-team-position">{team.position}</td>
+              <td className={styles.standingsTeamPosition}>{team.position}</td>
 
-              <td className="team-info">
+              <td className={styles.teamInfo}>
                 <img
                   src={team.team.crest}
                   alt={`${team.team.name} logo`}
-                  className="team-logo"
+                  className={styles.teamLogo}
                 />
                 <span>{team.team.name}</span>
               </td>
@@ -54,12 +54,14 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
               <td>{team.draw}</td>
               <td
                 className={
-                  team.goalDifference >= 0 ? "goal-positive" : "goal-negative"
+                  team.goalDifference >= 0
+                    ? styles.goalPositive
+                    : styles.goalNegative
                 }
               >
                 {team.goalDifference}
               </td>
-              <td className="standings-points">{team.points}</td>
+              <td className={styles.standingsPoints}>{team.points}</td>
             </tr>
           ))}
         </tbody>
