@@ -1,6 +1,5 @@
 "use client";
-
-import "./styles/ClubsDisplay.scss";
+import styles from "./styles/ClubsDisplay.module.scss";
 import { useFavorites } from "@/app/context/FavoritesContext";
 
 const leagueNames = {
@@ -19,19 +18,19 @@ export default function ClubsDisplay({
   const { favorites, toggleFavorite } = useFavorites();
 
   if (error) {
-    return <p>Error loading clubs {error}</p>;
+    return <p className={styles.clubsError}>Error loading clubs: {error}</p>;
   }
 
   if (!clubs.length) {
-    return <p>No clubs data available.</p>;
+    return <p className={styles.clubsEmpty}>No clubs data available.</p>;
   }
 
   const leagueName = leagueNames[leagueCode] || leagueCode;
 
   return (
-    <div className="clubs-container">
+    <div className={styles.clubsContainer}>
       <h2>{leagueName}</h2>
-      <div className="clubs-row">
+      <div className={styles.clubsRow}>
         {clubs.map((club) => {
           const clubLink =
             teamLinks[
@@ -45,19 +44,18 @@ export default function ClubsDisplay({
           const isFavorite = favorites.some((fav) => fav.id === club.id);
 
           return (
-            <div key={club.id} className="club-item-container">
+            <div key={club.id} className={styles.clubItemContainer}>
               <a
                 href={clubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="club-item-link"
+                className={styles.clubItemLink}
               >
-                <div className="club-item">
-                  <div></div>
+                <div className={styles.clubItem}>
                   <img
                     src={club.crest}
                     alt={`${club.name} logo`}
-                    className="club-logo"
+                    className={styles.clubLogo}
                   />
                   <span>{club.name}</span>
                 </div>
