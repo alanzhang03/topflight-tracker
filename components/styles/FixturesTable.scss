@@ -192,11 +192,9 @@
 }
 
 .fixture-row:hover .fixtures-time-box {
-  background: linear-gradient(135deg, #ec4899, #f59e0b, #10b981);
   color: white;
   transform: scale(1.15) rotate(-2deg);
   box-shadow: 0 8px 40px rgba(236, 72, 153, 0.6);
-  border-color: #ec4899;
 }
 
 .fixtures-vs-box {

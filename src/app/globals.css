@@ -246,7 +246,6 @@ img {
 
 img:hover {
   transform: scale(1.02);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
 }
 
 /* Forms

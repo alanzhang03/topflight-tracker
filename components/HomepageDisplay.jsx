@@ -34,8 +34,6 @@ const HomepageDisplay = ({
     gsap.set(".nav-link", {
       opacity: 0,
     });
-
-    // Animate to final states using gsap.to()
     gsap.to(".league-logo", {
       y: 0,
       opacity: 1,
@@ -68,16 +66,6 @@ const HomepageDisplay = ({
         from: "start",
       },
       ease: "power2.out",
-    });
-
-    // Optional: Add subtle continuous logo animation after initial load
-    gsap.to(".league-logo", {
-      y: -8,
-      duration: 3,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-      delay: 2,
     });
   }, []);
 

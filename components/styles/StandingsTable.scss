@@ -1,4 +1,4 @@
-/* Modern Dark Standings Styling */
+/* Modern Dark Standings Styling - SCSS Compatible with JSX */
 :root {
   --primary-dark: #0a0a0a;
   --secondary-dark: #1a1a1a;
@@ -13,7 +13,8 @@
   --draw-color: #6b7280;
   --qualification-bg: rgba(99, 102, 241, 0.15);
   --relegation-bg: rgba(239, 68, 68, 0.15);
-  --hover-bg: rgba(99, 102, 241, 0.08);
+  --hover-bg: rgba(99, 102, 241, 0.12);
+  --hover-accent: rgba(99, 102, 241, 0.2);
 }
 
 .standings-container {
@@ -23,224 +24,301 @@
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--text-primary);
-  background: transparent;
-  border-radius: 16px;
-}
-
-.standings-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-.standings-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.025em;
-}
-
-.season-badge {
-  background: var(--accent-gradient);
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.875rem;
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.season-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 48px rgba(99, 102, 241, 0.4);
-}
-
-.standings-table-wrapper {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
-  overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid var(--glass-border);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-bottom: 2rem;
   position: relative;
-}
+  overflow: hidden;
 
-.standings-table-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--accent-gradient);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-gradient);
+    z-index: 1;
+  }
 
-.standings-table-wrapper:hover {
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
-  transform: translateY(-4px);
-}
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 2rem 0;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.025em;
+    transition: all 0.3s ease;
+    text-align: center;
 
-.standings-table-wrapper:hover::before {
-  opacity: 1;
+    &:hover {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.3));
+    }
+  }
 }
 
 .standings-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
-}
+  background: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 
-.standings-table th {
-  background: linear-gradient(135deg, var(--secondary-dark), #2d2d2d);
-  color: var(--text-primary);
-  font-weight: 600;
-  text-align: center;
-  padding: 1.25rem 1rem;
-  font-size: 0.875rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-bottom: 2px solid var(--glass-border);
-  position: relative;
-}
+  thead {
+    tr {
+      background: linear-gradient(135deg, var(--secondary-dark), #2d2d2d);
+    }
 
-.standings-table th::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--accent-gradient);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
+    th {
+      color: var(--text-primary);
+      font-weight: 600;
+      text-align: center;
+      padding: 1.25rem 1rem;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--glass-border);
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
 
-.standings-table th:hover::after {
-  transform: scaleX(1);
-}
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--accent-gradient);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
 
-.standings-table th.standings-team-header {
-  text-align: left !important;
-  padding-left: 1.5rem !important;
-}
+      &:hover {
+        background: linear-gradient(135deg, #2d2d2d, #3d3d3d);
+        color: white;
 
-.standings-table td {
-  padding: 1.25rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  text-align: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  color: var(--text-secondary);
-  font-weight: 500;
-}
+        &::after {
+          transform: scaleX(1);
+        }
+      }
 
-.team-row {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  cursor: pointer;
-}
+      &.standings-team-header {
+        text-align: left !important;
+        padding-left: 1.5rem !important;
+      }
+    }
+  }
 
-.team-row::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 0;
-  background: var(--accent-gradient);
-  transition: width 0.3s ease;
-  border-radius: 0 2px 2px 0;
-}
+  tbody {
+    tr {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
-.team-row:hover {
-  background: var(--hover-bg);
-  transform: translateY(-2px);
-}
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        background: var(--accent-gradient);
+        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 0 8px 8px 0;
+        z-index: 1;
+      }
 
-.team-row:hover::before {
-  width: 4px;
-}
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(99, 102, 241, 0.1),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
 
-.team-row:hover td {
-  color: var(--text-primary);
-}
+      // Enhanced hover effects
+      &:hover {
+        background: var(--hover-bg);
+        transform: translateY(-2px) scale(1.005);
+        box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
 
-.team-row:hover .team-logo {
-  transform: scale(1.1);
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
-}
+        &::before {
+          width: 6px;
+        }
 
-.team-row:hover .position-number {
-  background: var(--accent-gradient);
-  transform: scale(1.1);
-}
+        &::after {
+          left: 100%;
+        }
 
-.team-row.hovered {
-  background: var(--hover-bg);
-}
+        td {
+          color: var(--text-primary);
+          font-weight: 600;
+        }
 
-/* Qualification and relegation zones */
-.team-row.qualification {
-  background: var(--qualification-bg);
-  border-left: 3px solid #6366f1;
-}
+        .team-logo {
+          transform: scale(1.15) rotate(5deg);
+          box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+          filter: brightness(1.1);
+        }
 
-.team-row.qualification:hover {
-  background: rgba(99, 102, 241, 0.2);
-}
+        .standings-team-position {
+          .position-number {
+            background: var(--accent-gradient);
+            transform: scale(1.15) rotate(-5deg);
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+            color: white;
+          }
+        }
 
-.team-row.qualification .position-number {
-  background: rgba(99, 102, 241, 0.8);
-  color: white;
-}
+        .team-info {
+          span {
+            color: white;
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+          }
+        }
 
-.team-row.relegation {
-  background: var(--relegation-bg);
-  border-left: 3px solid #ef4444;
-}
+        .standings-points {
+          transform: scale(1.1);
+          filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6));
+        }
 
-.team-row.relegation:hover {
-  background: rgba(239, 68, 68, 0.2);
-}
+        .goal-positive {
+          transform: scale(1.05);
+          text-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+        }
 
-.team-row.relegation .position-number {
-  background: rgba(239, 68, 68, 0.8);
-  color: white;
+        .goal-negative {
+          transform: scale(1.05);
+          text-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+        }
+      }
+
+      // Qualification zones (top 4 for Champions League)
+      &:nth-child(-n + 4) {
+        background: var(--qualification-bg);
+        border-left: 3px solid #6366f1;
+
+        &::before {
+          background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        &:hover {
+          background: rgba(99, 102, 241, 0.25);
+          box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
+        }
+
+        .standings-team-position {
+          background: rgba(99, 102, 241, 0.2);
+          border-radius: 8px;
+        }
+      }
+
+      // Relegation zones (bottom 3)
+      &:nth-last-child(-n + 3) {
+        background: var(--relegation-bg);
+        border-left: 3px solid #ef4444;
+
+        &::before {
+          background: linear-gradient(135deg, #ef4444, #f87171);
+        }
+
+        &:hover {
+          background: rgba(239, 68, 68, 0.25);
+          box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3);
+        }
+
+        .standings-team-position {
+          background: rgba(239, 68, 68, 0.2);
+          border-radius: 8px;
+        }
+      }
+
+      // Ripple effect on click
+      &:active::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(99, 102, 241, 0.3);
+        transform: translate(-50%, -50%);
+        animation: ripple 0.6s ease-out;
+      }
+
+      // Staggered hover animation
+      &:nth-child(odd):hover {
+        transition-delay: 0s;
+      }
+
+      &:nth-child(even):hover {
+        transition-delay: 0.05s;
+      }
+    }
+
+    td {
+      padding: 1.25rem 1rem;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--text-secondary);
+      font-weight: 500;
+      position: relative;
+    }
+  }
 }
 
 .standings-team-position {
   position: relative;
-}
+  padding: 0.5rem;
 
-.position-number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-primary);
+  // Create position number styling
+  &::before {
+    content: attr(data-position);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    font-weight: 700;
+    margin: 0 auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  // For the actual number display
   font-weight: 700;
-  margin: 0 auto;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-primary);
+  position: relative;
+  z-index: 2;
 }
 
 .team-info {
@@ -248,45 +326,39 @@
   align-items: center;
   text-align: left;
   padding-left: 0.5rem;
-}
 
-.team-logo-container {
-  width: 44px;
-  height: 44px;
-  margin-right: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  border: 1px solid var(--glass-border);
-  transition: all 0.3s ease;
-}
+  .team-logo {
+    width: 36px;
+    height: 36px;
+    margin-right: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    border: 1px solid var(--glass-border);
+  }
 
-.team-logo {
-  max-width: 36px;
-  max-height: 36px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 4px;
-}
-
-.team-name {
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: 0.025em;
-  transition: color 0.3s ease;
+  span {
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.025em;
+    transition: all 0.3s ease;
+  }
 }
 
 .goal-positive {
   color: var(--win-color);
   font-weight: 700;
   text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s ease;
 }
 
 .goal-negative {
   color: var(--loss-color);
   font-weight: 700;
   text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+  transition: all 0.3s ease;
 }
 
 .standings-points {
@@ -296,8 +368,19 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  transition: all 0.3s ease;
 }
 
+// Ripple animation
+@keyframes ripple {
+  to {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+// Error and empty states
 .standings-error,
 .standings-empty {
   background: var(--glass-bg);
@@ -308,95 +391,45 @@
   text-align: center;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border: 1px solid var(--glass-border);
+
+  p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin: 0;
+  }
 }
 
-.standings-error p,
-.standings-empty p {
-  color: var(--text-muted);
-  font-size: 1.1rem;
-  margin: 0;
-}
-
-.standings-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 12px;
-  border: 1px solid var(--glass-border);
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.legend-item:hover {
-  color: var(--text-primary);
-  transform: translateY(-1px);
-}
-
-.legend-color {
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  margin-right: 0.75rem;
-  border: 1px solid var(--glass-border);
-  transition: all 0.3s ease;
-}
-
-.legend-item:hover .legend-color {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.legend-item.qualification .legend-color {
-  background: rgba(99, 102, 241, 0.8);
-}
-
-.legend-item.relegation .legend-color {
-  background: rgba(239, 68, 68, 0.8);
-}
-
-/* Enhanced Responsive Design */
+// Enhanced Responsive Design
 @media (min-width: 1800px) {
   .standings-container {
     max-width: 1400px;
     padding: 3rem;
-  }
 
-  .standings-header h1 {
-    font-size: 3rem;
+    h1 {
+      font-size: 3rem;
+    }
   }
 
   .standings-table {
     font-size: 1.1rem;
-  }
 
-  .standings-table th {
-    padding: 1.5rem 1.25rem;
-  }
+    thead th {
+      padding: 1.5rem 1.25rem;
+    }
 
-  .standings-table td {
-    padding: 1.5rem 1.25rem;
+    tbody td {
+      padding: 1.5rem 1.25rem;
+    }
   }
 }
 
 @media (max-width: 1199px) and (min-width: 900px) {
   .standings-container {
     padding: 1.5rem;
-  }
 
-  .standings-header h1 {
-    font-size: 2rem;
+    h1 {
+      font-size: 2rem;
+    }
   }
 
   .standings-table {
@@ -408,53 +441,32 @@
   .standings-container {
     padding: 1rem;
     max-width: 100vw;
-  }
 
-  .standings-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .standings-header h1 {
-    font-size: 1.75rem;
-  }
-
-  .season-badge {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+    h1 {
+      font-size: 1.75rem;
+    }
   }
 
   .standings-table {
     font-size: 0.875rem;
-  }
 
-  .standings-table th {
-    padding: 1rem 0.75rem;
-    font-size: 0.75rem;
-  }
+    thead th {
+      padding: 1rem 0.75rem;
+      font-size: 0.75rem;
+    }
 
-  .standings-table td {
-    padding: 1rem 0.75rem;
-  }
-
-  .team-info .team-logo-container {
-    width: 36px;
-    height: 36px;
-    margin-right: 0.75rem;
+    tbody td {
+      padding: 1rem 0.75rem;
+    }
   }
 
   .team-info .team-logo {
-    max-width: 28px;
-    max-height: 28px;
+    width: 28px;
+    height: 28px;
+    margin-right: 0.75rem;
   }
 
-  .team-name {
-    font-size: 0.875rem;
-  }
-
-  .position-number {
+  .standings-team-position::before {
     width: 28px;
     height: 28px;
     font-size: 0.8rem;
@@ -464,106 +476,103 @@
 @media (max-width: 640px) {
   .standings-container {
     padding: 0.75rem;
+
+    h1 {
+      font-size: 1.5rem;
+    }
   }
 
-  .standings-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .standings-table th:nth-child(4),
-  .standings-table th:nth-child(5),
-  .standings-table th:nth-child(6),
-  .standings-table td:nth-child(4),
-  .standings-table td:nth-child(5),
-  .standings-table td:nth-child(6) {
-    display: none;
-  }
-
+  // Hide some columns on mobile
   .standings-table {
+    th:nth-child(4),
+    th:nth-child(5),
+    th:nth-child(6),
+    td:nth-child(4),
+    td:nth-child(5),
+    td:nth-child(6) {
+      display: none;
+    }
+
     font-size: 0.8rem;
-  }
 
-  .standings-table th {
-    padding: 0.75rem 0.5rem;
-  }
+    thead th {
+      padding: 0.75rem 0.5rem;
+    }
 
-  .standings-table td {
-    padding: 0.75rem 0.5rem;
+    tbody td {
+      padding: 0.75rem 0.5rem;
+    }
   }
 
   .team-info {
     padding-left: 0.25rem;
+
+    .team-logo {
+      width: 24px;
+      height: 24px;
+      margin-right: 0.5rem;
+    }
+
+    span {
+      font-size: 0.875rem;
+    }
   }
 
-  .team-info .team-logo-container {
-    width: 32px;
-    height: 32px;
-    margin-right: 0.5rem;
-  }
-
-  .team-info .team-logo {
-    max-width: 24px;
-    max-height: 24px;
-  }
-
-  .position-number {
+  .standings-team-position::before {
     width: 24px;
     height: 24px;
     font-size: 0.7rem;
   }
 
-  .standings-legend {
-    gap: 1rem;
-    padding: 1rem;
-  }
+  // Reduce hover effects on mobile for better performance
+  .standings-table tbody tr:hover {
+    transform: translateY(-1px) scale(1.002);
 
-  .legend-item {
-    font-size: 0.8rem;
-  }
+    .team-logo {
+      transform: scale(1.1);
+    }
 
-  .legend-color {
-    width: 12px;
-    height: 12px;
-    margin-right: 0.5rem;
+    .standings-team-position::before {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
   }
 }
 
-/* Dark mode scrollbar for table overflow */
-.standings-table-wrapper::-webkit-scrollbar {
+// Dark mode scrollbar
+.standings-table::-webkit-scrollbar {
   height: 8px;
 }
 
-.standings-table-wrapper::-webkit-scrollbar-track {
+.standings-table::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 4px;
 }
 
-.standings-table-wrapper::-webkit-scrollbar-thumb {
+.standings-table::-webkit-scrollbar-thumb {
   background: var(--accent-gradient);
   border-radius: 4px;
 }
 
-.standings-table-wrapper::-webkit-scrollbar-thumb:hover {
+.standings-table::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #5b5fff, #9333ea);
 }
 
-/* Loading state animation */
-@keyframes standings-shimmer {
-  0% {
-    background-position: -200px 0;
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  .standings-table tbody tr,
+  .standings-table tbody tr::before,
+  .standings-table tbody tr::after,
+  .team-logo,
+  .standings-team-position::before,
+  .team-info span,
+  .standings-points,
+  .goal-positive,
+  .goal-negative {
+    transition: none;
+    animation: none;
   }
-  100% {
-    background-position: calc(200px + 100%) 0;
-  }
-}
 
-.standings-loading {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.05) 25%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.05) 75%
-  );
-  background-size: 200px 100%;
-  animation: standings-shimmer 1.5s infinite;
+  .standings-table tbody tr:hover {
+    transform: none;
+  }
 }
