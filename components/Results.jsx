@@ -1,4 +1,4 @@
-import "./styles/Results.scss";
+import styles from "./styles/Results.module.scss";
 
 const leagueNames = {
   PL: "Premier League",
@@ -9,11 +9,15 @@ const leagueNames = {
 
 export default function Results({ results = [], error, leagueCode }) {
   if (error) {
-    return <p>Error loading results:{error}</p>;
+    return (
+      <p className={styles.resultsError}>Error loading results: {error}</p>
+    );
   }
 
   if (!results.length) {
-    return <p>No results available at the moment</p>;
+    return (
+      <p className={styles.resultsEmpty}>No results available at the moment</p>
+    );
   }
 
   const resultsByDate = results.reduce((acc, result) => {
@@ -37,52 +41,56 @@ export default function Results({ results = [], error, leagueCode }) {
   const leagueName = leagueNames[leagueCode] || leagueCode;
 
   return (
-    <div className="results-container">
+    <div className={styles.resultsContainer}>
       <h1>Results for {leagueName}</h1>
       {sortedDates.map((date) => (
-        <div key={date} className="results-day">
+        <div key={date} className={styles.resultsDay}>
           <h2>{date}</h2>
-          <table className="results-table">
+          <table className={styles.resultsTable}>
             <tbody>
               {resultsByDate[date].map((match) => (
-                <tr key={match.id} className="result-row">
-                  <td className="result-home-team-box">
-                    <div className="home-results-team-info">
+                <tr key={match.id} className={styles.resultRow}>
+                  <td className={styles.resultHomeTeamBox}>
+                    <div className={styles.homeResultsTeamInfo}>
                       <img
                         src={match.homeTeam.crest}
                         alt={`${match.homeTeam.name} logo`}
-                        className="results-team-logo"
+                        className={styles.resultsTeamLogo}
                       />
-                      <span className="results-home-team-name">
+                      <span className={styles.resultsHomeTeamName}>
                         {match.homeTeam.name}
                       </span>
                     </div>
                   </td>
-                  <td className="result-scoreBox">
+                  <td className={styles.resultScoreBox}>
                     <span>
                       {match.score.fullTime.home} - {match.score.fullTime.away}
                     </span>
                   </td>
 
-                  <td className="result-away-team-box">
-                    <div className="away-results-team-info">
+                  <td className={styles.resultAwayTeamBox}>
+                    <div className={styles.awayResultsTeamInfo}>
                       <img
                         src={match.awayTeam.crest}
                         alt={`${match.awayTeam.name} logo`}
-                        className="results-team-logo"
+                        className={styles.resultsTeamLogo}
                       />
-                      <span className="results-away-team-name">
+                      <span className={styles.resultsAwayTeamName}>
                         {match.awayTeam.name}
                       </span>
                     </div>
                   </td>
-                  <td className="results-time-box">
-                    {new Date(match.utcDate).toLocaleTimeString("en-US", {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                      timeZone: "America/New_York",
-                    })}{" "}
-                    EST
+                  <td className={styles.resultsTimeBox}>
+                    <div className={styles.timeWrapper}>
+                      <span className={styles.time}>
+                        {new Date(match.utcDate).toLocaleTimeString("en-US", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          timeZone: "America/New_York",
+                        })}
+                      </span>
+                      <span className={styles.timezone}>EST</span>
+                    </div>
                   </td>
                 </tr>
               ))}
