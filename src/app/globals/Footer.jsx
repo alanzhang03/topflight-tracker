@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import "./Footer.scss";
+import styles from "./Footer.module.scss";
 import Link from "next/link";
 
 const Footer = () => {
@@ -9,13 +9,12 @@ const Footer = () => {
   };
 
   return (
-    //   testing
-    <footer className="footer-section">
-      <div className="footer-content">
+    <footer className={styles.footerSection}>
+      <div className={styles.footerContent}>
         {/* Brand Section */}
-        <div className="footer-brand">
-          <div className="brand-logo">TopFlight Tracker</div>
-          <p className="brand-description">
+        <div className={styles.footerBrand}>
+          <div className={styles.brandLogo}>TopFlight Tracker</div>
+          <p className={styles.brandDescription}>
             Your ultimate destination for live football standings, statistics,
             and insights from Europe&apos;s top leagues. Stay updated with
             real-time data and comprehensive analysis.
@@ -23,7 +22,7 @@ const Footer = () => {
         </div>
 
         {/* Quick Links */}
-        <div className="footer-links">
+        <div className={styles.footerLinks}>
           <h3>Quick Links</h3>
           <ul>
             <li>
@@ -45,7 +44,7 @@ const Footer = () => {
         </div>
 
         {/* Resources */}
-        <div className="footer-links">
+        <div className={styles.footerLinks}>
           <h3>Resources</h3>
           <ul>
             <li>
@@ -67,12 +66,12 @@ const Footer = () => {
         </div>
 
         {/* Social & Newsletter */}
-        <div className="footer-social">
+        <div className={styles.footerSocial}>
           <h3>Stay Connected</h3>
-          <div className="social-links">
+          <div className={styles.socialLinks}>
             <a
               href="https://twitter.com/topflighttracker"
-              className="twitter"
+              className={styles.twitter}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -87,7 +86,7 @@ const Footer = () => {
             </a>
             <a
               href="https://github.com/topflighttracker"
-              className="github"
+              className={styles.github}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -102,7 +101,7 @@ const Footer = () => {
             </a>
             <a
               href="https://linkedin.com/company/topflighttracker"
-              className="linkedin"
+              className={styles.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -117,7 +116,7 @@ const Footer = () => {
             </a>
             <a
               href="https://instagram.com/topflighttracker"
-              className="instagram"
+              className={styles.instagram}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -132,17 +131,11 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className="newsletter">
-            <p
-              style={{
-                color: "#9ca3af",
-                fontSize: "0.9rem",
-                marginBottom: "0.75rem",
-              }}
-            >
+          <div className={styles.newsletter}>
+            <p className={styles.newsletterDescription}>
               Get the latest updates and insights
             </p>
-            <div className="newsletter-input">
+            <div className={styles.newsletterInput}>
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -154,15 +147,15 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer-bottom">
-        <div className="copyright">
-          © 2025 <span className="highlight">TopFlight Tracker</span>. All
-          rights reserved.
+      <div className={styles.footerBottom}>
+        <div className={styles.copyright}>
+          © 2025 <span className={styles.highlight}>TopFlight Tracker</span>.
+          All rights reserved.
         </div>
-        <div className="footer-meta">
+        <div className={styles.footerMeta}>
           <Link href="/privacy">Privacy</Link>
           <Link href="/terms">Terms</Link>
-          <button className="back-to-top" onClick={scrollToTop}>
+          <button className={styles.backToTop} onClick={scrollToTop}>
             Back to Top
           </button>
         </div>
