@@ -2,13 +2,13 @@
 import React from "react";
 import Link from "next/link";
 import { ThemeToggle } from "../../../components/ThemeToggle";
-import "./NavbarMain.scss";
+import styles from "./NavbarMain.module.scss";
 
 const NavbarMain = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <ul className="navbar-menu">
+    <nav className={styles.navbar}>
+      <div className={styles.navbarContainer}>
+        <ul className={styles.navbarMenu}>
           <li>
             <Link href="/">Home</Link>
           </li>
