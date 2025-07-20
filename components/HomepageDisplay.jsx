@@ -5,7 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import "./styles/HomepageDisplay.scss";
+import styles from "./styles/HomepageDisplay.module.scss";
 
 const HomepageDisplay = ({
   leagueName,
@@ -17,31 +17,32 @@ const HomepageDisplay = ({
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
-    gsap.set(".league-logo", {
+    gsap.set(`.${styles.leagueLogo}`, {
       y: -200,
       opacity: 0,
     });
 
-    gsap.set(".homepage-header", {
+    gsap.set(`.${styles.homepageHeader}`, {
       y: -200,
       opacity: 0,
     });
 
-    gsap.set(".homepage-paragraph", {
+    gsap.set(`.${styles.homepageParagraph}`, {
       opacity: 0,
     });
 
-    gsap.set(".nav-link", {
+    gsap.set(`.${styles.navLink}`, {
       opacity: 0,
     });
-    gsap.to(".league-logo", {
+
+    gsap.to(`.${styles.leagueLogo}`, {
       y: 0,
       opacity: 1,
       duration: 1,
       ease: "power2.out",
     });
 
-    gsap.to(".homepage-header", {
+    gsap.to(`.${styles.homepageHeader}`, {
       delay: 0.5,
       y: 0,
       opacity: 1,
@@ -49,14 +50,14 @@ const HomepageDisplay = ({
       ease: "power2.out",
     });
 
-    gsap.to(".homepage-paragraph", {
+    gsap.to(`.${styles.homepageParagraph}`, {
       delay: 1,
       opacity: 1,
       duration: 1,
       ease: "power2.out",
     });
 
-    gsap.to(".nav-link", {
+    gsap.to(`.${styles.navLink}`, {
       delay: 1.25,
       opacity: 1,
       duration: 2,
@@ -70,16 +71,22 @@ const HomepageDisplay = ({
   }, []);
 
   return (
-    <div className="homepage-container">
-      <div className="homepage-hero-section">
-        <div className="homepage-hero-content">
-          <img src={logo} alt={`${leagueName} logo`} className="league-logo" />
-          <h1 className="homepage-header">Welcome to {leagueName} Page</h1>
-          <p className="homepage-paragraph">{description}</p>
+    <div className={styles.homepageContainer}>
+      <div className={styles.homepageHeroSection}>
+        <div className={styles.homepageHeroContent}>
+          <img
+            src={logo}
+            alt={`${leagueName} logo`}
+            className={styles.leagueLogo}
+          />
+          <h1 className={styles.homepageHeader}>
+            Welcome to {leagueName} Page
+          </h1>
+          <p className={styles.homepageParagraph}>{description}</p>
         </div>
-        <nav className="league-nav">
+        <nav className={styles.leagueNav}>
           {routeLinks.map((link, index) => (
-            <Link key={index} href={link.path} className="nav-link">
+            <Link key={index} href={link.path} className={styles.navLink}>
               {link.name}
             </Link>
           ))}

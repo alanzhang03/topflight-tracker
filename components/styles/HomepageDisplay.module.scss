@@ -1,0 +1,245 @@
+/* Homepage Display - CSS Modules Compatible with Dark Theme */
+
+.homepageContainer {
+  text-align: center;
+  margin: 0;
+  height: 65vh;
+  color: #f8f9fa;
+}
+
+.homepageHeroSection {
+  padding: 60px;
+}
+
+.homepageHeroContent {
+  margin: 0 auto;
+}
+
+.leagueLogo {
+  width: 250px;
+  height: auto;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  filter: drop-shadow(0 0 5px white);
+
+  &:hover {
+    filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.5));
+    transform: scale(1.02);
+  }
+}
+
+.homepageHeader {
+  font-size: 2.7rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.homepageParagraph {
+  font-size: 1.2rem;
+  color: #9ca3af;
+  margin-bottom: 20px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.leagueNav {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.navLink {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #fff;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #5b5fff, #9333ea);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 48px rgba(99, 102, 241, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+  }
+}
+
+// Error and empty states (for consistency with other components)
+.homepageError,
+.homepageEmpty {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2rem auto;
+  max-width: 600px;
+  color: #9ca3af;
+  font-size: 1.1rem;
+
+  &.homepageError {
+    color: #ef4444;
+  }
+}
+
+// Responsive design
+@media (max-width: 1799px) and (min-width: 900px) {
+  .leagueLogo {
+    width: 175px;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .homepageHeader {
+    font-size: 2.4rem;
+  }
+
+  .homepageParagraph {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .homepageHeroSection {
+    padding: 40px 20px;
+  }
+
+  .homepageHeader {
+    font-size: 2rem;
+  }
+
+  .homepageParagraph {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .leagueNav {
+    gap: 15px;
+    padding: 0 1rem;
+  }
+
+  .navLink {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .newsContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .homepageNewsItem {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepageHeroSection {
+    padding: 30px 15px;
+  }
+
+  .leagueLogo {
+    width: 120px;
+  }
+
+  .homepageHeader {
+    font-size: 1.8rem;
+  }
+
+  .homepageParagraph {
+    font-size: 0.9rem;
+    padding: 0 1.5rem;
+  }
+
+  .leagueNav {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .navLink {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    min-width: 120px;
+  }
+
+  .newsHeader h2 {
+    font-size: 1.6rem;
+  }
+
+  .newsContainer {
+    gap: 15px;
+  }
+
+  .homepageNewsItem {
+    padding: 11px;
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  .leagueLogo,
+  .navLink {
+    transition: none;
+    animation: none;
+  }
+
+  .leagueLogo:hover {
+    transform: none;
+  }
+
+  .navLink:hover {
+    transform: none;
+  }
+}
