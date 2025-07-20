@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import "./styles/Navbar.scss";
+import styles from "./styles/Navbar.module.scss";
 import { MdOutlineLeaderboard } from "react-icons/md";
 import { IoCalendarOutline } from "react-icons/io5";
 import { IoMedalOutline } from "react-icons/io5";
@@ -40,32 +40,40 @@ export default function Navbar({ league }) {
   const pathname = usePathname();
 
   if (!currentLeague) {
-    return <div>League not found</div>;
+    return <div className={styles.navbarError}>League not found</div>;
   }
 
   return (
-    <nav className="navbar-prop">
-      <div className="navbar-container-prop">
-        <ul className="navbar-menu-prop">
-          <li className={pathname === currentLeague.standings ? "active" : ""}>
+    <nav className={styles.navbarProp}>
+      <div className={styles.navbarContainerProp}>
+        <ul className={styles.navbarMenuProp}>
+          <li
+            className={
+              pathname === currentLeague.standings ? styles.active : ""
+            }
+          >
             <Link href={currentLeague.standings}>
-              <div className="results-navbar-container">
+              <div className={styles.resultsNavbarContainer}>
                 <MdOutlineLeaderboard />
                 Standings
               </div>
             </Link>
           </li>
-          <li className={pathname === currentLeague.fixtures ? "active" : ""}>
+          <li
+            className={pathname === currentLeague.fixtures ? styles.active : ""}
+          >
             <Link href={currentLeague.fixtures}>
-              <div className="results-navbar-container">
+              <div className={styles.resultsNavbarContainer}>
                 <IoCalendarOutline />
                 Fixtures
               </div>
             </Link>
           </li>
-          <li className={pathname === currentLeague.results ? "active" : ""}>
+          <li
+            className={pathname === currentLeague.results ? styles.active : ""}
+          >
             <Link href={currentLeague.results}>
-              <div className="results-navbar-container">
+              <div className={styles.resultsNavbarContainer}>
                 <IoMedalOutline />
                 Results
               </div>

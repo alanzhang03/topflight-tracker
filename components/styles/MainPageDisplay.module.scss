@@ -1,0 +1,543 @@
+/* Modern MainPageDisplay SCSS - CSS Modules Compatible with Dark Theme */
+
+.mainPageContainer {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color: #f8f9fa;
+}
+
+.heroSection {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(/images/hero.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(99, 102, 241, 0.15) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.heroContent {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: white;
+  padding: 60px 50px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 80vw;
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.heroContentHeader {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 24px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroContentParagraph {
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #e5e7eb;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+  padding: 18px 45px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #5b5fff, #9333ea);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 48px rgba(99, 102, 241, 0.4);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+/* About Section */
+.aboutSection {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(99, 102, 241, 0.3),
+      transparent
+    );
+  }
+
+  h2 {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    margin-bottom: 30px;
+    opacity: 0;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #d1d5db;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    opacity: 0;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+}
+
+/* Leagues Section */
+.leaguesSection {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  position: relative;
+
+  h2 {
+    opacity: 0;
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    margin-bottom: 50px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.leaguesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 40px;
+  padding: 20px 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.leagueCard {
+  text-align: center;
+  padding: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      transparent,
+      rgba(99, 102, 241, 0.3),
+      transparent
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+    background: rgba(99, 102, 241, 0.1);
+
+    &::before {
+      opacity: 1;
+    }
+
+    img {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 8px 32px rgba(99, 102, 241, 0.4);
+    }
+  }
+
+  img {
+    width: min(10vw, 120px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    opacity: 0;
+    filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.3));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #e5e7eb;
+  }
+}
+
+.newsItemLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Call to Action Section */
+.ctaSection {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: white;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 30% 70%,
+      rgba(99, 102, 241, 0.15) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    margin-bottom: 30px;
+    color: white;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    line-height: 1.8;
+    color: #e5e7eb;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+}
+
+.ctaSectionGsap {
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaButtonSecondary {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: white;
+  padding: 18px 45px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(168, 85, 247, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #9333ea, #db2777);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 48px rgba(168, 85, 247, 0.4);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+/* News Section */
+.newsSection {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.newsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.newsItem {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 48px rgba(99, 102, 241, 0.3);
+
+    &::before {
+      transform: translateX(0);
+    }
+  }
+
+  img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    color: #f8f9fa;
+    margin-bottom: 12px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  p {
+    color: #d1d5db;
+    line-height: 1.6;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  a {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #a855f7;
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heroContent {
+    padding: 40px 30px;
+    width: 90%;
+  }
+
+  .leaguesContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .leagueCard {
+    padding: 15px;
+
+    img {
+      width: 80px;
+      padding: 12px;
+    }
+  }
+
+  .aboutSection,
+  .leaguesSection,
+  .ctaSection,
+  .newsSection {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent {
+    padding: 30px 20px;
+    width: 95%;
+  }
+
+  .ctaButton,
+  .ctaButtonSecondary {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .leaguesContainer {
+    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .leagueCard {
+    padding: 12px;
+
+    img {
+      width: 60px;
+      padding: 8px;
+    }
+  }
+
+  .newsContainer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  .heroContent,
+  .leagueCard,
+  .ctaButton,
+  .ctaButtonSecondary,
+  .newsItem {
+    transition: none;
+    animation: none;
+  }
+
+  .leagueCard:hover {
+    transform: none;
+  }
+
+  .ctaButton:hover,
+  .ctaButtonSecondary:hover {
+    transform: none;
+  }
+}
