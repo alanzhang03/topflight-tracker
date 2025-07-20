@@ -1,3 +1,4 @@
+// import "./styles/FixturesTable.scss"
 import styles from "./styles/FixturesTable.module.scss";
 
 const leagueNames = {
