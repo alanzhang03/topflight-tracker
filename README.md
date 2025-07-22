@@ -15,6 +15,7 @@ TopFlight Tracker is a football statistics web application built using Next.js. 
 - **GSAP**: GreenSock Animation Platform for smooth animations throughout the website.
 - **Football-Data API**: Provides football data like fixtures, standings, results, and teams for various leagues.
 - **NewscatcherAPI**: Provides news articles from trusted sources related to football.
+- **SCSS**: Used for styling
 
 
 ## API Usage
