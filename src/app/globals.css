@@ -1,5 +1,4 @@
-/* Import Premier League-style fonts to match global normalize.css */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+/* Essential Global Styles Only - Cleaned for CSS Modules */
 
 /* Global font application to match normalize.css styling */
 * {
@@ -8,17 +7,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  box-sizing: border-box;
 }
 
-/* Override global styles to match your normalize.css dark theme */
+/* Essential HTML/Body styles for layout and theme */
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
   scroll-behavior: smooth;
   background: #0a0a0a;
   color: #f8f9fa;
+  height: 100%;
 }
 
 body {
@@ -26,124 +25,27 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
+  padding: 0;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
   color: #f8f9fa;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
 }
 
-.homepage-container {
-  text-align: center;
-  margin: 0;
-  height: 65vh;
-}
-
-.homepage-hero-section {
-  padding: 60px;
-}
-
-.homepage-hero-content {
-  margin: 0 auto;
-}
-
-.league-logo {
-  width: 250px;
-  height: auto;
-  margin-bottom: 30px;
-  filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.3));
-  transition: all 0.3s ease;
-}
-
-.league-logo:hover {
-  filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.5));
-  transform: scale(1.02);
-}
-
-.homepage-header {
-  font-size: 2.7rem;
-  margin-bottom: 20px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
-}
-
-.homepage-paragraph {
-  font-size: 1.2rem;
-  color: #9ca3af;
-  margin-bottom: 20px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  line-height: 1.6;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.league-nav {
-  margin-top: 30px;
+/* Next.js root container */
+#__next {
   display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.nav-link {
-  display: inline-block;
-  padding: 15px 30px;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  color: #fff;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.025em;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  position: relative;
-  overflow: hidden;
+/* Main content area should grow to fill space */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.nav-link::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s ease;
-}
-
-.nav-link:hover {
-  background: linear-gradient(135deg, #5b5fff, #9333ea);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 48px rgba(99, 102, 241, 0.4);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.nav-link:hover::before {
-  left: 100%;
-}
-
-.nav-link:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
-}
-
-/* Global heading and text styling to match normalize.css */
+/* Global heading styling to match normalize.css */
 h1 {
   font-size: 2.5em;
   margin: 0.67em 0;
@@ -222,6 +124,7 @@ button,
   border-radius: 8px;
   padding: 0.5rem 1rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
 }
 
 button:hover,
@@ -233,101 +136,66 @@ button:hover,
   box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
 }
 
-/* Premier League branded text styling */
-.premier-league-text {
-  font-weight: 700;
-  font-size: 2.5rem;
+/* Global form elements */
+input,
+textarea,
+select {
+  font-family: inherit;
+  color: #f8f9fa;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Custom scrollbar for consistency */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(17, 17, 17, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.025em;
+  border-radius: 4px;
 }
 
-@media (max-width: 1799px) and (min-width: 900px) {
-  .league-logo {
-    width: 175px;
-    height: auto;
-    margin-bottom: 30px;
-  }
-
-  .homepage-header {
-    font-size: 2.4rem;
-  }
-
-  .homepage-paragraph {
-    font-size: 1.1rem;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5b5fff, #9333ea);
 }
 
-@media (max-width: 768px) {
-  .homepage-header {
-    font-size: 2rem;
-  }
-
-  .homepage-paragraph {
-    font-size: 1rem;
-    padding: 0 1rem;
-  }
-
-  .league-nav {
-    gap: 15px;
-    padding: 0 1rem;
-  }
-
-  .nav-link {
-    padding: 12px 24px;
-    font-size: 1rem;
-  }
-
-  .news-container {
-    grid-template-columns: 1fr;
-  }
-
-  .homepage-news-item {
-    padding: 15px;
-  }
+/* Selection styling */
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: #f8f9fa;
 }
 
-@media (max-width: 480px) {
-  .league-logo {
-    width: 120px;
+::-moz-selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: #f8f9fa;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 
-  .homepage-header {
-    font-size: 1.8rem;
-  }
-
-  .homepage-paragraph {
-    font-size: 0.9rem;
-    padding: 0 1.5rem;
-  }
-
-  .league-nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .nav-link {
-    padding: 10px 20px;
-    font-size: 0.95rem;
-    min-width: 120px;
-  }
-
-  .news-header h2 {
-    font-size: 1.6rem;
-  }
-
-  .news-container {
-    gap: 15px;
-  }
-
-  .homepage-news-item {
-    padding: 11px;
-  }
-
-  .premier-league-text {
-    font-size: 1.8rem;
+  html {
+    scroll-behavior: auto;
   }
 }
