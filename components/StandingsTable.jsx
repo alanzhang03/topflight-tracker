@@ -12,50 +12,10 @@ const leagueNames = {
 };
 
 export default function StandingsTable({ standings = [], error, leagueCode }) {
-  if (error) {
-    return <p>Error loading standings: {error}</p>;
-  }
-
-  if (standings.length === 0) {
-    return <p>No standings data available.</p>;
-  }
-
-  const leagueName = leagueNames[leagueCode] || leagueCode;
-
-  //sorting features
   const [sortConfig, setSortConfig] = useState({
     direction: "asc",
     key: null,
   });
-
-  const getSortIndicator = (key) => {
-    if (sortConfig.key !== key)
-      return (
-        <>
-          {" "}
-          <FaArrowsUpDown />
-        </>
-      );
-    return sortConfig.direction === "asc" ? (
-      <>
-        {" "}
-        <FaArrowUp />
-      </>
-    ) : (
-      <>
-        {" "}
-        <FaArrowDown />
-      </>
-    );
-  };
-
-  const handleSort = (key) => {
-    let direction = "asc";
-    if (sortConfig.key === key && sortConfig.direction === "asc") {
-      direction = "desc";
-    }
-    setSortConfig({ key, direction });
-  };
 
   const sortedStandings = useMemo(() => {
     if (!sortConfig.key) return standings;
@@ -113,6 +73,46 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
       }
     });
   }, [standings, sortConfig]);
+
+  // NOW you can do conditional returns
+  if (error) {
+    return <p>Error loading standings: {error}</p>;
+  }
+
+  if (standings.length === 0) {
+    return <p>No standings data available.</p>;
+  }
+
+  const leagueName = leagueNames[leagueCode] || leagueCode;
+
+  const getSortIndicator = (key) => {
+    if (sortConfig.key !== key)
+      return (
+        <>
+          {" "}
+          <FaArrowsUpDown />
+        </>
+      );
+    return sortConfig.direction === "asc" ? (
+      <>
+        {" "}
+        <FaArrowUp />
+      </>
+    ) : (
+      <>
+        {" "}
+        <FaArrowDown />
+      </>
+    );
+  };
+
+  const handleSort = (key) => {
+    let direction = "asc";
+    if (sortConfig.key === key && sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+    setSortConfig({ key, direction });
+  };
 
   return (
     <div className={styles.standingsContainer}>
