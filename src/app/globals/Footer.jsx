@@ -29,16 +29,16 @@ const Footer = () => {
               <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/premier-league">Premier League</Link>
+              <Link href="/leagues/premier-league">Premier League</Link>
             </li>
             <li>
-              <Link href="/bundesliga">Bundesliga</Link>
+              <Link href="/leagues/bundesliga">Bundesliga</Link>
             </li>
             <li>
-              <Link href="/la-liga">La Liga</Link>
+              <Link href="/leagues/la-liga">La Liga</Link>
             </li>
             <li>
-              <Link href="/champions-league">Champions League</Link>
+              <Link href="/leagues/champions-league">Champions League</Link>
             </li>
           </ul>
         </div>
@@ -48,19 +48,19 @@ const Footer = () => {
           <h3>Resources</h3>
           <ul>
             <li>
-              <Link href="/about">About Us</Link>
+              <Link href="/ex/about">About Us</Link>
             </li>
             <li>
-              <Link href="/api">API Documentation</Link>
+              <Link href="/ex/apiDoc">API Documentation</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/ex/contact">Contact</Link>
             </li>
             <li>
-              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/ex/privacy">Privacy Policy</Link>
             </li>
             <li>
-              <Link href="/terms">Terms of Service</Link>
+              <Link href="/ex/TOS">Terms of Service</Link>
             </li>
           </ul>
         </div>
