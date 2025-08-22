@@ -26,7 +26,7 @@ const AboutPage = () => {
     },
     {
       icon: <Calendar className={styles.iconBlue} />,
-      title: "Fixtures & Schedule",
+      title: "Fixtures and Schedule",
       description:
         "Never miss a match with comprehensive fixture lists and upcoming game schedules.",
     },
