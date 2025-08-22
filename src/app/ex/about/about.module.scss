@@ -1,0 +1,557 @@
+// About Page Styles - Matching global dark theme
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #111827 0%, #000000 100%);
+  color: #f8f9fa;
+}
+
+// Hero Section
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #4f46e5, #9333ea, #ec4899);
+  padding: 6rem 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.heroContent {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.heroIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+
+  svg {
+    width: 48px;
+    height: 48px;
+    color: white;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff, #e5e7eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+.heroDescription {
+  font-size: 1.25rem;
+  color: #e5e7eb;
+  max-width: 48rem;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  color: white;
+
+  &:hover {
+    background: linear-gradient(135deg, #5b5fff, #9333ea);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
+  }
+}
+
+.secondaryButton {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  background: transparent;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Stats Section
+.statsSection {
+  padding: 4rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.containerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statNumber {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+.statLabel {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+// Mission Section
+.missionSection {
+  padding: 5rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba(17, 24, 39, 0.5),
+    rgba(0, 0, 0, 0.5)
+  );
+  backdrop-filter: blur(10px);
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e5e7eb;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.missionText {
+  font-size: 1.125rem;
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.missionFeature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #d1d5db;
+}
+
+.missionIcon {
+  width: 24px;
+  height: 24px;
+  color: #6366f1;
+}
+
+.missionCard {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.8),
+    rgba(147, 51, 234, 0.8)
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.missionCardIcon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+}
+
+.missionCardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.missionCardText {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+// Section Headers
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.25rem;
+  color: #9ca3af;
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+// Leagues Section
+.leaguesSection {
+  padding: 5rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.leaguesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.leagueCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+  }
+}
+
+.leagueIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+  }
+}
+
+.leaguePurple {
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+}
+
+.leagueRed {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+}
+
+.leagueGray {
+  background: linear-gradient(135deg, #374151, #111827);
+}
+
+.leagueIndigo {
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+}
+
+.leagueTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 0.5rem;
+}
+
+.leagueCountry {
+  color: #9ca3af;
+}
+
+// Features Section
+.featuresSection {
+  padding: 5rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba(17, 24, 39, 0.3),
+    rgba(0, 0, 0, 0.3)
+  );
+  backdrop-filter: blur(10px);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+  }
+}
+
+.featureIcon {
+  margin-bottom: 1rem;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.iconGreen svg {
+  color: #34d399;
+}
+
+.iconYellow svg {
+  color: #fbbf24;
+}
+
+.iconBlue svg {
+  color: #60a5fa;
+}
+
+.iconPurple svg {
+  color: #c084fc;
+}
+
+.featureTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 0.75rem;
+}
+
+.featureDescription {
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+// Technology Section
+.technologySection {
+  padding: 5rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.technologyContainer {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.technologyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.technologyItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.technologyIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  svg {
+    width: 32px;
+    height: 32px;
+    color: white;
+  }
+}
+
+.technologyText {
+  color: white;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.techGray {
+  background: linear-gradient(135deg, #374151, #111827);
+}
+
+.techGreen {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+.techBlue {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.techPurple {
+  background: linear-gradient(135deg, #9333ea, #7c3aed);
+}
+
+.technologyTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 0.5rem;
+}
+
+.technologyDescription {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+// CTA Section
+.ctaSection {
+  padding: 5rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.8),
+    rgba(147, 51, 234, 0.8)
+  );
+  backdrop-filter: blur(10px);
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.ctaDescription {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ctaPrimaryButton,
+.ctaSecondaryButton {
+  padding: 1rem 2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.ctaPrimaryButton {
+  background: white;
+  color: #4f46e5;
+
+  &:hover {
+    background: #f3f4f6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.ctaSecondaryButton {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  background: transparent;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
