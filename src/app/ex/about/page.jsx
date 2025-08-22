@@ -96,9 +96,9 @@ const AboutPage = () => {
           </div>
           <h1 className={styles.heroTitle}>About TopFlight Tracker</h1>
           <p className={styles.heroDescription}>
-            Your ultimate destination for tracking Europe's most prestigious
-            football leagues. Get live scores, standings, fixtures, and breaking
-            news all in one place.
+            Your ultimate destination for tracking the most prestigious football
+            leagues in Europe. Get live scores, standings, fixtures, and
+            breaking news all in one place.
           </p>
           <div className={styles.buttonContainer}>
             <button className={styles.primaryButton}>Explore Leagues</button>
@@ -128,20 +128,20 @@ const AboutPage = () => {
             <div className={styles.missionContent}>
               <h2 className={styles.sectionTitle}>Our Mission</h2>
               <p className={styles.missionText}>
-                Football is more than just a game - it's a passion that unites
+                Football is more than just a game - it is a passion that unites
                 millions across the globe. TopFlight Tracker was created to
                 bring you closer to the action, providing comprehensive coverage
-                of Europe's most elite football competitions.
+                of the most elite football competitions in Europe.
               </p>
               <p className={styles.missionText}>
-                Whether you're tracking your favorite team's journey to glory or
-                staying up-to-date with the latest transfer news, we've got you
-                covered with real-time data and insights from the beautiful
+                Whether you are tracking your favorite teams journey to glory or
+                staying up-to-date with the latest transfer news, we have got
+                you covered with real-time data and insights from the beautiful
                 game.
               </p>
               <div className={styles.missionFeature}>
                 <Globe className={styles.missionIcon} />
-                <span>Covering Europe's top football leagues</span>
+                <span>Covering the top Europe football leagues</span>
               </div>
             </div>
             <div className={styles.missionCard}>
@@ -162,8 +162,8 @@ const AboutPage = () => {
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Leagues We Cover</h2>
             <p className={styles.sectionSubtitle}>
-              Follow the action from Europe's most prestigious football
-              competitions
+              Follow the action from the most prestigious football competitions
+              across Europe
             </p>
           </div>
           <div className={styles.leaguesGrid}>
@@ -248,7 +248,7 @@ const AboutPage = () => {
             </h2>
             <p className={styles.ctaDescription}>
               Join thousands of football fans who rely on TopFlight Tracker for
-              the latest scores, standings, and news from Europe's top leagues.
+              the latest scores, standings, and news from top leagues in Europe.
             </p>
             <div className={styles.ctaButtons}>
               <button className={styles.ctaPrimaryButton}>
