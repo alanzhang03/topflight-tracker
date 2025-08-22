@@ -255,7 +255,7 @@ const AboutPage = () => {
                 View Live Scores
               </button>
               <button className={styles.ctaSecondaryButton}>
-                Check Standings
+                Check League Standings
               </button>
             </div>
           </div>
