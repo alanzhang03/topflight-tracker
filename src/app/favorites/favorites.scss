@@ -28,6 +28,11 @@
 .favorite-club {
   width: 120px;
   text-align: center;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .club-logo {
@@ -35,4 +40,124 @@
   height: 100px;
   object-fit: contain;
   margin-bottom: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .favorites-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .favorites-container {
+    padding: 0 1.5rem;
+  }
+
+  .clubs-grid {
+    gap: 0.8rem;
+  }
+
+  .favorite-club {
+    width: 110px;
+  }
+
+  .club-logo {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .favorites-container {
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+
+  .league-title {
+    font-size: 1.3rem;
+  }
+
+  .clubs-grid {
+    gap: 0.7rem;
+    justify-content: center;
+  }
+
+  .favorite-club {
+    width: 100px;
+  }
+
+  .club-logo {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .favorites-container {
+    padding: 0 0.8rem;
+    gap: 1.2rem;
+  }
+
+  .league-title {
+    font-size: 1.2rem;
+  }
+
+  .clubs-grid {
+    gap: 0.6rem;
+  }
+
+  .favorite-club {
+    width: 90px;
+  }
+
+  .club-logo {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .favorites-container {
+    padding: 0 0.5rem;
+    gap: 1rem;
+  }
+
+  .league-title {
+    font-size: 1.1rem;
+  }
+
+  .clubs-grid {
+    gap: 0.5rem;
+  }
+
+  .favorite-club {
+    width: 80px;
+  }
+
+  .club-logo {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 375px) {
+  .favorites-container {
+    padding: 0 0.3rem;
+  }
+
+  .clubs-grid {
+    gap: 0.4rem;
+  }
+
+  .favorite-club {
+    width: 70px;
+  }
+
+  .club-logo {
+    width: 50px;
+    height: 50px;
+  }
 }

@@ -181,11 +181,28 @@
 
     li {
       font-size: 0.95rem;
+      min-width: 120px;
     }
 
     a {
       padding: 0.5rem 1rem;
       font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbarMenu {
+    gap: 1.5rem;
+
+    li {
+      font-size: 0.9rem;
+      min-width: 100px;
+    }
+
+    a {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.85rem;
     }
   }
 }

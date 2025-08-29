@@ -199,3 +199,124 @@ select:focus {
     scroll-behavior: auto;
   }
 }
+
+/* Global Responsive Design */
+@media (max-width: 1200px) {
+  h1 {
+    font-size: 2.2em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  h3 {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 992px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
+    margin: 0.5em 0;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin: 0.7em 0;
+  }
+
+  h3 {
+    font-size: 1.2em;
+    margin: 0.8em 0;
+  }
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.6em;
+    margin: 0.4em 0;
+  }
+
+  h2 {
+    font-size: 1.4em;
+    margin: 0.6em 0;
+  }
+
+  h3 {
+    font-size: 1.1em;
+    margin: 0.7em 0;
+  }
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.4em;
+    margin: 0.3em 0;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+  }
+
+  h3 {
+    font-size: 1em;
+    margin: 0.6em 0;
+  }
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 1.2em;
+    margin: 0.25em 0;
+  }
+
+  h2 {
+    font-size: 1.1em;
+    margin: 0.4em 0;
+  }
+
+  h3 {
+    font-size: 0.95em;
+    margin: 0.5em 0;
+  }
+}

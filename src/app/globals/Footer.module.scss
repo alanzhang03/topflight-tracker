@@ -378,6 +378,27 @@
 }
 
 // Responsive Design
+@media (max-width: 1200px) {
+  .footerSection {
+    padding: 2.5rem 1.5rem 1.5rem;
+  }
+
+  .footerContent {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .footerSection {
+    padding: 2.5rem 1.25rem 1.5rem;
+  }
+
+  .footerContent {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .footerSection {
     padding: 2rem 1rem 1.5rem;
@@ -416,6 +437,25 @@
     button {
       width: 100%;
     }
+  }
+}
+
+@media (max-width: 576px) {
+  .footerSection {
+    padding: 1.75rem 0.75rem 1.25rem;
+  }
+
+  .footerContent {
+    gap: 1.5rem;
+  }
+
+  .brandLogo {
+    font-size: 1.6rem;
+  }
+
+  .footerLinks h3,
+  .footerSocial h3 {
+    font-size: 1.05rem;
   }
 }
 
