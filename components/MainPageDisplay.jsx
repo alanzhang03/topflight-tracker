@@ -89,7 +89,9 @@ const MainPageDisplay = () => {
           TopFlight Tracker is your go-to website for real-time updates on
           football leagues, including standings, fixtures, and team lineups.
           Stay up-to-date with every match and follow your favorite teams
-          through our intuitive and user-friendly platform.
+          through our intuitive and user-friendly platform. All data is
+          automatically updated in the background, ensuring you always have the
+          latest information.
         </p>
       </section>
 

@@ -1,0 +1,92 @@
+CRON JOB EXAMPLES FOR AUTOMATIC UPDATES
+========================================
+
+These examples show how to set up automatic updates using cron jobs on Unix/Linux systems.
+
+1. UPDATE ALL LEAGUES EVERY 6 HOURS
+   # Update standings, results, and fixtures every 6 hours
+   0 */6 * * * cd /path/to/your/project && node scripts/trigger-update.js update
+
+2. UPDATE RESULTS MORE FREQUENTLY (EVERY 2 HOURS)
+   # Update results every 2 hours for more frequent match updates
+   0 */2 * * * cd /path/to/your/project && node scripts/trigger-update.js update
+
+3. UPDATE SPECIFIC LEAGUE EVERY 4 HOURS
+   # Update Premier League every 4 hours
+   0 */4 * * * cd /path/to/your/project && node scripts/trigger-update.js update PL
+
+4. MORNING AND EVENING UPDATES
+   # Update at 8 AM and 8 PM daily
+   0 8,20 * * * cd /path/to/your/project && node scripts/trigger-update.js update
+
+5. WEEKEND MATCH DAY UPDATES
+   # Update every 2 hours on weekends (when most matches happen)
+   0 */2 * * 6,0 cd /path/to/your/project && node scripts/trigger-update.js update
+
+6. START SERVICE ON BOOT
+   # Start the auto-update service when system boots
+   @reboot cd /path/to/your/project && node scripts/trigger-update.js start
+
+7. STOP SERVICE AT NIGHT
+   # Stop service at 2 AM (when no matches are happening)
+   0 2 * * * cd /path/to/your/project && node scripts/trigger-update.js stop
+
+8. START SERVICE IN MORNING
+   # Start service at 6 AM
+   0 6 * * * cd /path/to/your/project && node scripts/trigger-update.js start
+
+SETTING UP CRON JOBS:
+=====================
+
+1. Open crontab editor:
+   crontab -e
+
+2. Add your desired cron job line(s)
+
+3. Save and exit
+
+4. Verify cron jobs:
+   crontab -l
+
+ENVIRONMENT VARIABLES:
+=====================
+
+Make sure to set the BASE_URL environment variable in your crontab:
+
+# Add this to your crontab before the cron jobs
+BASE_URL=https://yourdomain.com
+
+# Or set it inline with each job:
+0 */6 * * * cd /path/to/your/project && BASE_URL=https://yourdomain.com node scripts/trigger-update.js update
+
+GITHUB ACTIONS ALTERNATIVE:
+==========================
+
+If you prefer GitHub Actions, create .github/workflows/auto-update.yml:
+
+name: Auto Update Football Data
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: |
+          cd /path/to/your/project
+          npm install
+          BASE_URL=https://yourdomain.com node scripts/trigger-update.js update
+
+NOTES:
+======
+- Adjust the paths in the cron examples to match your actual project location
+- The auto-update service will handle the actual update intervals internally
+- Cron jobs are just a backup/trigger mechanism
+- Consider your API rate limits when setting update frequencies
+- Test cron jobs with shorter intervals first before setting long-term schedules

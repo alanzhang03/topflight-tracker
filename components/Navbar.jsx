@@ -7,8 +7,11 @@ import styles from "./styles/Navbar.module.scss";
 import { MdOutlineLeaderboard } from "react-icons/md";
 import { IoCalendarOutline } from "react-icons/io5";
 import { IoMedalOutline } from "react-icons/io5";
+import { useAutoUpdate } from "../src/app/hooks/useAutoUpdate";
 
 export default function Navbar({ league }) {
+  const { status } = useAutoUpdate();
+
   const leagueUrls = {
     epl: {
       name: "Premier League",
@@ -46,6 +49,10 @@ export default function Navbar({ league }) {
   return (
     <nav className={styles.navbarProp}>
       <div className={styles.navbarContainerProp}>
+        <div className={styles.liveIndicator}>
+          <span className={styles.liveDot}></span>
+          Live
+        </div>
         <ul className={styles.navbarMenuProp}>
           <li
             className={
