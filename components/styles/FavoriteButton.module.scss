@@ -1,0 +1,171 @@
+.favoriteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.1);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: 2px solid #ef4444;
+    outline-offset: 2px;
+  }
+
+  .icon {
+    transition: all 0.2s ease;
+
+    &.filled {
+      color: #ef4444;
+      animation: heartBeat 0.3s ease;
+    }
+
+    &.outlined {
+      color: #6b7280;
+
+      &:hover {
+        color: #ef4444;
+      }
+    }
+  }
+
+  .text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #6b7280;
+    transition: color 0.2s ease;
+  }
+
+  &:hover .text {
+    color: #ef4444;
+  }
+}
+
+// Size variants
+.small {
+  padding: 6px;
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .text {
+    font-size: 0.7rem;
+  }
+}
+
+.medium {
+  padding: 8px;
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .text {
+    font-size: 0.8rem;
+  }
+}
+
+.large {
+  padding: 12px;
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .text {
+    font-size: 0.9rem;
+  }
+}
+
+// Heart beat animation
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .favoriteButton {
+    padding: 6px;
+
+    .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .text {
+      font-size: 0.75rem;
+    }
+  }
+
+  .large {
+    padding: 10px;
+
+    .icon {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .favoriteButton {
+    padding: 5px;
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .text {
+      font-size: 0.7rem;
+    }
+  }
+
+  .large {
+    padding: 8px;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  .favoriteButton,
+  .icon {
+    transition: none;
+    animation: none;
+  }
+
+  .favoriteButton:hover {
+    transform: none;
+  }
+}
