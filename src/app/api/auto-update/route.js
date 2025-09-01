@@ -1,6 +1,19 @@
 import { NextResponse } from "next/server";
 import autoUpdateService from "../../../../utils/api/autoUpdateService.js";
 
+// Ensure service starts when API is first accessed
+let serviceInitialized = false;
+if (!serviceInitialized) {
+  serviceInitialized = true;
+  console.log(
+    "🌐 API route accessed - ensuring auto-update service is running"
+  );
+  // Trigger service initialization if not already running
+  if (!autoUpdateService.isRunning) {
+    autoUpdateService.attemptStart();
+  }
+}
+
 export async function GET(request) {
   try {
     const status = autoUpdateService.getStatus();

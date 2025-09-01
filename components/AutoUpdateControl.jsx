@@ -31,35 +31,28 @@ const AutoUpdateControl = () => {
   return (
     <div className={styles.autoUpdateControl}>
       <div className={styles.header}>
-        <h3>🔄 Auto-Update Control</h3>
+        <h3>🔄 Automatic Data Updates</h3>
         <div className={styles.statusIndicator}>
           <span
             className={`${styles.dot} ${
               status.isRunning ? styles.running : styles.stopped
             }`}
           ></span>
-          {status.isRunning ? "Running" : "Stopped"}
+          {status.isRunning ? "Active" : "Starting..."}
         </div>
       </div>
 
       {error && <div className={styles.error}>❌ Error: {error}</div>}
 
-      <div className={styles.controls}>
-        <button
-          onClick={startService}
-          disabled={loading || status.isRunning}
-          className={`${styles.btn} ${styles.startBtn}`}
-        >
-          {loading ? "Starting..." : "Start Auto-Updates"}
-        </button>
-
-        <button
-          onClick={stopService}
-          disabled={loading || !status.isRunning}
-          className={`${styles.btn} ${styles.stopBtn}`}
-        >
-          {loading ? "Stopping..." : "Stop Auto-Updates"}
-        </button>
+      <div className={styles.automaticNotice}>
+        <p>
+          ✅ <strong>Fully Automated:</strong> Data updates run automatically in
+          the background. No manual intervention required!
+        </p>
+        <p>
+          🔄 The system automatically starts when the server loads and maintains
+          continuous updates.
+        </p>
       </div>
 
       <div className={styles.info}>

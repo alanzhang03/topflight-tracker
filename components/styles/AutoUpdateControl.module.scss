@@ -57,6 +57,25 @@
     font-size: 0.9rem;
   }
 
+  .automaticNotice {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+
+    p {
+      margin: 0 0 10px 0;
+      font-size: 1rem;
+      line-height: 1.5;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
   .controls {
     display: flex;
     gap: 12px;

@@ -23,17 +23,59 @@ class AutoUpdateService {
     this.updateInterval = null;
     this.lastUpdate = {};
     this.matchDaySchedule = new Map();
+    this.initializationAttempts = 0;
+    this.maxInitializationAttempts = 5;
 
-    this.autoStart();
+    // Start immediately and also set up multiple fallback mechanisms
+    this.initializeService();
   }
 
-  async autoStart() {
-    setTimeout(async () => {
+  async initializeService() {
+    console.log("🚀 Initializing auto-update service...");
+
+    // Try to start immediately
+    await this.attemptStart();
+
+    // Set up multiple fallback timers to ensure service starts
+    setTimeout(() => this.attemptStart(), 2000);
+    setTimeout(() => this.attemptStart(), 5000);
+    setTimeout(() => this.attemptStart(), 10000);
+    setTimeout(() => this.attemptStart(), 30000);
+
+    // Set up a periodic check to ensure service stays running
+    setInterval(() => {
       if (!this.isRunning) {
-        console.log("Auto-starting update service...");
-        await this.start();
+        console.log("🔄 Service not running, attempting restart...");
+        this.attemptStart();
       }
-    }, 5000);
+    }, 5 * 60 * 1000); // Check every 5 minutes
+  }
+
+  async attemptStart() {
+    if (this.isRunning) {
+      return;
+    }
+
+    if (this.initializationAttempts >= this.maxInitializationAttempts) {
+      console.log("⚠️ Max initialization attempts reached, will retry later");
+      this.initializationAttempts = 0; // Reset for next cycle
+      return;
+    }
+
+    this.initializationAttempts++;
+
+    try {
+      console.log(
+        `🔄 Attempting to start auto-update service (attempt ${this.initializationAttempts})...`
+      );
+      await this.start();
+      console.log("✅ Auto-update service started successfully");
+    } catch (error) {
+      console.error(
+        `❌ Failed to start auto-update service (attempt ${this.initializationAttempts}):`,
+        error.message
+      );
+    }
   }
 
   async start() {
