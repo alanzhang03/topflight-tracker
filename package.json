@@ -15,8 +15,7 @@
     "auto-update:start": "node scripts/trigger-update.js start",
     "auto-update:stop": "node scripts/trigger-update.js stop",
     "auto-update:status": "node scripts/trigger-update.js status",
-    "auto-update:init": "node scripts/init-auto-update.js",
-    "postbuild": "node scripts/init-auto-update.js"
+    "auto-update:init": "node scripts/init-auto-update.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
