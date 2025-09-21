@@ -1,0 +1,452 @@
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #111827 0%, #000000 100%);
+  color: #f8f9fa;
+}
+
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #dc2626, #b91c1c, #991b1b);
+  padding: 6rem 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.heroContent {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.heroIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+
+  svg {
+    width: 48px;
+    height: 48px;
+    color: white;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff, #e5e7eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+.heroDescription {
+  font-size: 1.25rem;
+  color: #e5e7eb;
+  max-width: 48rem;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: white;
+
+  &:hover {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3);
+  }
+}
+
+.secondaryButton {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  background: transparent;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Key Points Section
+.keyPointsSection {
+  padding: 4rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.containerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e5e7eb;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.sectionSubtitle {
+  font-size: 1.25rem;
+  color: #9ca3af;
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.keyPointsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.keyPointItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+.keyPointIcon {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: #10b981;
+  }
+}
+
+.checkIcon {
+  color: #10b981;
+}
+
+.keyPointText {
+  color: #d1d5db;
+  line-height: 1.6;
+  margin: 0;
+}
+
+// Content Section
+.contentSection {
+  padding: 5rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba(17, 24, 39, 0.5),
+    rgba(0, 0, 0, 0.5)
+  );
+  backdrop-filter: blur(10px);
+}
+
+.sectionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.sectionCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+  }
+}
+
+.sectionIcon {
+  margin-bottom: 1rem;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.iconBlue svg {
+  color: #60a5fa;
+}
+
+.iconGreen svg {
+  color: #34d399;
+}
+
+.iconPurple svg {
+  color: #c084fc;
+}
+
+.iconYellow svg {
+  color: #fbbf24;
+}
+
+.sectionCardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.sectionCardContent {
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+// Additional Terms Section
+.additionalSection {
+  padding: 5rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.additionalContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.termsList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.termItem {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.termTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.termContent {
+  color: #d1d5db;
+  line-height: 1.7;
+  margin: 0;
+}
+
+// Contact Section
+.contactSection {
+  padding: 5rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba(17, 24, 39, 0.3),
+    rgba(0, 0, 0, 0.3)
+  );
+  backdrop-filter: blur(10px);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.contactCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+  }
+}
+
+.contactIconContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  svg {
+    width: 32px;
+    height: 32px;
+    color: #6366f1;
+  }
+}
+
+.contactIcon {
+  color: #6366f1;
+}
+
+.contactTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 0.5rem;
+}
+
+.contactDescription {
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.contactValue {
+  color: #d1d5db;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+// CTA Section
+.ctaSection {
+  padding: 5rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba(220, 38, 38, 0.8),
+    rgba(185, 28, 28, 0.8)
+  );
+  backdrop-filter: blur(10px);
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.ctaDescription {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ctaPrimaryButton,
+.ctaSecondaryButton {
+  padding: 1rem 2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.ctaPrimaryButton {
+  background: white;
+  color: #dc2626;
+
+  &:hover {
+    background: #f3f4f6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.ctaSecondaryButton {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  background: transparent;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
