@@ -1,71 +1,13 @@
-/* Modern Navbar Styling - CSS Modules Compatible with Dark Theme */
+/* Secondary Navbar Styling - Standings, Fixtures, Results */
 
-/* Standard navbar (keeping for compatibility) */
-.navbar {
-  background: rgba(255, 255, 255, 0.05);
-  font-size: 1.25rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.2s ease;
-  padding: 0.75rem 0;
-}
-
-.navbarContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.navbarMenu {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4rem;
-  margin: 0;
-  padding: 0;
-
-  li {
-    font-size: 1.1rem;
-    font-weight: 500;
-    letter-spacing: 0.025em;
-    position: relative;
-  }
-
-  a {
-    text-decoration: none;
-    color: #f8f9fa;
-    position: relative;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    display: inline-block;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      sans-serif;
-    background: transparent;
-
-    &:hover {
-      color: #a855f7;
-      background: rgba(168, 85, 247, 0.1);
-    }
-  }
-}
-
-/* Modern Dark Navbar Styling (main component) */
 .navbarProp {
   background: rgba(17, 17, 17, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  top: 0;
-  z-index: 80;
+  top: 80px;
+  z-index: 998;
   font-size: 1.25rem;
   position: sticky;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -206,32 +148,6 @@
   }
 }
 
-/* Mobile Menu Toggle */
-.navbarToggle,
-.navbarToggleProp {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 0.5rem;
-  background: none;
-  border: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: rgba(168, 85, 247, 0.1);
-  }
-
-  span {
-    width: 25px;
-    height: 3px;
-    background: #f8f9fa;
-    margin: 3px 0;
-    transition: 0.3s;
-    border-radius: 2px;
-  }
-}
-
 // Error state
 .navbarError {
   background: rgba(255, 255, 255, 0.05);
@@ -249,7 +165,6 @@
 
 /* Responsive Design */
 @media (min-width: 1800px) {
-  .navbarMenu,
   .navbarMenuProp {
     gap: 5rem;
 
@@ -258,19 +173,17 @@
     }
   }
 
-  .navbarContainer,
   .navbarContainerProp {
     padding: 0 3rem;
   }
 }
 
 @media (max-width: 1799px) and (min-width: 900px) {
-  .navbar,
   .navbarProp {
     padding: 0.6rem 0;
+    top: 70px;
   }
 
-  .navbarMenu,
   .navbarMenuProp {
     gap: 3rem;
 
@@ -290,18 +203,16 @@
 }
 
 @media (max-width: 899px) {
-  .navbar,
   .navbarProp {
     padding: 0.5rem 0;
+    top: 60px;
   }
 
-  .navbarContainer,
   .navbarContainerProp {
     padding: 0 1rem;
     justify-content: space-between;
   }
 
-  .navbarMenu,
   .navbarMenuProp {
     gap: 2rem;
     flex-wrap: wrap;
@@ -323,7 +234,10 @@
 }
 
 @media (max-width: 640px) {
-  .navbarMenu,
+  .navbarProp {
+    top: 50px;
+  }
+
   .navbarMenuProp {
     gap: 1.5rem;
 
@@ -331,11 +245,6 @@
       padding: 0.4rem 0.8rem;
       font-size: 0.85rem;
     }
-  }
-
-  .navbarToggle,
-  .navbarToggleProp {
-    display: flex;
   }
 
   .resultsNavbarContainer {
@@ -347,16 +256,13 @@
 
 // Accessibility improvements
 @media (prefers-reduced-motion: reduce) {
-  .navbar,
   .navbarProp,
-  .navbarMenu a,
   .navbarMenuProp a,
   .resultsNavbarContainer {
     transition: none;
     animation: none;
   }
 
-  .navbarMenu a:hover,
   .navbarMenuProp a:hover {
     transform: none;
   }

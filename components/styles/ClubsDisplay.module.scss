@@ -182,34 +182,6 @@
   animation-delay: 0.9s;
 }
 
-// Favorite button styling (if needed later)
-.favoriteButton {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 8px;
-  padding: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #e5e7eb;
-
-  &:hover {
-    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
-    transform: scale(1.1);
-    background: rgba(99, 102, 241, 0.2);
-    border-color: #6366f1;
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-}
-
 /* Responsive Design */
 @media (min-width: 1800px) {
   .clubsContainer {
@@ -305,12 +277,6 @@
     width: 50px;
     height: 50px;
     margin-bottom: 8px;
-  }
-
-  .favoriteButton {
-    top: 8px;
-    right: 8px;
-    padding: 4px;
   }
 }
 

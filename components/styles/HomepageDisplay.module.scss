@@ -81,27 +81,6 @@
   }
 }
 
-// Error and empty states (for consistency with other components)
-.homepageError,
-.homepageEmpty {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 16px;
-  padding: 3rem;
-  text-align: center;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 2rem auto;
-  max-width: 600px;
-  color: #9ca3af;
-  font-size: 1.1rem;
-
-  &.homepageError {
-    color: #ef4444;
-  }
-}
-
 // Responsive design
 @media (max-width: 1799px) and (min-width: 900px) {
   .leagueLogo {
@@ -142,14 +121,6 @@
     padding: 12px 24px;
     font-size: 1rem;
   }
-
-  .newsContainer {
-    grid-template-columns: 1fr;
-  }
-
-  .homepageNewsItem {
-    padding: 15px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -180,18 +151,6 @@
     padding: 10px 20px;
     font-size: 0.95rem;
     min-width: 120px;
-  }
-
-  .newsHeader h2 {
-    font-size: 1.6rem;
-  }
-
-  .newsContainer {
-    gap: 15px;
-  }
-
-  .homepageNewsItem {
-    padding: 11px;
   }
 }
 
