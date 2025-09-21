@@ -301,7 +301,7 @@ const PrivacyPage = () => {
                   You have the right to:
                   <br />
                   <br />
-                  • Clear your browser's local storage to remove stored
+                  • Clear your browser&apos;s local storage to remove stored
                   preferences
                   <br />
                   • Disable cookies through your browser settings
@@ -323,7 +323,7 @@ const PrivacyPage = () => {
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Questions About Privacy?</h2>
             <p className={styles.sectionSubtitle}>
-              We're committed to transparency and are here to answer your
+              We&apos;re committed to transparency and are here to answer your
               privacy questions
             </p>
           </div>
@@ -352,7 +352,7 @@ const PrivacyPage = () => {
             <p className={styles.ctaDescription}>
               We are committed to protecting your privacy and being transparent
               about our data practices. If you have any questions or concerns,
-              please don't hesitate to contact us.
+              please don&apos;t hesitate to contact us.
             </p>
             <div className={styles.ctaButtons}>
               <button className={styles.ctaPrimaryButton}>

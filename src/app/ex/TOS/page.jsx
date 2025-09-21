@@ -225,7 +225,7 @@ const TOSPage = () => {
               Questions About These Terms?
             </h2>
             <p className={styles.sectionSubtitle}>
-              We're here to help clarify any questions you may have
+              We&apos;re here to help clarify any questions you may have
             </p>
           </div>
           <div className={styles.contactGrid}>
