@@ -13,58 +13,28 @@
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0 0 2rem 0;
-    background: linear-gradient(135deg, #6366f1, #a855f7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #f8f9fa;
     letter-spacing: -0.025em;
     text-align: center;
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.3));
-    }
   }
 }
 
 .resultsDay {
   margin-bottom: 3rem;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 16px;
+  border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
-  }
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
   h2 {
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    background: #1a1a1a;
     color: #f8f9fa;
     font-weight: 600;
     font-size: 1.2rem;
     margin: 0;
-    padding: 1.5rem 2rem;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 10%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(135deg, #6366f1, #a855f7);
-      border-radius: 1px;
-    }
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -76,54 +46,33 @@
 
   tbody {
     .resultRow {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.2s ease;
       position: relative;
       cursor: pointer;
       background: rgba(255, 255, 255, 0.02);
-      border-radius: 12px;
-      margin-bottom: 8px;
+      border-radius: 6px;
+      margin-bottom: 4px;
       display: table-row;
 
-      &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 0;
-        background: linear-gradient(135deg, #6366f1, #a855f7);
-        transition: width 0.3s ease;
-        border-radius: 12px 0 0 12px;
-        z-index: 1;
-      }
-
       &:hover {
-        background: rgba(99, 102, 241, 0.12);
-        transform: translateY(-2px) scale(1.002);
-        box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
-
-        &::before {
-          width: 5px;
-        }
+        background: rgba(99, 102, 241, 0.08);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
         .resultsTeamLogo {
-          transform: scale(1.15) rotate(2deg);
-          box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
-          filter: brightness(1.1);
+          transform: scale(1.05);
         }
 
         .resultScoreBox {
-          background: linear-gradient(135deg, #6366f1, #a855f7);
+          background: #6366f1;
           color: white;
-          transform: scale(1.08);
-          box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+          transform: scale(1.05);
         }
 
         .resultsHomeTeamName,
         .resultsAwayTeamName {
           color: #f8f9fa;
           font-weight: 700;
-          text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
         }
 
         .timeWrapper {
@@ -204,15 +153,14 @@
 }
 
 .resultsTeamLogo {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
   object-fit: contain;
   background: rgba(255, 255, 255, 0.06);
-  padding: 4px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .resultsHomeTeamName,
@@ -228,36 +176,21 @@
 .resultScoreBox {
   width: 8%;
   text-align: center;
-  font-weight: 900;
-  font-size: 1.6rem;
+  font-weight: 700;
+  font-size: 1.4rem;
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 0.8rem 0.6rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  border-radius: 6px;
+  padding: 0.6rem 0.4rem;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: #f8f9fa;
   position: relative;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
 
   span {
     display: block;
-    letter-spacing: 0.08em;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.05em;
     white-space: nowrap;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #6366f1, #a855f7);
-    border-radius: 8px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
   }
 }
 

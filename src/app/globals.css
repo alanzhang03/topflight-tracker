@@ -51,10 +51,7 @@ h1 {
   margin: 0.67em 0;
   font-weight: 700;
   letter-spacing: -0.025em;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #f8f9fa;
   text-align: center;
 }
 
@@ -115,15 +112,15 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
+  background: #6366f1;
   color: white;
   border: none;
   cursor: pointer;
   font-weight: 500;
   letter-spacing: 0.025em;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 0.5rem 1rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.2s ease;
   font-family: inherit;
 }
 
@@ -131,9 +128,7 @@ button:hover,
 [type="button"]:hover,
 [type="reset"]:hover,
 [type="submit"]:hover {
-  background: linear-gradient(135deg, #5b5fff, #9333ea);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
+  background: #5b5fff;
 }
 
 /* Global form elements */
@@ -159,8 +154,8 @@ select:focus {
 
 /* Custom scrollbar for consistency */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -168,12 +163,12 @@ select:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  border-radius: 4px;
+  background: #6366f1;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #5b5fff, #9333ea);
+  background: #5b5fff;
 }
 
 /* Selection styling */

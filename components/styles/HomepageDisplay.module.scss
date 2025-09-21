@@ -16,27 +16,22 @@
 }
 
 .leagueLogo {
-  width: 250px;
+  width: 200px;
   height: auto;
-  margin-bottom: 30px;
-  transition: all 0.3s ease;
-  border-radius: 12px;
-  filter: drop-shadow(0 0 5px white);
+  margin-bottom: 24px;
+  transition: transform 0.2s ease;
+  border-radius: 8px;
 
   &:hover {
-    filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.5));
     transform: scale(1.02);
   }
 }
 
 .homepageHeader {
-  font-size: 2.7rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
   font-weight: 700;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #f8f9fa;
   letter-spacing: -0.025em;
   line-height: 1.2;
 }
@@ -63,53 +58,26 @@
 
 .navLink {
   display: inline-block;
-  padding: 15px 30px;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
+  padding: 12px 24px;
+  background: #6366f1;
   color: #fff;
-  border-radius: 12px;
-  font-size: 1.1rem;
+  border-radius: 6px;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.025em;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
+  transition: all 0.2s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  position: relative;
-  overflow: hidden;
   opacity: 0;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
-    transition: left 0.5s ease;
-  }
-
   &:hover {
-    background: linear-gradient(135deg, #5b5fff, #9333ea);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 48px rgba(99, 102, 241, 0.4);
-    border-color: rgba(255, 255, 255, 0.2);
-
-    &::before {
-      left: 100%;
-    }
+    background: #5b5fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 
   &:active {
     transform: translateY(0);
-    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
   }
 }
 
