@@ -335,7 +335,7 @@ const APIDocPage = () => {
               <h2 className={styles.sectionTitle}>API Overview</h2>
               <p className={styles.sectionSubtitle}>
                 TopFlight Tracker provides a comprehensive REST API for
-                accessing football data from major European leagues
+                accessing football data from major European leagues.
               </p>
             </div>
 
