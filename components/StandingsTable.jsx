@@ -191,9 +191,11 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
               <td>{team.draw}</td>
               <td
                 className={
-                  team.goalDifference >= 0
+                  team.goalDifference > 0
                     ? styles.goalPositive
-                    : styles.goalNegative
+                    : team.goalDifference < 0
+                    ? styles.goalNegative
+                    : ""
                 }
               >
                 {team.goalDifference}

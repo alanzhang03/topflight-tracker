@@ -261,7 +261,7 @@
 }
 
 .goalPositive {
-  color: #10b981;
+  color: #10b981 !important;
   font-weight: 700;
   text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
   transition: all 0.3s ease;
@@ -273,7 +273,7 @@
 }
 
 .goalNegative {
-  color: #ef4444;
+  color: #ef4444 !important;
   font-weight: 700;
   text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
   transition: all 0.3s ease;
