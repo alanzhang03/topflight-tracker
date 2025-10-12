@@ -1,4 +1,7 @@
+"use client";
 import styles from "./styles/Results.module.scss";
+import { useState, useMemo } from "react";
+import { FaSearch, FaTimes } from "react-icons/fa";
 
 const leagueNames = {
   PL: "Premier League",
@@ -8,6 +11,8 @@ const leagueNames = {
 };
 
 export default function Results({ results = [], error, leagueCode }) {
+  const [filterText, setFilterText] = useState("");
+
   if (error) {
     return (
       <p className={styles.resultsError}>Error loading results: {error}</p>
@@ -20,7 +25,17 @@ export default function Results({ results = [], error, leagueCode }) {
     );
   }
 
-  const resultsByDate = results.reduce((acc, result) => {
+  const filteredResults = useMemo(() => {
+    if (!filterText.trim()) return results;
+
+    return results.filter(
+      (result) =>
+        result.homeTeam.name.toLowerCase().includes(filterText.toLowerCase()) ||
+        result.awayTeam.name.toLowerCase().includes(filterText.toLowerCase())
+    );
+  }, [results, filterText]);
+
+  const resultsByDate = filteredResults.reduce((acc, result) => {
     const resultDate = new Date(result.utcDate).toLocaleDateString("en-GB", {
       weekday: "long",
       day: "numeric",
@@ -40,9 +55,40 @@ export default function Results({ results = [], error, leagueCode }) {
 
   const leagueName = leagueNames[leagueCode] || leagueCode;
 
+  const clearFilter = () => {
+    setFilterText("");
+  };
+
   return (
     <div className={styles.resultsContainer}>
       <h1>Results for {leagueName}</h1>
+
+      <div className={styles.searchContainer}>
+        <div className={styles.searchInputWrapper}>
+          <FaSearch className={styles.searchIcon} />
+          <input
+            type="text"
+            placeholder="Search for a team..."
+            value={filterText}
+            onChange={(e) => setFilterText(e.target.value)}
+            className={styles.searchInput}
+          />
+          {filterText && (
+            <button
+              onClick={clearFilter}
+              className={styles.clearButton}
+              aria-label="Clear search"
+            >
+              <FaTimes />
+            </button>
+          )}
+        </div>
+        {filterText && (
+          <div className={styles.filterResults}>
+            Showing {filteredResults.length} of {results.length} results
+          </div>
+        )}
+      </div>
       {sortedDates.map((date) => (
         <div key={date} className={styles.resultsDay}>
           <h2>{date}</h2>

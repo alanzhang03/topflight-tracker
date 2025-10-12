@@ -1,5 +1,8 @@
 // import "./styles/FixturesTable.scss"
+"use client";
 import styles from "./styles/FixturesTable.module.scss";
+import { useState, useMemo } from "react";
+import { FaSearch, FaTimes } from "react-icons/fa";
 
 const leagueNames = {
   PL: "Premier League",
@@ -9,6 +12,8 @@ const leagueNames = {
 };
 
 export default function FixturesTable({ fixtures = [], error, leagueCode }) {
+  const [filterText, setFilterText] = useState("");
+
   if (error) {
     return (
       <p className={styles.fixturesError}>Error loading fixtures: {error}</p>
@@ -21,7 +26,19 @@ export default function FixturesTable({ fixtures = [], error, leagueCode }) {
     );
   }
 
-  const fixturesByDate = fixtures.reduce((acc, fixture) => {
+  const filteredFixtures = useMemo(() => {
+    if (!filterText.trim()) return fixtures;
+
+    return fixtures.filter(
+      (fixture) =>
+        fixture.homeTeam.name
+          .toLowerCase()
+          .includes(filterText.toLowerCase()) ||
+        fixture.awayTeam.name.toLowerCase().includes(filterText.toLowerCase())
+    );
+  }, [fixtures, filterText]);
+
+  const fixturesByDate = filteredFixtures.reduce((acc, fixture) => {
     const fixtureDate = new Date(fixture.utcDate).toLocaleDateString("en-GB", {
       weekday: "long",
       day: "numeric",
@@ -36,9 +53,40 @@ export default function FixturesTable({ fixtures = [], error, leagueCode }) {
 
   const leagueName = leagueNames[leagueCode] || leagueCode;
 
+  const clearFilter = () => {
+    setFilterText("");
+  };
+
   return (
     <div className={styles.fixturesContainer}>
       <h1>Upcoming Fixtures for {leagueName}</h1>
+
+      <div className={styles.searchContainer}>
+        <div className={styles.searchInputWrapper}>
+          <FaSearch className={styles.searchIcon} />
+          <input
+            type="text"
+            placeholder="Search for a team..."
+            value={filterText}
+            onChange={(e) => setFilterText(e.target.value)}
+            className={styles.searchInput}
+          />
+          {filterText && (
+            <button
+              onClick={clearFilter}
+              className={styles.clearButton}
+              aria-label="Clear search"
+            >
+              <FaTimes />
+            </button>
+          )}
+        </div>
+        {filterText && (
+          <div className={styles.filterResults}>
+            Showing {filteredFixtures.length} of {fixtures.length} fixtures
+          </div>
+        )}
+      </div>
       {Object.keys(fixturesByDate).map((date) => (
         <div key={date} className={styles.fixturesDay}>
           <h2>{date}</h2>

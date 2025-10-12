@@ -1,7 +1,7 @@
 "use client";
 import styles from "./styles/StandingsTable.module.scss";
 import { useState, useMemo } from "react";
-import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import { FaArrowUp, FaArrowDown, FaSearch, FaTimes } from "react-icons/fa";
 import { FaArrowsUpDown } from "react-icons/fa6";
 
 const leagueNames = {
@@ -16,11 +16,21 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
     direction: "asc",
     key: null,
   });
+  const [filterText, setFilterText] = useState("");
 
-  const sortedStandings = useMemo(() => {
-    if (!sortConfig.key) return standings;
+  const filteredAndSortedStandings = useMemo(() => {
+    // First filter by team name
+    let filtered = standings;
+    if (filterText.trim()) {
+      filtered = standings.filter((team) =>
+        team.team.name.toLowerCase().includes(filterText.toLowerCase())
+      );
+    }
 
-    return [...standings].sort((a, b) => {
+    // Then sort if needed
+    if (!sortConfig.key) return filtered;
+
+    return [...filtered].sort((a, b) => {
       let aValue, bValue;
       switch (sortConfig.key) {
         case "position":
@@ -72,7 +82,7 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
         }
       }
     });
-  }, [standings, sortConfig]);
+  }, [standings, sortConfig, filterText]);
 
   // NOW you can do conditional returns
   if (error) {
@@ -114,9 +124,43 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
     setSortConfig({ key, direction });
   };
 
+  const clearFilter = () => {
+    setFilterText("");
+  };
+
   return (
     <div className={styles.standingsContainer}>
       <h1>{leagueName} Standings</h1>
+
+      {/* Search Filter Bar */}
+      <div className={styles.searchContainer}>
+        <div className={styles.searchInputWrapper}>
+          <FaSearch className={styles.searchIcon} />
+          <input
+            type="text"
+            placeholder="Search for a team..."
+            value={filterText}
+            onChange={(e) => setFilterText(e.target.value)}
+            className={styles.searchInput}
+          />
+          {filterText && (
+            <button
+              onClick={clearFilter}
+              className={styles.clearButton}
+              aria-label="Clear search"
+            >
+              <FaTimes />
+            </button>
+          )}
+        </div>
+        {filterText && (
+          <div className={styles.filterResults}>
+            Showing {filteredAndSortedStandings.length} of {standings.length}{" "}
+            teams
+          </div>
+        )}
+      </div>
+
       <table className={styles.standingsTable}>
         <thead>
           <tr>
@@ -172,7 +216,7 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
           </tr>
         </thead>
         <tbody>
-          {sortedStandings.map((team) => (
+          {filteredAndSortedStandings.map((team) => (
             <tr key={team.team.id}>
               <td className={styles.standingsTeamPosition}>{team.position}</td>
 
