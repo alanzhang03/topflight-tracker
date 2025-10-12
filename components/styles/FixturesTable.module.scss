@@ -9,14 +9,46 @@
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: #f8f9fa;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+    z-index: 1;
+  }
 
   h1 {
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0 0 1.5rem 0;
-    color: #f8f9fa;
+    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     letter-spacing: -0.025em;
     text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.3));
+    }
   }
 }
 
@@ -53,32 +85,43 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: 16px;
   color: #f8f9fa;
   font-size: 1rem;
   font-weight: 500;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
+  position: relative;
 
   &::placeholder {
     color: #9ca3af;
     font-weight: 400;
+    transition: all 0.3s ease;
   }
 
   &:focus {
     border-color: #6366f1;
     background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-    transform: translateY(-1px);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15),
+      0 8px 32px rgba(99, 102, 241, 0.2);
+    transform: translateY(-2px) scale(1.02);
+
+    &::placeholder {
+      color: #6366f1;
+      transform: translateY(-2px);
+    }
 
     + .searchIcon {
       color: #6366f1;
+      transform: scale(1.1);
     }
   }
 
   &:hover {
     border-color: rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -132,16 +175,38 @@
 .fixturesDay {
   margin-bottom: 3rem;
   width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-color: rgba(99, 102, 241, 0.2);
+  }
 
   h2 {
-    background: #1a1a1a;
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
     color: #f8f9fa;
     font-weight: 600;
     font-size: 1.2rem;
-    margin: 0 0 1rem 0;
-    padding: 1rem 1.5rem;
-    border-radius: 8px 8px 0 0;
+    margin: 0;
+    padding: 1.25rem 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+    }
   }
 }
 
@@ -174,30 +239,63 @@
   background: rgba(99, 102, 241, 0.05);
   border: none;
   position: relative;
-  transition: all 0.2s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
 
   &:hover {
     cursor: pointer;
-    background: rgba(99, 102, 241, 0.1);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: rgba(99, 102, 241, 0.12);
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
+    border-radius: 12px;
+
+    &::before {
+      left: 100%;
+    }
 
     td {
       color: #f8f9fa;
+      transform: translateY(-1px);
     }
 
     .teamLogo {
-      transform: scale(1.05);
+      transform: scale(1.1) rotate(2deg);
+      filter: brightness(1.1);
     }
 
     .fixturesHomeTeamName,
     .fixturesAwayTeamName {
       color: #a855f7;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
     }
 
     .fixturesTimeBox {
       color: white;
-      transform: scale(1.05);
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+    }
+
+    .fixturesVsBox {
+      color: #6366f1;
+      font-weight: 800;
+      transform: scale(1.1);
     }
   }
 
@@ -205,7 +303,7 @@
     background: rgba(99, 102, 241, 0.08);
 
     &:hover {
-      background: rgba(99, 102, 241, 0.15);
+      background: rgba(99, 102, 241, 0.18);
     }
   }
 
@@ -214,6 +312,7 @@
     font-weight: 500;
     letter-spacing: 0.025em;
     color: #f8f9fa;
+    transition: all 0.3s ease;
   }
 }
 
@@ -253,25 +352,68 @@
 .fixturesTimeBox {
   width: 2.5vw;
   min-width: 80px;
-  font-weight: 600;
+  font-weight: 700;
   color: white;
   font-size: 0.9rem;
-  background: #6366f1;
-  border-radius: 4px;
-  padding: 0.4rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
   margin: 0 0.5rem;
-  transition: all 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
 }
 
 .fixturesVsBox {
   width: 2.5vw;
   min-width: 40px;
-  font-weight: 700;
-  color: #e5e7eb;
+  font-weight: 800;
+  color: #a855f7;
   font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #a855f7, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
 }
 
 // Error and empty states
@@ -434,6 +576,7 @@
   .fixturesContainer {
     max-width: 100vw;
     padding: 1rem;
+    border-radius: 16px;
 
     h1 {
       font-size: 1.5rem;
@@ -447,6 +590,11 @@
   .searchInput {
     padding: 0.75rem 0.75rem 0.75rem 2.5rem;
     font-size: 0.85rem;
+    border-radius: 12px;
+
+    &:focus {
+      transform: translateY(-1px) scale(1.01);
+    }
   }
 
   .searchIcon {
@@ -464,17 +612,19 @@
   }
 
   .fixturesDay {
-    h2 {
-      padding: 0.75rem 1rem;
-      font-size: 1rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+
+    &:hover {
+      transform: translateY(-1px);
     }
   }
 
-  .fixturesTable {
-    font-size: 0.8rem;
-  }
-
   .fixtureRow {
+    &:hover {
+      transform: translateY(-2px) scale(1.005);
+    }
+
     td {
       padding: 0.75rem;
     }
@@ -490,6 +640,17 @@
         transform: scale(1.08);
       }
     }
+  }
+
+  .fixturesDay {
+    h2 {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+    }
+  }
+
+  .fixturesTable {
+    font-size: 0.8rem;
   }
 
   .fixtureHomeTeamBox,
@@ -529,27 +690,27 @@
     padding-left: 0;
     font-size: 0.8rem;
   }
-}
 
-/* Enhanced accessibility */
-.fixtureRow:focus-within {
-  outline: 2px solid #6366f1;
-  outline-offset: 2px;
-}
-
-/* Smooth animations and box-sizing */
-
-// Accessibility improvements
-@media (prefers-reduced-motion: reduce) {
-  .fixtureRow,
-  .teamLogo,
-  .fixturesTimeBox,
-  .fixturesTable {
-    transition: none;
-    animation: none;
+  /* Enhanced accessibility */
+  .fixtureRow:focus-within {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
   }
 
-  .fixtureRow:hover {
-    transform: none;
+  /* Smooth animations and box-sizing */
+
+  // Accessibility improvements
+  @media (prefers-reduced-motion: reduce) {
+    .fixtureRow,
+    .teamLogo,
+    .fixturesTimeBox,
+    .fixturesTable {
+      transition: none;
+      animation: none;
+    }
+
+    .fixtureRow:hover {
+      transform: none;
+    }
   }
 }

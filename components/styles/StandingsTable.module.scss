@@ -32,13 +32,13 @@
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0 0 1.5rem 0;
-    background: linear-gradient(135deg, #6366f1, #a855f7);
+    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     letter-spacing: -0.025em;
-    transition: all 0.3s ease;
     text-align: center;
+    transition: all 0.3s ease;
 
     &:hover {
       transform: translateY(-2px);
