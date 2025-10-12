@@ -81,7 +81,6 @@
   }
 }
 
-// Responsive design
 @media (max-width: 1799px) and (min-width: 900px) {
   .leagueLogo {
     width: 175px;
@@ -154,7 +153,6 @@
   }
 }
 
-// Accessibility improvements
 @media (prefers-reduced-motion: reduce) {
   .leagueLogo,
   .navLink {

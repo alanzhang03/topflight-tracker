@@ -1,5 +1,3 @@
-/* Modern Dark Fixtures Styling - CSS Modules Compatible */
-
 .fixturesContainer {
   display: flex;
   flex-direction: column;
@@ -52,7 +50,6 @@
   }
 }
 
-// Search Filter Styles
 .searchContainer {
   margin-bottom: 2rem;
   display: flex;
@@ -416,7 +413,6 @@
   }
 }
 
-// Error and empty states
 .fixturesError,
 .fixturesEmpty {
   background: rgba(255, 255, 255, 0.05);
@@ -437,7 +433,6 @@
   }
 }
 
-// Loading animation
 @keyframes fixturesShimmer {
   0% {
     background-position: -200px 0;
@@ -458,7 +453,6 @@
   animation: fixturesShimmer 1.5s infinite;
 }
 
-// Responsive design
 @media (min-width: 1800px) {
   .fixturesContainer {
     max-width: 80vw;
@@ -699,7 +693,6 @@
 
   /* Smooth animations and box-sizing */
 
-  // Accessibility improvements
   @media (prefers-reduced-motion: reduce) {
     .fixtureRow,
     .teamLogo,

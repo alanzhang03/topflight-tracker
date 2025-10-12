@@ -210,7 +210,6 @@
       filter: brightness(1.2);
     }
 
-    // Social media specific colors
     &.twitter:hover {
       background: linear-gradient(135deg, #1da1f2, #0d8bd9);
     }
@@ -363,7 +362,6 @@
   }
 }
 
-// Floating animation
 @keyframes float {
   0%,
   100% {
@@ -377,7 +375,6 @@
   }
 }
 
-// Responsive Design
 @media (max-width: 768px) {
   .footerSection {
     padding: 2rem 1rem 1.5rem;
@@ -444,7 +441,6 @@
   }
 }
 
-// Accessibility improvements
 @media (prefers-reduced-motion: reduce) {
   .footerSection::after,
   .brandLogo,

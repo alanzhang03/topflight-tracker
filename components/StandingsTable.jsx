@@ -19,15 +19,12 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
   const [filterText, setFilterText] = useState("");
 
   const filteredAndSortedStandings = useMemo(() => {
-    // First filter by team name
     let filtered = standings;
     if (filterText.trim()) {
       filtered = standings.filter((team) =>
         team.team.name.toLowerCase().includes(filterText.toLowerCase())
       );
     }
-
-    // Then sort if needed
     if (!sortConfig.key) return filtered;
 
     return [...filtered].sort((a, b) => {
@@ -84,7 +81,6 @@ export default function StandingsTable({ standings = [], error, leagueCode }) {
     });
   }, [standings, sortConfig, filterText]);
 
-  // NOW you can do conditional returns
   if (error) {
     return <p>Error loading standings: {error}</p>;
   }

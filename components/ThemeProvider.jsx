@@ -8,7 +8,6 @@ export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState("light");
   const [mounted, setMounted] = useState(false);
 
-  // Avoid hydration mismatch by only setting theme after mount
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem("theme") || "light";
@@ -23,7 +22,6 @@ export function ThemeProvider({ children }) {
     document.documentElement.setAttribute("data-theme", newTheme);
   };
 
-  // Prevent hydration mismatch
   if (!mounted) {
     return <div>{children}</div>;
   }

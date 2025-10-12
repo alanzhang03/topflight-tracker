@@ -50,7 +50,6 @@
   }
 }
 
-// Search Filter Styles
 .searchContainer {
   margin-bottom: 2rem;
   display: flex;
@@ -437,7 +436,6 @@
   }
 }
 
-// Empty state styling
 .resultsEmpty,
 .resultsError {
   background: rgba(255, 255, 255, 0.05);
@@ -459,7 +457,6 @@
   }
 }
 
-// Loading animation
 @keyframes resultsShimmer {
   0% {
     background-position: -200px 0;
@@ -480,7 +477,6 @@
   animation: resultsShimmer 1.5s infinite;
 }
 
-// Responsive design
 @media (min-width: 1800px) {
   .resultsContainer {
     max-width: 1400px;
@@ -729,7 +725,6 @@
     }
   }
 
-  // Hide team names on very small screens, show only logos
   @media (max-width: 480px) {
     .resultsHomeTeamName,
     .resultsAwayTeamName {
@@ -774,7 +769,6 @@
   }
 }
 
-// Accessibility improvements
 @media (prefers-reduced-motion: reduce) {
   .resultRow,
   .resultsTeamLogo,
@@ -789,7 +783,6 @@
   }
 }
 
-// Dark mode scrollbar
 .resultsContainer::-webkit-scrollbar {
   width: 8px;
 }

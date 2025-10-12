@@ -1,4 +1,3 @@
-// import "./styles/FixturesTable.scss"
 "use client";
 import styles from "./styles/FixturesTable.module.scss";
 import { useState, useMemo } from "react";
