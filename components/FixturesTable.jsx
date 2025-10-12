@@ -14,18 +14,6 @@ const leagueNames = {
 export default function FixturesTable({ fixtures = [], error, leagueCode }) {
   const [filterText, setFilterText] = useState("");
 
-  if (error) {
-    return (
-      <p className={styles.fixturesError}>Error loading fixtures: {error}</p>
-    );
-  }
-
-  if (!fixtures.length) {
-    return (
-      <p className={styles.fixturesEmpty}>No upcoming fixtures available.</p>
-    );
-  }
-
   const filteredFixtures = useMemo(() => {
     if (!filterText.trim()) return fixtures;
 
@@ -37,6 +25,18 @@ export default function FixturesTable({ fixtures = [], error, leagueCode }) {
         fixture.awayTeam.name.toLowerCase().includes(filterText.toLowerCase())
     );
   }, [fixtures, filterText]);
+
+  if (error) {
+    return (
+      <p className={styles.fixturesError}>Error loading fixtures: {error}</p>
+    );
+  }
+
+  if (!fixtures.length) {
+    return (
+      <p className={styles.fixturesEmpty}>No upcoming fixtures available.</p>
+    );
+  }
 
   const fixturesByDate = filteredFixtures.reduce((acc, fixture) => {
     const fixtureDate = new Date(fixture.utcDate).toLocaleDateString("en-GB", {

@@ -13,6 +13,16 @@ const leagueNames = {
 export default function Results({ results = [], error, leagueCode }) {
   const [filterText, setFilterText] = useState("");
 
+  const filteredResults = useMemo(() => {
+    if (!filterText.trim()) return results;
+
+    return results.filter(
+      (result) =>
+        result.homeTeam.name.toLowerCase().includes(filterText.toLowerCase()) ||
+        result.awayTeam.name.toLowerCase().includes(filterText.toLowerCase())
+    );
+  }, [results, filterText]);
+
   if (error) {
     return (
       <p className={styles.resultsError}>Error loading results: {error}</p>
@@ -24,16 +34,6 @@ export default function Results({ results = [], error, leagueCode }) {
       <p className={styles.resultsEmpty}>No results available at the moment</p>
     );
   }
-
-  const filteredResults = useMemo(() => {
-    if (!filterText.trim()) return results;
-
-    return results.filter(
-      (result) =>
-        result.homeTeam.name.toLowerCase().includes(filterText.toLowerCase()) ||
-        result.awayTeam.name.toLowerCase().includes(filterText.toLowerCase())
-    );
-  }, [results, filterText]);
 
   const resultsByDate = filteredResults.reduce((acc, result) => {
     const resultDate = new Date(result.utcDate).toLocaleDateString("en-GB", {
