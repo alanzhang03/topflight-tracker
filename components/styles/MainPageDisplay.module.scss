@@ -177,11 +177,12 @@
     height: auto;
     display: block;
     margin: 0 auto;
-    opacity: 0;
+    opacity: 1;
     transition: transform 0.2s ease;
     background: rgba(255, 255, 255, 0.95);
     padding: 8px;
     border-radius: 6px;
+    filter: contrast(1.2) brightness(1.1);
   }
 
   p {
