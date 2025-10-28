@@ -16,7 +16,7 @@ const AboutPage = () => {
       icon: <Clock className={styles.iconGreen} />,
       title: "Live Results",
       description:
-        "Get real-time scores and match updates from ongoing games across top European leagues.",
+        "Get real-time scores and match updates from ongoing games across the top European leagues.",
     },
     {
       icon: <Trophy className={styles.iconYellow} />,
