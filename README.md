@@ -75,10 +75,10 @@ Used to fetch:
 
 ##  Planned Enhancements
 
-- 🔍 Player statistics and top scorers  
-- 📱 Mobile-first redesign and PWA support  
-- 💾 Persistent data storage with PostgreSQL  
-- 🧠 AI-powered “Match Insights” section (summarized key stats per fixture)
+-  Player statistics and top scorers  
+-  Mobile-first redesign and PWA support  
+-  Persistent data storage with PostgreSQL  
+-  AI-powered “Match Insights” section (summarized key stats per fixture)
 
 ---
 
