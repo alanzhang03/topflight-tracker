@@ -33,7 +33,7 @@ const NewsDisplay = ({ news = [], error, leagueName }) => {
         },
         opacity: 1,
         stagger: {
-          each: 0.2,
+          each: 0.1,
         },
       });
     }
@@ -77,13 +77,13 @@ const NewsDisplay = ({ news = [], error, leagueName }) => {
                   <p className='news-summary'>
                     {truncateText(
                       article.summary || 'No description available',
-                      200
+                      200,
                     )}
                   </p>
                   <p>{new Date(article.published_date).toLocaleDateString()}</p>
                 </div>
               </Link>
-            ) : null
+            ) : null,
           )
         )}
       </div>
