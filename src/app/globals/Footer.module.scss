@@ -3,48 +3,11 @@
   min-height: 30vh;
   position: relative;
   padding: 3rem 2rem 2rem;
-  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  background: #0a0a0a;
   color: #f8f9fa;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(135deg, #6366f1, #a855f7);
-    z-index: 1;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(
-        circle at 20% 50%,
-        rgba(99, 102, 241, 0.1) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 80% 20%,
-        rgba(168, 85, 247, 0.1) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 40% 80%,
-        rgba(99, 102, 241, 0.05) 0%,
-        transparent 50%
-      );
-    animation: float 20s ease-in-out infinite;
-    pointer-events: none;
-  }
 }
 
 .footerContent {
@@ -65,17 +28,13 @@
 .brandLogo {
   font-size: 2rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #f8f9fa;
   margin-bottom: 1rem;
   letter-spacing: -0.025em;
   transition: all 0.3s ease;
 
   &:hover {
-    transform: translateY(-2px);
-    filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.3));
+    color: #6366f1;
   }
 }
 
@@ -95,17 +54,6 @@
     color: #f8f9fa;
     margin-bottom: 1rem;
     position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 30px;
-      height: 2px;
-      background: linear-gradient(135deg, #6366f1, #a855f7);
-      border-radius: 1px;
-    }
   }
 
   ul {
@@ -120,28 +68,11 @@
         color: #9ca3af;
         text-decoration: none;
         font-size: 0.9rem;
-        transition: all 0.3s ease;
-        position: relative;
+        transition: all 0.2s ease;
         display: inline-block;
-
-        &::before {
-          content: "";
-          position: absolute;
-          bottom: -2px;
-          left: 0;
-          width: 0;
-          height: 1px;
-          background: linear-gradient(135deg, #6366f1, #a855f7);
-          transition: width 0.3s ease;
-        }
 
         &:hover {
           color: #f8f9fa;
-          transform: translateX(4px);
-
-          &::before {
-            width: 100%;
-          }
         }
       }
     }
@@ -156,18 +87,6 @@
     font-weight: 600;
     color: #f8f9fa;
     margin-bottom: 1rem;
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 30px;
-      height: 2px;
-      background: linear-gradient(135deg, #6366f1, #a855f7);
-      border-radius: 1px;
-    }
   }
 }
 
@@ -184,46 +103,35 @@
     height: 44px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    border-radius: 50%;
     color: #9ca3af;
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
 
     &:hover {
-      background: linear-gradient(135deg, #6366f1, #a855f7);
-      border-color: rgba(99, 102, 241, 0.4);
-      color: white;
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      color: #f8f9fa;
     }
 
     svg {
       width: 20px;
       height: 20px;
-      transition: all 0.3s ease;
-      filter: brightness(0.8);
-    }
-
-    &:hover svg {
-      filter: brightness(1.2);
     }
 
     &.twitter:hover {
-      background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+      color: #1da1f2;
     }
 
     &.github:hover {
-      background: linear-gradient(135deg, #333, #24292e);
+      color: #f8f9fa;
     }
 
     &.linkedin:hover {
-      background: linear-gradient(135deg, #0077b5, #005582);
+      color: #0077b5;
     }
 
     &.instagram:hover {
-      background: linear-gradient(135deg, #e4405f, #c13584);
+      color: #e4405f;
     }
   }
 }
@@ -267,22 +175,21 @@
 
   button {
     padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, #6366f1, #a855f7);
+    background: #6366f1;
     border: none;
     border-radius: 8px;
     color: white;
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 
     &:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+      background: #5b5fff;
     }
 
     &:active {
-      transform: translateY(0);
+      background: #4f46e5;
     }
   }
 }
@@ -305,10 +212,7 @@
 }
 
 .highlight {
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #6366f1;
   font-weight: 600;
 }
 

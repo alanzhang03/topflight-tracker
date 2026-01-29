@@ -1,7 +1,7 @@
 // Contact Page Styles - Matching global dark theme
 .container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #111827 0%, #000000 100%);
+  background: #0a0a0a;
   color: #f8f9fa;
 }
 
@@ -9,7 +9,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0ea5e9, #0284c7, #0369a1);
+  background: #0ea5e9;
   padding: 6rem 0;
 }
 
@@ -52,10 +52,6 @@
   font-weight: 700;
   color: white;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #ffffff, #e5e7eb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -90,13 +86,11 @@
 }
 
 .primaryButton {
-  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  background: #0284c7;
   color: white;
 
   &:hover {
-    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(14, 165, 233, 0.3);
+    background: #0ea5e9;
   }
 }
 
@@ -214,12 +208,7 @@
 // Form Section
 .formSection {
   padding: 5rem 0;
-  background: linear-gradient(
-    135deg,
-    rgba(17, 24, 39, 0.5),
-    rgba(0, 0, 0, 0.5)
-  );
-  backdrop-filter: blur(10px);
+  background: #111827;
 }
 
 .formContainer {
@@ -312,27 +301,24 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  background: #0ea5e9;
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   font-family: inherit;
   width: 100%;
 
   &:hover:not(:disabled) {
-    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(14, 165, 233, 0.3);
+    background: #0284c7;
   }
 
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;
-    transform: none;
   }
 }
 
@@ -437,12 +423,7 @@
 // Categories Section
 .categoriesSection {
   padding: 5rem 0;
-  background: linear-gradient(
-    135deg,
-    rgba(17, 24, 39, 0.3),
-    rgba(0, 0, 0, 0.3)
-  );
-  backdrop-filter: blur(10px);
+  background: #0a0a0a;
 }
 
 .categoriesGrid {
@@ -495,12 +476,7 @@
 // CTA Section
 .ctaSection {
   padding: 5rem 0;
-  background: linear-gradient(
-    135deg,
-    rgba(14, 165, 233, 0.8),
-    rgba(2, 132, 199, 0.8)
-  );
-  backdrop-filter: blur(10px);
+  background: #0ea5e9;
 }
 
 .ctaContent {

@@ -1,7 +1,7 @@
 // Privacy Policy Page Styles - Matching global dark theme
 .container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #111827 0%, #000000 100%);
+  background: #0a0a0a;
   color: #f8f9fa;
 }
 
@@ -9,7 +9,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #059669, #047857, #065f46);
+  background: #059669;
   padding: 6rem 0;
 }
 
@@ -52,10 +52,6 @@
   font-weight: 700;
   color: white;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #ffffff, #e5e7eb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -90,13 +86,11 @@
 }
 
 .primaryButton {
-  background: linear-gradient(135deg, #059669, #047857);
+  background: #059669;
   color: white;
 
   &:hover {
-    background: linear-gradient(135deg, #10b981, #059669);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(5, 150, 105, 0.3);
+    background: #10b981;
   }
 }
 
@@ -196,12 +190,7 @@
 // Data Types Section
 .dataTypesSection {
   padding: 5rem 0;
-  background: linear-gradient(
-    135deg,
-    rgba(17, 24, 39, 0.5),
-    rgba(0, 0, 0, 0.5)
-  );
-  backdrop-filter: blur(10px);
+  background: #111827;
 }
 
 .dataTypesGrid {
@@ -322,12 +311,7 @@
 // Detailed Section
 .detailedSection {
   padding: 5rem 0;
-  background: linear-gradient(
-    135deg,
-    rgba(17, 24, 39, 0.3),
-    rgba(0, 0, 0, 0.3)
-  );
-  backdrop-filter: blur(10px);
+  background: #0a0a0a;
 }
 
 .detailedContent {
@@ -440,12 +424,7 @@
 // CTA Section
 .ctaSection {
   padding: 5rem 0;
-  background: linear-gradient(
-    135deg,
-    rgba(5, 150, 105, 0.8),
-    rgba(4, 120, 87, 0.8)
-  );
-  backdrop-filter: blur(10px);
+  background: #059669;
 }
 
 .ctaContent {

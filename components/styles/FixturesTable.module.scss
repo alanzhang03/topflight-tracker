@@ -7,46 +7,19 @@
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: #f8f9fa;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.02) 100%
-  );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
-    z-index: 1;
-  }
 
   h1 {
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0 0 1.5rem 0;
-    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #f8f9fa;
     letter-spacing: -0.025em;
     text-align: center;
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.3));
-    }
   }
 }
 
@@ -186,24 +159,13 @@
   }
 
   h2 {
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    background: #1a1a1a;
     color: #f8f9fa;
     font-weight: 600;
     font-size: 1.2rem;
     margin: 0;
     padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(135deg, #6366f1, #a855f7);
-    }
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -233,74 +195,21 @@
 }
 
 .fixtureRow {
-  background: rgba(99, 102, 241, 0.05);
+  background: transparent;
   border: none;
   position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.1),
-      transparent
-    );
-    transition: left 0.6s ease;
-  }
+  transition: all 0.2s ease;
 
   &:hover {
     cursor: pointer;
-    background: rgba(99, 102, 241, 0.12);
-    transform: translateY(-3px) scale(1.01);
-    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
-    border-radius: 12px;
-
-    &::before {
-      left: 100%;
-    }
-
-    td {
-      color: #f8f9fa;
-      transform: translateY(-1px);
-    }
-
-    .teamLogo {
-      transform: scale(1.1) rotate(2deg);
-      filter: brightness(1.1);
-    }
-
-    .fixturesHomeTeamName,
-    .fixturesAwayTeamName {
-      color: #a855f7;
-      font-weight: 700;
-      text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
-    }
-
-    .fixturesTimeBox {
-      color: white;
-      transform: scale(1.08);
-      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
-    }
-
-    .fixturesVsBox {
-      color: #6366f1;
-      font-weight: 800;
-      transform: scale(1.1);
-    }
+    background: rgba(255, 255, 255, 0.03);
   }
 
   &:nth-child(even) {
-    background: rgba(99, 102, 241, 0.08);
+    background: rgba(255, 255, 255, 0.02);
 
     &:hover {
-      background: rgba(99, 102, 241, 0.18);
+      background: rgba(255, 255, 255, 0.05);
     }
   }
 
@@ -309,7 +218,7 @@
     font-weight: 500;
     letter-spacing: 0.025em;
     color: #f8f9fa;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
   }
 }
 
@@ -349,68 +258,24 @@
 .fixturesTimeBox {
   width: 2.5vw;
   min-width: 80px;
-  font-weight: 700;
+  font-weight: 600;
   color: white;
   font-size: 0.9rem;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  border-radius: 12px;
+  background: #6366f1;
+  border-radius: 8px;
   padding: 0.6rem 0.8rem;
   margin: 0 0.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
-    transition: left 0.6s ease;
-  }
-
-  &:hover::before {
-    left: 100%;
-  }
+  transition: all 0.2s ease;
 }
 
 .fixturesVsBox {
   width: 2.5vw;
   min-width: 40px;
-  font-weight: 800;
-  color: #a855f7;
+  font-weight: 600;
+  color: #9ca3af;
   font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
-  transition: all 0.3s ease;
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #a855f7, transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  &:hover::before {
-    opacity: 1;
-  }
+  letter-spacing: 0.1em;
 }
 
 .fixturesError,
