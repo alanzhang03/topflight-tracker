@@ -1,7 +1,9 @@
 "use client";
 import styles from "./styles/FixturesTable.module.scss";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { FaSearch, FaTimes } from "react-icons/fa";
+
+const POLL_INTERVAL_MS = 60000;
 
 const leagueNames = {
   PL: "Premier League",
@@ -10,7 +12,37 @@ const leagueNames = {
   CL: "Champions League",
 };
 
-export default function FixturesTable({ fixtures = [], error, leagueCode }) {
+export default function FixturesTable({ fixtures: initialFixtures = [], error: initialError, leagueCode }) {
+  const [fixtures, setFixtures] = useState(initialFixtures);
+  const [error, setError] = useState(initialError);
+
+  useEffect(() => {
+    setFixtures(initialFixtures);
+    setError(initialError);
+  }, [leagueCode, initialFixtures, initialError]);
+
+  useEffect(() => {
+    if (!leagueCode) return;
+
+    const fetchFixtures = async () => {
+      try {
+        const res = await fetch(`/api/fixtures/${leagueCode}`);
+        const data = await res.json();
+        if (res.ok && data.fixtures) {
+          setFixtures(data.fixtures);
+          setError(null);
+        } else if (data.error) {
+          setError(data.error);
+        }
+      } catch (err) {
+        console.error("Failed to refresh fixtures:", err);
+      }
+    };
+
+    const interval = setInterval(fetchFixtures, POLL_INTERVAL_MS);
+    return () => clearInterval(interval);
+  }, [leagueCode]);
+
   const [filterText, setFilterText] = useState("");
 
   const filteredFixtures = useMemo(() => {

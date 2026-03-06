@@ -1,8 +1,10 @@
 "use client";
 import styles from "./styles/StandingsTable.module.scss";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { FaArrowUp, FaArrowDown, FaSearch, FaTimes } from "react-icons/fa";
 import { FaArrowsUpDown } from "react-icons/fa6";
+
+const POLL_INTERVAL_MS = 60000; 
 
 const leagueNames = {
   PL: "Premier League",
@@ -11,7 +13,37 @@ const leagueNames = {
   CL: "Champions League",
 };
 
-export default function StandingsTable({ standings = [], error, leagueCode }) {
+export default function StandingsTable({ standings: initialStandings = [], error: initialError, leagueCode }) {
+  const [standings, setStandings] = useState(initialStandings);
+  const [error, setError] = useState(initialError);
+
+  useEffect(() => {
+    setStandings(initialStandings);
+    setError(initialError);
+  }, [leagueCode, initialStandings, initialError]);
+
+  useEffect(() => {
+    if (!leagueCode) return;
+
+    const fetchStandings = async () => {
+      try {
+        const res = await fetch(`/api/standings/${leagueCode}`);
+        const data = await res.json();
+        if (res.ok && data.standings) {
+          setStandings(data.standings);
+          setError(null);
+        } else if (data.error) {
+          setError(data.error);
+        }
+      } catch (err) {
+        console.error("Failed to refresh standings:", err);
+      }
+    };
+
+    const interval = setInterval(fetchStandings, POLL_INTERVAL_MS);
+    return () => clearInterval(interval);
+  }, [leagueCode]);
+
   const [sortConfig, setSortConfig] = useState({
     direction: "asc",
     key: null,

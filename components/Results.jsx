@@ -1,7 +1,9 @@
 "use client";
 import styles from "./styles/Results.module.scss";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { FaSearch, FaTimes } from "react-icons/fa";
+
+const POLL_INTERVAL_MS = 60000; 
 
 const leagueNames = {
   PL: "Premier League",
@@ -10,7 +12,37 @@ const leagueNames = {
   CL: "Champions League",
 };
 
-export default function Results({ results = [], error, leagueCode }) {
+export default function Results({ results: initialResults = [], error: initialError, leagueCode }) {
+  const [results, setResults] = useState(initialResults);
+  const [error, setError] = useState(initialError);
+
+  useEffect(() => {
+    setResults(initialResults);
+    setError(initialError);
+  }, [leagueCode, initialResults, initialError]);
+
+  useEffect(() => {
+    if (!leagueCode) return;
+
+    const fetchResults = async () => {
+      try {
+        const res = await fetch(`/api/results/${leagueCode}`);
+        const data = await res.json();
+        if (res.ok && data.results) {
+          setResults(data.results);
+          setError(null);
+        } else if (data.error) {
+          setError(data.error);
+        }
+      } catch (err) {
+        console.error("Failed to refresh results:", err);
+      }
+    };
+
+    const interval = setInterval(fetchResults, POLL_INTERVAL_MS);
+    return () => clearInterval(interval);
+  }, [leagueCode]);
+
   const [filterText, setFilterText] = useState("");
 
   const filteredResults = useMemo(() => {
