@@ -1,4 +1,4 @@
-# ⚽ TopFlight Tracker
+# TopFlight Tracker
 
 **TopFlight Tracker** is a football statistics and analytics web application built with **Next.js**, providing real-time match data, league standings, fixtures, and curated football news.  
 It tracks top European leagues including the **Premier League**, **La Liga**, **Bundesliga**, **Serie A**, **Ligue 1**, and the **UEFA Champions League** — all in one clean, animated interface.
@@ -65,7 +65,7 @@ Used to fetch:
 - Fixtures and results  
 - Team and league information  
 
-### 📰 NewscatcherAPI
+### NewscatcherAPI
 Used to fetch:
 - Football-related articles  
 - League-specific news feeds  
@@ -99,10 +99,10 @@ Used to fetch:
 
 ---
 
-## 📬 Contact
+## Contact
 
 Developed by **Alan Zhang**  
-📧 [alan.s.zhang@gmail.com](mailto:alan.s.zhang@gmail.com)  
-🌐 [azhang03.vercel.app](https://azhang03.vercel.app)
+[alan.s.zhang@gmail.com](mailto:alan.s.zhang@gmail.com)  
+[azhang03.vercel.app](https://azhang03.vercel.app)
 
 
