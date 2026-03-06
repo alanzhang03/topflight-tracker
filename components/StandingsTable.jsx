@@ -1,19 +1,23 @@
-"use client";
-import styles from "./styles/StandingsTable.module.scss";
-import { useState, useMemo, useEffect } from "react";
-import { FaArrowUp, FaArrowDown, FaSearch, FaTimes } from "react-icons/fa";
-import { FaArrowsUpDown } from "react-icons/fa6";
+'use client';
+import styles from './styles/StandingsTable.module.scss';
+import { useState, useMemo, useEffect } from 'react';
+import { FaArrowUp, FaArrowDown, FaSearch, FaTimes } from 'react-icons/fa';
+import { FaArrowsUpDown } from 'react-icons/fa6';
 
-const POLL_INTERVAL_MS = 60000; 
+const POLL_INTERVAL_MS = 60000;
 
 const leagueNames = {
-  PL: "Premier League",
-  BL1: "Bundesliga",
-  PD: "La Liga",
-  CL: "Champions League",
+  PL: 'Premier League',
+  BL1: 'Bundesliga',
+  PD: 'La Liga',
+  CL: 'Champions League',
 };
 
-export default function StandingsTable({ standings: initialStandings = [], error: initialError, leagueCode }) {
+export default function StandingsTable({
+  standings: initialStandings = [],
+  error: initialError,
+  leagueCode,
+}) {
   const [standings, setStandings] = useState(initialStandings);
   const [error, setError] = useState(initialError);
 
@@ -36,7 +40,7 @@ export default function StandingsTable({ standings: initialStandings = [], error
           setError(data.error);
         }
       } catch (err) {
-        console.error("Failed to refresh standings:", err);
+        console.error('Failed to refresh standings:', err);
       }
     };
 
@@ -45,16 +49,16 @@ export default function StandingsTable({ standings: initialStandings = [], error
   }, [leagueCode]);
 
   const [sortConfig, setSortConfig] = useState({
-    direction: "asc",
+    direction: 'asc',
     key: null,
   });
-  const [filterText, setFilterText] = useState("");
+  const [filterText, setFilterText] = useState('');
 
   const filteredAndSortedStandings = useMemo(() => {
     let filtered = standings;
     if (filterText.trim()) {
       filtered = standings.filter((team) =>
-        team.team.name.toLowerCase().includes(filterText.toLowerCase())
+        team.team.name.toLowerCase().includes(filterText.toLowerCase()),
       );
     }
     if (!sortConfig.key) return filtered;
@@ -62,49 +66,49 @@ export default function StandingsTable({ standings: initialStandings = [], error
     return [...filtered].sort((a, b) => {
       let aValue, bValue;
       switch (sortConfig.key) {
-        case "position":
+        case 'position':
           aValue = a.position;
           bValue = b.position;
           break;
-        case "team":
+        case 'team':
           aValue = a.team.name;
           bValue = b.team.name;
           break;
-        case "played":
+        case 'played':
           aValue = a.playedGames;
           bValue = b.playedGames;
           break;
-        case "wins":
+        case 'wins':
           aValue = a.won;
           bValue = b.won;
           break;
-        case "losses":
+        case 'losses':
           aValue = a.lost;
           bValue = b.lost;
           break;
-        case "draws":
+        case 'draws':
           aValue = a.draw;
           bValue = b.draw;
           break;
-        case "goalDifference":
+        case 'goalDifference':
           aValue = a.goalDifference;
           bValue = b.goalDifference;
           break;
-        case "points":
+        case 'points':
           aValue = a.points;
           bValue = b.points;
           break;
         default:
           return 0;
       }
-      if (typeof aValue === "string") {
-        if (sortConfig.direction === "asc") {
+      if (typeof aValue === 'string') {
+        if (sortConfig.direction === 'asc') {
           return aValue.localeCompare(bValue);
         } else {
           return bValue.localeCompare(aValue);
         }
       } else {
-        if (sortConfig.direction === "asc") {
+        if (sortConfig.direction === 'asc') {
           return aValue - bValue;
         } else {
           return bValue - aValue;
@@ -127,33 +131,33 @@ export default function StandingsTable({ standings: initialStandings = [], error
     if (sortConfig.key !== key)
       return (
         <>
-          {" "}
+          {' '}
           <FaArrowsUpDown />
         </>
       );
-    return sortConfig.direction === "asc" ? (
+    return sortConfig.direction === 'asc' ? (
       <>
-        {" "}
+        {' '}
         <FaArrowUp />
       </>
     ) : (
       <>
-        {" "}
+        {' '}
         <FaArrowDown />
       </>
     );
   };
 
   const handleSort = (key) => {
-    let direction = "asc";
-    if (sortConfig.key === key && sortConfig.direction === "asc") {
-      direction = "desc";
+    let direction = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
     }
     setSortConfig({ key, direction });
   };
 
   const clearFilter = () => {
-    setFilterText("");
+    setFilterText('');
   };
 
   return (
@@ -165,8 +169,8 @@ export default function StandingsTable({ standings: initialStandings = [], error
         <div className={styles.searchInputWrapper}>
           <FaSearch className={styles.searchIcon} />
           <input
-            type="text"
-            placeholder="Search for a team..."
+            type='text'
+            placeholder='Search for a team...'
             value={filterText}
             onChange={(e) => setFilterText(e.target.value)}
             className={styles.searchInput}
@@ -175,7 +179,7 @@ export default function StandingsTable({ standings: initialStandings = [], error
             <button
               onClick={clearFilter}
               className={styles.clearButton}
-              aria-label="Clear search"
+              aria-label='Clear search'
             >
               <FaTimes />
             </button>
@@ -183,7 +187,7 @@ export default function StandingsTable({ standings: initialStandings = [], error
         </div>
         {filterText && (
           <div className={styles.filterResults}>
-            Showing {filteredAndSortedStandings.length} of {standings.length}{" "}
+            Showing {filteredAndSortedStandings.length} of {standings.length}{' '}
             teams
           </div>
         )}
@@ -193,53 +197,53 @@ export default function StandingsTable({ standings: initialStandings = [], error
         <thead>
           <tr>
             <th
-              onClick={() => handleSort("position")}
-              style={{ cursor: "pointer" }}
+              onClick={() => handleSort('position')}
+              style={{ cursor: 'pointer' }}
             >
-              Position{getSortIndicator("position")}
+              Position{getSortIndicator('position')}
             </th>
             <th
               className={styles.standingsTeamHeader}
-              onClick={() => handleSort("team")}
-              style={{ cursor: "pointer" }}
+              onClick={() => handleSort('team')}
+              style={{ cursor: 'pointer' }}
             >
-              Club{getSortIndicator("team")}
+              Club{getSortIndicator('team')}
             </th>
             <th
-              onClick={() => handleSort("played")}
-              style={{ cursor: "pointer" }}
+              onClick={() => handleSort('played')}
+              style={{ cursor: 'pointer' }}
             >
-              Played{getSortIndicator("played")}
+              Played{getSortIndicator('played')}
             </th>
             <th
-              onClick={() => handleSort("wins")}
-              style={{ cursor: "pointer" }}
+              onClick={() => handleSort('wins')}
+              style={{ cursor: 'pointer' }}
             >
-              Wins{getSortIndicator("wins")}
+              Wins{getSortIndicator('wins')}
             </th>
             <th
-              onClick={() => handleSort("losses")}
-              style={{ cursor: "pointer" }}
+              onClick={() => handleSort('losses')}
+              style={{ cursor: 'pointer' }}
             >
-              Losses{getSortIndicator("losses")}
+              Losses{getSortIndicator('losses')}
             </th>
             <th
-              onClick={() => handleSort("draws")}
-              style={{ cursor: "pointer" }}
+              onClick={() => handleSort('draws')}
+              style={{ cursor: 'pointer' }}
             >
-              Draws{getSortIndicator("draws")}
+              Draws{getSortIndicator('draws')}
             </th>
             <th
-              onClick={() => handleSort("goalDifference")}
-              style={{ cursor: "pointer" }}
+              onClick={() => handleSort('goalDifference')}
+              style={{ cursor: 'pointer' }}
             >
-              GD{getSortIndicator("goalDifference")}
+              GD{getSortIndicator('goalDifference')}
             </th>
             <th
-              onClick={() => handleSort("points")}
-              style={{ cursor: "pointer" }}
+              onClick={() => handleSort('points')}
+              style={{ cursor: 'pointer' }}
             >
-              Points{getSortIndicator("points")}
+              Points{getSortIndicator('points')}
             </th>
           </tr>
         </thead>
@@ -266,8 +270,8 @@ export default function StandingsTable({ standings: initialStandings = [], error
                   team.goalDifference > 0
                     ? styles.goalPositive
                     : team.goalDifference < 0
-                    ? styles.goalNegative
-                    : ""
+                      ? styles.goalNegative
+                      : ''
                 }
               >
                 {team.goalDifference}
