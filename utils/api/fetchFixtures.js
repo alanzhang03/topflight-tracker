@@ -1,7 +1,7 @@
 import axios from "axios";
 import getRedisClient from "./redisClient";
 
-const CACHE_EXPIRATION_TIME_FIXTURES = 100000;
+const CACHE_EXPIRATION_TIME_FIXTURES = 300; // 5 minutes
 
 export async function fetchFixtures(
 	leagueCode,
