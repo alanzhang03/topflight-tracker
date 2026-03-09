@@ -23,7 +23,7 @@ export async function fetchResults(
 				`https://api.football-data.org/v4/competitions/${leagueCode}/matches`,
 				{
 					headers: {
-						"X-Auth-Token": process.env.NEXT_PUBLIC_FOOTBALL_API_KEY,
+						"X-Auth-Token": process.env.FOOTBALL_API_KEY,
 					},
 					params: {
 						status: "FINISHED",
