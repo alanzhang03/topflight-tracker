@@ -5,6 +5,7 @@ import Footer from './globals/Footer';
 import { FavoritesProvider } from './context/FavoritesContext';
 import { ThemeProvider } from '../../components/ThemeProvider';
 import { Analytics } from '@vercel/analytics/next';
+import AuthProvider from './context/AuthProvider';
 
 export const metadata = {
   title: 'TopflightTracker',
@@ -15,12 +16,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body>
-        <FavoritesProvider>
-          <NavbarMain />
-          <DynamicNavbar />
-          <main>{children}</main>
-          <Footer />
-        </FavoritesProvider>
+        <AuthProvider>
+          <FavoritesProvider>
+            <NavbarMain />
+            <DynamicNavbar />
+            <main>{children}</main>
+            <Footer />
+          </FavoritesProvider>
+        </AuthProvider>
         <Analytics />
       </body>
     </html>
