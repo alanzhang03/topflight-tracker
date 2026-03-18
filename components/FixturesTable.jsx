@@ -127,14 +127,14 @@ export default function FixturesTable({ fixtures: initialFixtures = [], error: i
                 <tr key={fixture.id} className={styles.fixtureRow}>
                   <td className={styles.fixtureHomeTeamBox}>
                     <div className={styles.fixturesHomeTeamInfo}>
+                      <span className={styles.fixturesHomeTeamName}>
+                        {fixture.homeTeam.name}
+                      </span>
                       <img
                         src={fixture.homeTeam.crest}
                         alt={`${fixture.homeTeam.name} logo`}
                         className={styles.teamLogo}
                       />
-                      <span className={styles.fixturesHomeTeamName}>
-                        {fixture.homeTeam.name}
-                      </span>
                     </div>
                   </td>
                   <td className={styles.fixturesVsBox}>vs</td>

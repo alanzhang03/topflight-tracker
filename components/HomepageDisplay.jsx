@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React from "react";
-import Link from "next/link";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import styles from "./styles/HomepageDisplay.module.scss";
+import React from 'react';
+import Link from 'next/link';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import styles from './styles/HomepageDisplay.module.scss';
 
 const HomepageDisplay = ({
   leagueName,
@@ -18,12 +18,12 @@ const HomepageDisplay = ({
 
   useGSAP(() => {
     gsap.set(`.${styles.leagueLogo}`, {
-      y: -200,
+      y: -24,
       opacity: 0,
     });
 
     gsap.set(`.${styles.homepageHeader}`, {
-      y: -200,
+      y: -24,
       opacity: 0,
     });
 
@@ -39,7 +39,7 @@ const HomepageDisplay = ({
       y: 0,
       opacity: 1,
       duration: 1,
-      ease: "power2.out",
+      ease: 'power2.out',
     });
 
     gsap.to(`.${styles.homepageHeader}`, {
@@ -47,14 +47,14 @@ const HomepageDisplay = ({
       y: 0,
       opacity: 1,
       duration: 1,
-      ease: "power2.out",
+      ease: 'power2.out',
     });
 
     gsap.to(`.${styles.homepageParagraph}`, {
       delay: 1,
       opacity: 1,
       duration: 1,
-      ease: "power2.out",
+      ease: 'power2.out',
     });
 
     gsap.to(`.${styles.navLink}`, {
@@ -63,10 +63,10 @@ const HomepageDisplay = ({
       duration: 2,
       stagger: {
         each: 0.2,
-        grid: "auto",
-        from: "start",
+        grid: 'auto',
+        from: 'start',
       },
-      ease: "power2.out",
+      ease: 'power2.out',
     });
   }, []);
 
@@ -79,9 +79,7 @@ const HomepageDisplay = ({
             alt={`${leagueName} logo`}
             className={styles.leagueLogo}
           />
-          <h1 className={styles.homepageHeader}>
-            Welcome to {leagueName} Page
-          </h1>
+          <h1 className={styles.homepageHeader}>{leagueName}</h1>
           <p className={styles.homepageParagraph}>{description}</p>
         </div>
         <nav className={styles.leagueNav}>

@@ -1,11 +1,17 @@
 import './globals.css';
+import { Inter } from 'next/font/google';
 import NavbarMain from './globals/NavbarMain';
 import DynamicNavbar from './globals/DynamicNavbar';
 import Footer from './globals/Footer';
 import { FavoritesProvider } from './context/FavoritesContext';
-import { ThemeProvider } from '../../components/ThemeProvider';
 import { Analytics } from '@vercel/analytics/next';
 import AuthProvider from './context/AuthProvider';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'TopflightTracker',
@@ -14,7 +20,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
+    <html lang='en' className={inter.variable}>
       <body>
         <AuthProvider>
           <FavoritesProvider>

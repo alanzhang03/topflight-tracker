@@ -8,13 +8,6 @@ import Link from "next/link";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 const MainPageDisplay = () => {
-  const handleGetStartedClick = () => {
-    const aboutSection = document.querySelector(`.${styles.aboutSection}`);
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
@@ -22,7 +15,7 @@ const MainPageDisplay = () => {
       delay: 0.25,
       opacity: 1,
       duration: 1,
-      scale: 1,
+      y: 0,
     });
 
     gsap.to(`.${styles.aboutSection} h2`, {
@@ -32,11 +25,13 @@ const MainPageDisplay = () => {
       duration: 2,
     });
 
-    gsap.to(`.${styles.aboutSection} p`, {
-      scrollTrigger: `.${styles.aboutSection} p`,
-      delay: 0.5,
+    gsap.to(`.${styles.statPill}`, {
+      scrollTrigger: `.${styles.statsRow}`,
+      delay: 0.25,
       opacity: 1,
-      duration: 2,
+      duration: 0.6,
+      y: 0,
+      stagger: 0.1,
     });
 
     gsap.to(`.${styles.leaguesSection} h2`, {
@@ -46,16 +41,13 @@ const MainPageDisplay = () => {
       duration: 2,
     });
 
-    gsap.to(`.${styles.leagueCard} img`, {
-      scrollTrigger: `.${styles.leagueCard} img`,
-      delay: 1,
+    gsap.to(`.${styles.leagueCard}`, {
+      scrollTrigger: `.${styles.leagueCard}`,
+      delay: 0.5,
       opacity: 1,
-      duration: 1.5,
-      stagger: {
-        each: 0.2,
-        grid: "auto",
-        from: "start",
-      },
+      duration: 0.6,
+      y: 0,
+      stagger: 0.12,
     });
 
     gsap.to(`.${styles.ctaSectionGsap}`, {
@@ -70,81 +62,74 @@ const MainPageDisplay = () => {
     <div className={styles.mainPageContainer}>
       <div className={styles.heroSection}>
         <div className={styles.heroContent}>
+          <span className={styles.heroBadge}>Live Football Data</span>
           <h1 className={styles.heroContentHeader}>
-            Welcome to the TopFlight Tracker
+            Track Every Match.<br />Follow Every League.
           </h1>
           <p className={styles.heroContentParagraph}>
-            Explore detailed standings, match history, lineups, and more from
-            the Premier League, La Liga, Bundesliga, and Champions League.
+            Real-time standings, fixtures, and results from the Premier League,
+            La Liga, Bundesliga, and Champions League.
           </p>
-          <button className={styles.ctaButton} onClick={handleGetStartedClick}>
-            Get Started
-          </button>
+          <div className={styles.heroActions}>
+            <Link href="/leagues/premier-league">
+              <button className={styles.ctaButton}>Explore Leagues</button>
+            </Link>
+          </div>
         </div>
       </div>
 
       <section className={styles.aboutSection}>
-        <h2>About TopFlight Tracker</h2>
-        <p>
-          TopFlight Tracker is your go-to website for real-time updates on
-          football leagues, including standings, fixtures, and team lineups.
-          Stay up-to-date with every match and follow your favorite teams
-          through our intuitive and user-friendly platform.
-        </p>
+        <h2>Your Football Hub</h2>
+        <div className={styles.statsRow}>
+          <div className={styles.statPill}>
+            <span className={styles.statNumber}>4</span>
+            <span className={styles.statLabel}>Leagues</span>
+          </div>
+          <div className={styles.statPill}>
+            <span className={styles.statNumber}>Live</span>
+            <span className={styles.statLabel}>Standings</span>
+          </div>
+          <div className={styles.statPill}>
+            <span className={styles.statNumber}>Real-time</span>
+            <span className={styles.statLabel}>Results</span>
+          </div>
+          <div className={styles.statPill}>
+            <span className={styles.statNumber}>Free</span>
+            <span className={styles.statLabel}>Always</span>
+          </div>
+        </div>
       </section>
 
       <section className={styles.leaguesSection}>
         <h2>Explore the Top Leagues</h2>
         <div className={styles.leaguesContainer}>
-          <div className={styles.leagueCard}>
-            <Link
-              href="/leagues/premier-league"
-              rel="noopener noreferrer"
-              className={styles.newsItemLink}
-            >
-              <img src="/images/premier-league.svg" alt="Premier League" />
-            </Link>
-          </div>
-          <div className={styles.leagueCard}>
-            <Link
-              href="/leagues/bundesliga"
-              rel="noopener noreferrer"
-              className={styles.newsItemLink}
-            >
-              <img src="/images/bundesliga.svg" alt="Bundesliga" />
-            </Link>
-          </div>
-          <div className={styles.leagueCard}>
-            <Link
-              href="/leagues/la-liga"
-              rel="noopener noreferrer"
-              className={styles.newsItemLink}
-            >
-              <img src="/images/la-liga.svg" alt="La Liga" />
-            </Link>
-          </div>
-          <div className={styles.leagueCard}>
-            <Link
-              href="/leagues/champions-league"
-              rel="noopener noreferrer"
-              className={styles.newsItemLink}
-            >
-              <img src="/images/champions-league.svg" alt="Champions League" />
-            </Link>
-          </div>
+          <Link href="/leagues/premier-league" className={styles.leagueCard}>
+            <img src="/images/premier-league.svg" alt="Premier League" />
+            <p>Premier League</p>
+          </Link>
+          <Link href="/leagues/bundesliga" className={styles.leagueCard}>
+            <img src="/images/bundesliga.svg" alt="Bundesliga" />
+            <p>Bundesliga</p>
+          </Link>
+          <Link href="/leagues/la-liga" className={styles.leagueCard}>
+            <img src="/images/la-liga.svg" alt="La Liga" />
+            <p>La Liga</p>
+          </Link>
+          <Link href="/leagues/champions-league" className={styles.leagueCard}>
+            <img src="/images/champions-league.svg" alt="Champions League" />
+            <p>Champions League</p>
+          </Link>
         </div>
       </section>
 
       <section className={styles.ctaSection}>
         <div className={styles.ctaSectionGsap}>
-          <h2>Start Tracking Your Favorite Leagues and Teams Now</h2>
+          <h2>Start Tracking Now</h2>
           <p>
-            Discover match fixtures, recent results, team lineups, and standings
-            in real-time for all your favorite leagues and teams. Click the
-            button down below to start exploring.
+            Fixtures, results, and standings — all in one place.
           </p>
-          <Link href="/favorites/" rel="noopener referrer">
-            <button className={styles.ctaButtonSecondary}>Track Matches</button>
+          <Link href="/leagues/premier-league">
+            <button className={styles.ctaButtonSecondary}>Get Started</button>
           </Link>
         </div>
       </section>

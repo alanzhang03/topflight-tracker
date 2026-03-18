@@ -10,6 +10,7 @@ const NavbarMain = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
+        <div className={styles.navbarSpacer} />
         <ul className={styles.navbarMenu}>
           <li>
             <Link href='/'>Home</Link>

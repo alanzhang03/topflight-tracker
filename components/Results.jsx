@@ -126,26 +126,32 @@ export default function Results({ results: initialResults = [], error: initialEr
           <h2>{date}</h2>
           <table className={styles.resultsTable}>
             <tbody>
-              {resultsByDate[date].map((match) => (
+              {resultsByDate[date].map((match) => {
+                const homeScore = match.score.fullTime.home;
+                const awayScore = match.score.fullTime.away;
+                const winner = homeScore > awayScore ? "home" : awayScore > homeScore ? "away" : "draw";
+
+                return (
                 <tr key={match.id} className={styles.resultRow}>
                   <td className={styles.resultHomeTeamBox}>
                     <div className={styles.homeResultsTeamInfo}>
+                      <span className={`${styles.resultsHomeTeamName} ${winner === "home" ? styles.winner : winner === "away" ? styles.loser : styles.draw}`}>
+                        {match.homeTeam.name}
+                      </span>
                       <img
                         src={match.homeTeam.crest}
                         alt={`${match.homeTeam.name} logo`}
                         className={styles.resultsTeamLogo}
                       />
-                      <span className={styles.resultsHomeTeamName}>
-                        {match.homeTeam.name}
-                      </span>
                     </div>
                   </td>
                   <td className={styles.resultScoreBox}>
                     <span>
-                      {match.score.fullTime.home} - {match.score.fullTime.away}
+                      <span className={winner === "home" ? styles.scoreWin : winner === "away" ? styles.scoreLose : styles.scoreDraw}>{homeScore}</span>
+                      {" – "}
+                      <span className={winner === "away" ? styles.scoreWin : winner === "home" ? styles.scoreLose : styles.scoreDraw}>{awayScore}</span>
                     </span>
                   </td>
-
                   <td className={styles.resultAwayTeamBox}>
                     <div className={styles.awayResultsTeamInfo}>
                       <img
@@ -153,7 +159,7 @@ export default function Results({ results: initialResults = [], error: initialEr
                         alt={`${match.awayTeam.name} logo`}
                         className={styles.resultsTeamLogo}
                       />
-                      <span className={styles.resultsAwayTeamName}>
+                      <span className={`${styles.resultsAwayTeamName} ${winner === "away" ? styles.winner : winner === "home" ? styles.loser : styles.draw}`}>
                         {match.awayTeam.name}
                       </span>
                     </div>
@@ -171,7 +177,8 @@ export default function Results({ results: initialResults = [], error: initialEr
                     </div>
                   </td>
                 </tr>
-              ))}
+                );
+              })}
             </tbody>
           </table>
         </div>

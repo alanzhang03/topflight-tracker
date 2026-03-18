@@ -1,5 +1,3 @@
-/* Enhanced Results Styling - CSS Modules Compatible */
-
 .resultsContainer {
   width: 100%;
   max-width: 1200px;
@@ -268,9 +266,38 @@
   font-weight: 600;
   font-size: 1.05rem;
   color: #e5e7eb;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   line-height: 1.4;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.01em;
+}
+
+.winner {
+  color: #f8f9fa;
+  font-weight: 700;
+}
+
+.loser {
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.draw {
+  color: #9ca3af;
+}
+
+.scoreWin {
+  color: #f8f9fa;
+  font-weight: 800;
+}
+
+.scoreLose {
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.scoreDraw {
+  color: #9ca3af;
+  font-weight: 700;
 }
 
 .resultScoreBox {
