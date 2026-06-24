@@ -5,8 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./styles/Navbar.module.scss";
 import { MdOutlineLeaderboard } from "react-icons/md";
-import { IoCalendarOutline } from "react-icons/io5";
-import { IoMedalOutline } from "react-icons/io5";
+import { IoCalendarOutline, IoMedalOutline, IoTrophyOutline } from "react-icons/io5";
 
 export default function Navbar({ league }) {
   const leagueUrls = {
@@ -33,6 +32,13 @@ export default function Navbar({ league }) {
       standings: "/leagues/bundesliga/standings",
       fixtures: "/leagues/bundesliga/fixtures",
       results: "/leagues/bundesliga/results",
+    },
+    worldcup: {
+      name: "World Cup 2026",
+      standings: "/leagues/world-cup/groups",
+      fixtures: "/leagues/world-cup/fixtures",
+      results: "/leagues/world-cup/results",
+      bracket: "/leagues/world-cup/bracket",
     },
   };
 
@@ -79,6 +85,16 @@ export default function Navbar({ league }) {
               </div>
             </Link>
           </li>
+          {currentLeague.bracket && (
+            <li className={pathname === currentLeague.bracket ? styles.active : ""}>
+              <Link href={currentLeague.bracket}>
+                <div className={styles.resultsNavbarContainer}>
+                  <IoTrophyOutline />
+                  Bracket
+                </div>
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

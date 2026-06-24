@@ -1,0 +1,162 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 2rem;
+    letter-spacing: -0.025em;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.25rem;
+}
+
+.groupCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.groupTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #818cf8;
+  background: rgba(99, 102, 241, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  margin: 0;
+  padding: 0.75rem 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+
+  thead tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  th {
+    padding: 0.5rem 0.6rem;
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    text-align: center;
+    cursor: default;
+
+    &:first-child {
+      text-align: left;
+    }
+  }
+
+  td {
+    padding: 0.6rem 0.6rem;
+    color: #e5e7eb;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.qualify {
+  td {
+    background: rgba(99, 102, 241, 0.04);
+  }
+
+  td:first-child {
+    border-left: 2px solid #6366f1;
+  }
+}
+
+.teamCol {
+  width: 55%;
+  text-align: left !important;
+}
+
+.teamCell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.pos {
+  font-size: 0.72rem;
+  color: #6b7280;
+  width: 14px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.crest {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.teamName {
+  font-weight: 500;
+  color: #f8f9fa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pts {
+  font-weight: 700;
+  color: #f8f9fa;
+}
+
+.status {
+  text-align: center;
+  color: #9ca3af;
+  padding: 4rem;
+  font-size: 1rem;
+}
+
+.statusError {
+  text-align: center;
+  color: #ef4444;
+  padding: 4rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+
+    h1 { font-size: 1.5rem; }
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

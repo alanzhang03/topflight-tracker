@@ -30,6 +30,9 @@ const NavbarMain = () => {
           <li>
             <Link href='/leagues/bundesliga'>Bundesliga</Link>
           </li>
+          <li>
+            <Link href='/leagues/world-cup'>World Cup</Link>
+          </li>
         </ul>
         <div className={styles.authSection}>
           {session ? (

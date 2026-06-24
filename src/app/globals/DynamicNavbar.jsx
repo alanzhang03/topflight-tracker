@@ -14,6 +14,8 @@ export default function DynamicNavbar() {
 		? "laliga"
 		: pathname.includes("/leagues/champions-league")
 		? "championsleague"
+		: pathname.includes("/leagues/world-cup")
+		? "worldcup"
 		: null;
 
 	if (!league) {
