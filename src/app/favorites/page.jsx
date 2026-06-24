@@ -1,60 +1,96 @@
 "use client";
+import { useState, useEffect } from "react";
 import { useFavorites } from "@/app/context/FavoritesContext";
-import Link from "next/link";
-import Image from "next/image";
-import "./favorites.scss";
+import FavoriteTeamCard from "../../../components/FavoriteTeamCard";
+import styles from "./favorites.module.scss";
 
-const leagueNames = {
-  PL: "Premier League",
-  BL1: "Bundesliga",
-  PD: "La Liga",
-  CL: "Champions League",
-};
+export default function FavoritesPage() {
+  const { favorites, toggleFavorite } = useFavorites();
+  const [leagueData, setLeagueData] = useState({});
+  const [loading, setLoading] = useState(true);
 
-const FavoritesPage = () => {
-  const { favorites } = useFavorites();
+  useEffect(() => {
+    if (!favorites.length) {
+      setLoading(false);
+      return;
+    }
 
-  const favoritesByLeague = favorites.reduce((acc, club) => {
-    const leagueCode = club.leagueCode || "Other";
-    if (!acc[leagueCode]) acc[leagueCode] = [];
-    acc[leagueCode].push(club);
-    return acc;
-  }, {});
+    const uniqueLeagues = [...new Set(favorites.map((f) => f.leagueCode).filter(Boolean))];
+
+    const fetchAll = async () => {
+      setLoading(true);
+      const settled = await Promise.all(
+        uniqueLeagues.map(async (code) => {
+          const [fixturesRes, resultsRes] = await Promise.all([
+            fetch(`/api/fixtures/${code}`).then((r) => r.json()),
+            fetch(`/api/results/${code}`).then((r) => r.json()),
+          ]);
+          return {
+            code,
+            fixtures: fixturesRes.fixtures || [],
+            results: resultsRes.results || [],
+          };
+        })
+      );
+
+      const data = {};
+      settled.forEach(({ code, fixtures, results }) => {
+        data[code] = { fixtures, results };
+      });
+      setLeagueData(data);
+      setLoading(false);
+    };
+
+    fetchAll();
+  }, [favorites]);
 
   return (
-    <div className="favorites-container">
-      <h1>Favorite Clubs</h1>
-      {Object.keys(favoritesByLeague).length === 0 ? (
-        <p>Coming Soon!</p>
-      ) : (
-        <div>
-          {Object.entries(favoritesByLeague).map(([leagueCode, clubs]) => (
-            <div key={leagueCode} className="league-group">
-              <h2 className="league-title">
-                {leagueNames[leagueCode] || leagueCode}
-              </h2>
-              <div className="clubs-grid">
-                {clubs.map((club) => (
-                  <div key={club.id} className="favorite-club">
-                    <Link href={`/clubs/${club.id}`}>
-                      <Image
-                        src={club.crest}
-                        alt={`${club.name} logo`}
-                        className="club-logo"
-                        width={64}
-                        height={64}
-                      />
-                      <h3>{club.name}</h3>
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </div>
+    <div className={styles.container}>
+      <h1 className={styles.heading}>Favorite Clubs</h1>
+
+      {loading && favorites.length > 0 && (
+        <div className={styles.loadingGrid}>
+          {favorites.map((t) => (
+            <div key={t.id} className={styles.skeleton} />
           ))}
+        </div>
+      )}
+
+      {!loading && favorites.length === 0 && (
+        <div className={styles.empty}>
+          <span className={styles.emptyHeart}>♡</span>
+          <p>No favorites yet.</p>
+          <p className={styles.emptyHint}>Head to a league page and tap the heart on a team to add it here.</p>
+        </div>
+      )}
+
+      {!loading && favorites.length > 0 && (
+        <div className={styles.grid}>
+          {favorites.map((team) => {
+            const league = leagueData[team.leagueCode] || { fixtures: [], results: [] };
+
+            const teamFixtures = league.fixtures
+              .filter((f) => f.homeTeam.id === team.id || f.awayTeam.id === team.id)
+              .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate))
+              .slice(0, 3);
+
+            const teamResults = league.results
+              .filter((r) => r.homeTeam.id === team.id || r.awayTeam.id === team.id)
+              .sort((a, b) => new Date(b.utcDate) - new Date(a.utcDate))
+              .slice(0, 3);
+
+            return (
+              <FavoriteTeamCard
+                key={team.id}
+                team={team}
+                fixtures={teamFixtures}
+                results={teamResults}
+                onRemove={toggleFavorite}
+              />
+            );
+          })}
         </div>
       )}
     </div>
   );
-};
-
-export default FavoritesPage;
+}
