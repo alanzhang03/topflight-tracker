@@ -1,7 +1,7 @@
 "use client";
 import styles from "./styles/Results.module.scss";
 import { useState, useMemo, useEffect } from "react";
-import { FaSearch, FaTimes } from "react-icons/fa";
+import { FaSearch, FaTimes, FaEyeSlash, FaEye } from "react-icons/fa";
 
 const POLL_INTERVAL_MS = 60000; 
 
@@ -44,6 +44,14 @@ export default function Results({ results: initialResults = [], error: initialEr
   }, [leagueCode]);
 
   const [filterText, setFilterText] = useState("");
+  const [hideSpoilers, setHideSpoilers] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return localStorage.getItem("hideSpoilers") === "true";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("hideSpoilers", hideSpoilers);
+  }, [hideSpoilers]);
 
   const filteredResults = useMemo(() => {
     if (!filterText.trim()) return results;
@@ -120,6 +128,14 @@ export default function Results({ results: initialResults = [], error: initialEr
             Showing {filteredResults.length} of {results.length} results
           </div>
         )}
+        <button
+          onClick={() => setHideSpoilers((prev) => !prev)}
+          className={`${styles.spoilerToggle} ${hideSpoilers ? styles.spoilerToggleActive : ""}`}
+          aria-label={hideSpoilers ? "Show scores" : "Hide scores"}
+        >
+          {hideSpoilers ? <FaEye /> : <FaEyeSlash />}
+          {hideSpoilers ? "Show Scores" : "Hide Scores"}
+        </button>
       </div>
       {sortedDates.map((date) => (
         <div key={date} className={styles.resultsDay}>
@@ -145,7 +161,7 @@ export default function Results({ results: initialResults = [], error: initialEr
                       />
                     </div>
                   </td>
-                  <td className={styles.resultScoreBox}>
+                  <td className={`${styles.resultScoreBox} ${hideSpoilers ? styles.scoreBlurred : ""}`}>
                     <span>
                       <span className={winner === "home" ? styles.scoreWin : winner === "away" ? styles.scoreLose : styles.scoreDraw}>{homeScore}</span>
                       {" – "}

@@ -129,6 +129,46 @@
   }
 }
 
+.spoilerToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  padding: 0.6rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #f8f9fa;
+  }
+}
+
+.spoilerToggleActive {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #818cf8;
+
+  &:hover {
+    background: rgba(99, 102, 241, 0.25);
+    border-color: rgba(99, 102, 241, 0.6);
+    color: #a5b4fc;
+  }
+}
+
+.scoreBlurred {
+  filter: blur(6px);
+  user-select: none;
+  pointer-events: none;
+}
+
 .resultsDay {
   margin-bottom: 3rem;
   background: rgba(255, 255, 255, 0.02);
