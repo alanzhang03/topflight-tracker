@@ -1,5 +1,6 @@
 "use client";
 import styles from "./styles/ClubsDisplay.module.scss";
+import { useFavorites } from "@/app/context/FavoritesContext";
 
 const leagueNames = {
   PL: "Premier League",
@@ -14,6 +15,8 @@ export default function ClubsDisplay({
   leagueCode,
   teamLinks,
 }) {
+  const { favorites, toggleFavorite } = useFavorites();
+
   if (error) {
     return <p className={styles.clubsError}>Error loading clubs: {error}</p>;
   }
@@ -39,6 +42,8 @@ export default function ClubsDisplay({
                 .replace(/\s+/g, "-")
             ];
 
+          const isFav = favorites.some((fav) => fav.id === club.id);
+
           return (
             <div key={club.id} className={styles.clubItemContainer}>
               <a
@@ -56,6 +61,13 @@ export default function ClubsDisplay({
                   <span>{club.name}</span>
                 </div>
               </a>
+              <button
+                className={`${styles.favoriteBtn} ${isFav ? styles.favoriteBtnActive : ""}`}
+                onClick={() => toggleFavorite({ id: club.id, name: club.name, crest: club.crest, leagueCode })}
+                aria-label={isFav ? "Remove from favorites" : "Add to favorites"}
+              >
+                {isFav ? "♥" : "♡"}
+              </button>
             </div>
           );
         })}

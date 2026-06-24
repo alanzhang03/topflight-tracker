@@ -24,8 +24,10 @@ export default function RootLayout({ children }) {
       <body>
         <AuthProvider>
           <FavoritesProvider>
-            <NavbarMain />
-            <DynamicNavbar />
+            <div style={{ position: 'sticky', top: 0, zIndex: 1000 }}>
+              <NavbarMain />
+              <DynamicNavbar />
+            </div>
             <main>{children}</main>
             <Footer />
           </FavoritesProvider>
